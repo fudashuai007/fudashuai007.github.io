@@ -1935,7 +1935,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0eff5b;
+  background: #360aaa;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2061,6 +2061,11 @@ img:hover {
 }
 .footer img {
   border: none;
+}
+@media (max-width: 767px) {
+  .footer {
+    font-size: 13px;
+  }
 }
 .footer-inner {
   text-align: center;
@@ -3102,4 +3107,9 @@ img:hover {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background-image: url("/images/back.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
