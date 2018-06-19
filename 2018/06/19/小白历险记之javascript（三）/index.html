@@ -81,18 +81,19 @@
 
 
 
-<meta name="description" content="关于javascript对象的理解，还不是很透彻，所以专门拿出时间来学习一下有关的知识。 内置对象 Date日期对象 日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：">
+<meta name="description" content="关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。 javascript内置对象 Date日期对象日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：返回/设置年份get/setFullYear()    var mydate=new Date();    document.write">
 <meta property="og:type" content="article">
 <meta property="og:title" content="This is for U">
 <meta property="og:url" content="http://yoursite.com/2018/06/19/小白历险记之javascript（三）/index.html">
 <meta property="og:site_name" content="This is for U">
-<meta property="og:description" content="关于javascript对象的理解，还不是很透彻，所以专门拿出时间来学习一下有关的知识。 内置对象 Date日期对象 日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：">
+<meta property="og:description" content="关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。 javascript内置对象 Date日期对象日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：返回/设置年份get/setFullYear()    var mydate=new Date();    document.write">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006AherEgy1fr3ysapdk7j30bm089jri.jpg">
-<meta property="og:updated_time" content="2018-06-19T03:44:40.954Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006AherEgy1fsge4o7a6lj30ec0haaaf.jpg">
+<meta property="og:updated_time" content="2018-06-19T05:08:17.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="This is for U">
-<meta name="twitter:description" content="关于javascript对象的理解，还不是很透彻，所以专门拿出时间来学习一下有关的知识。 内置对象 Date日期对象 日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：">
+<meta name="twitter:description" content="关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。 javascript内置对象 Date日期对象日期对象可以储存任意一个日期，并且可以精确到毫秒数访问方法语法: “&amp;lt;日期对象&amp;gt;.&amp;lt;方法&amp;gt;”常用方法：返回/设置年份get/setFullYear()    var mydate=new Date();    document.write">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006AherEgy1fr3ysapdk7j30bm089jri.jpg">
 
 
@@ -373,10 +374,21 @@
       
 
       
-        <p></p><h3>关于javascript对象的理解，还不是很透彻，所以专门拿出时间来学习一下有关的知识。</h3><p></p>
-<p></p><h4>内置对象</h4><p></p>
-<p><li>Date日期对象</li></p>
-<p></p><p>日期对象可以储存任意一个日期，并且可以精确到毫秒数</p><br>访问方法语法: “&lt;日期对象&gt;.&lt;方法&gt;”<br>常用方法：<br><center><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr3ysapdk7j30bm089jri.jpg" alt=""></center><p></p>
+        <p></p><h3>关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。</h3><p></p>
+<p></p><h4>javascript内置对象</h4><p></p>
+<li>Date日期对象</li><br><p>日期对象可以储存任意一个日期，并且可以精确到毫秒数</p><br>访问方法语法: “&lt;日期对象&gt;.&lt;方法&gt;”<br>常用方法：<br><center><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr3ysapdk7j30bm089jri.jpg" alt=""></center><br><br><li>返回/设置年份<b>get/setFullYear()</b><br><br>    var mydate=new Date();<br>    document.write(mydate.getFullYear()+”<br>“);<br>    mydate.setFullYear(81);<br>    document.write(mydate+”<br>“);<br><mark>注意</mark><br>1. 年份用四位数表示。<br>2. 结果格式依次为：星期、月、日、年、时、分、秒、时区且不同浏览器，时间格式有差异。<br></li>
+
+<li>返回星期方法<b>getDay()</b><br><br>    <script type="text/javascript"><br>    var mydate=new Date();//定义日期对象<br>    var weekday=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”];<br>    var mynum=mydate.getDay();//返回值存储在变量mynum中<br>    document.write(mydate.getDay());//输出getDay()获取值<br>    document.write(“今天是：”+ weekday[mynum]);//输出星期几<br>    </script><br><br><mark>注意</mark><br>getDay()返回的是0-6的数字，0表示星期天<br></li><br><li>返回/设置时间方法get/setTime()<br><br>返回/设置时间，单位毫秒数，计算从 1970 年 1 月 1 日零时到日期对象所指的日期的毫秒数。<br><br>    <script type="text/javascript"><br>    var mydate=new Date();<br>    document.write(“当前时间：”+mydate+”<br>“);<br>    mydate.setTime(mydate.getTime() + 60 <em> 60 </em> 1000);<br>    document.write(“推迟一小时时间：” + mydate);<br>    </script><br><mark>单位为毫秒数</mark><br></li>
+
+<li><b>String字符串对象<b></b></b></li><br><li>返回指定位置的字符<br><br>    stringObject.charAt(index)<br><br><mark>注意</mark><br>1. 字符串中第一个字符的下标是 0。最后一个字符的下标为字符串长度减一（string.length-1）。<br><br>2. 如果参数index不在0与string.length-1之间,该方法将返回一个空字符串。<br></li>
+
+<li><b>返回指定的字符串首次出现的位置</b><br><br>    stringObject.indexOf(substring, startpos)<br><mark>说明</mark><br>1.该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 substring。<br><br><br>2.可选参数，从stringObject的startpos位置开始查找substring，如果没有此参数将从stringObject的开始位置查找。<br><br><br>3.如果找到一个 substring，则返回 substring 的第一次出现的位置。stringObject 中的字符位置是从 0 开始的。<br><mark>注意</mark><br>1.indexOf() 方法区分大小写。<br><br><br>2.如果要检索的字符串值没有出现，则该方法返回 -1。<br></li>
+
+<li><b>字符串分割split()</b><br><br>    stringObject.split(separator,limit)<br><br><mark>说明</mark><br>limit 表示分割的次数，spparator 表示从指定的地方分为字符串<br><br>    var mystr = “abc.defg.mn”;<br>    document.write(mystr.split(“.”)+”<br>“);<br>    document.write(mystr.split(“.”, 2)+”<br>“);<br>结果:<br><br>    abc,defg,mn<br>    abc,defg<br></li><br><li><b>提取字符串substring()</b><br><p>用于提取字符串中介于两个指定下标之间的字符。</p><br><br>    stringObject.substring(start,stop)<br><mark>说明</mark><br>start 开始位置；stop结束位置，若没有设置，则一直到字符串结尾<br><br>    <script type="text/javascript"><br>    var mystr=”I love JavaScript”;<br>    document.write(mystr.substring(7));<br>    document.write(mystr.substring(2,6));<br>    </script><br>结果:<br><br>    JavaScript<br>    love<br></li>
+
+<li><b>提取指定数目的字符substr()</b><br><p>从字符串中提取从 start位置开始的指定数目的字符串。</p><br><br>    stringObject.substr(start,length)<br><mark>说明</mark><br>start 要提取的子串的起始位置；length 要提取字符串的长度<br><br>    <script type="text/javascript"><br>    var mystr=”I love JavaScript!”;<br>    document.write(mystr.substr(7));<br>    document.write(mystr.substr(2,4));<br>    </script><br><br>结果：<br><br>    JavaScript!<br>    love<br></li>
+
+<p><li><b>Math对象</b></li><br>主要为数学函数：<br><br><center><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fsge4o7a6lj30ec0haaaf.jpg" alt=""><br></center></p>
 
       
     </div>
@@ -502,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">关于javascript对象的理解，还不是很透彻，所以专门拿出时间来学习一下有关的知识。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">内置对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">javascript内置对象</span></a></li></ol></li></ol></div>
             
 
           </div>
