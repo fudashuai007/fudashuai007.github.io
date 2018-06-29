@@ -1010,8 +1010,7 @@ clearinterval();
 
       
         
-          
-            <h4 id="小白历险记之css"><a href="#小白历险记之css" class="headerlink" title="小白历险记之css"></a>小白历险记之css</h4><h3 id="css边框"><a href="#css边框" class="headerlink" title="css边框"></a>css边框</h3><h4 id="css圆角边框"><a href="#css圆角边框" class="headerlink" title="css圆角边框"></a>css圆角边框</h4><h4 id="主要语法为：border-radius"><a href="#主要语法为：border-radius" class="headerlink" title="主要语法为：border-radius"></a>主要语法为：border-radius</h4><pre><code>&lt;style&gt;
+          <h4 id="小白历险记之css"><a href="#小白历险记之css" class="headerlink" title="小白历险记之css"></a>小白历险记之css</h4><h3 id="css边框"><a href="#css边框" class="headerlink" title="css边框"></a>css边框</h3><h4 id="css圆角边框"><a href="#css圆角边框" class="headerlink" title="css圆角边框"></a>css圆角边框</h4><h4 id="主要语法为：border-radius"><a href="#主要语法为：border-radius" class="headerlink" title="主要语法为：border-radius"></a>主要语法为：border-radius</h4><pre><code>&lt;style&gt;
 div{
     text-aligin:center;
     border:2px solid #a1a1a1;
@@ -1021,182 +1020,14 @@ div{
     border-radius:25px;
 }
 &lt;/style&gt;
-</code></pre><h4 id="css边框阴影"><a href="#css边框阴影" class="headerlink" title="css边框阴影"></a>css边框阴影</h4><h4 id="主要语法为：box-shadow"><a href="#主要语法为：box-shadow" class="headerlink" title="主要语法为：box-shadow"></a>主要语法为：box-shadow</h4><pre><code>&lt;style&gt;
-div{
-    width:300px;
-    height:100px;
-    background-color:#ff9900;
-    box-shadow:10px 10px 5 px #888888;
-}
-&lt;/style&gt;
-</code></pre><h4 id="css边框图片"><a href="#css边框图片" class="headerlink" title="css边框图片"></a>css边框图片</h4><pre><code>&lt;style&gt;
-div{
-    border:15px solid transparent;
-    width:300px;
-    padding:10 px 20 px;
-}
-#round{
-    border-image:url()30 30 round;
-    //border-image:url() 30 30 stretch;拉伸
-
-}
-&lt;/style&gt;
-</code></pre><h4 id="css背景"><a href="#css背景" class="headerlink" title="css背景"></a>css背景</h4><ul>
-<li><p>css background-size属性<br></p>
-<h5>背景图片的尺寸</h5>
-
-<p>  background-size:100px 100px;//背景图片的大小<br>  background-size:40% 100%;//背景图片的拉伸</p>
-</li>
-<li><p>css background-origin属性<br></p>
-<h5>定位区域</h5>
-
-<p>  background-origin:border-box;<br>  backgrroung-origin:padding-box;<br>  background-origin:content-box;</p>
-</li>
-<li><p>css多重背景图片</p>
-<p>  background-image:url(path),url(path);</p>
-</li>
-</ul>
-<h4 id="css文本效果"><a href="#css文本效果" class="headerlink" title="css文本效果"></a>css文本效果</h4><ul>
-<li><p>css文本阴影</p>
-<p>  h1{</p>
-<pre><code>text-shadow:5px 5px 5px #ff0000;
-</code></pre><p>  }</p>
-</li>
-<li><p>css自动换行</p>
-<p>  p{</p>
-<pre><code>word-wrap:break-word;
-}
-</code></pre></li>
-</ul>
-<h4 id="css-2D转化"><a href="#css-2D转化" class="headerlink" title="css 2D转化"></a>css 2D转化</h4><h5 id="角度转化"><a href="#角度转化" class="headerlink" title="角度转化"></a>角度转化</h5><pre><code>主要函数为：rotate();
-&lt;style&gt;
-div{
-    margin:30px;
-    width:200px;
-    height:100px;
-    background-color:yellow;
-    &lt;b&gt;transform:rotate(9deg);&lt;/b&gt;旋转多少度
-}
-&lt;/style&gt;
-</code></pre><h5 id="坐标移动"><a href="#坐标移动" class="headerlink" title="坐标移动"></a>坐标移动</h5><pre><code>主要函数为translate();
-&lt;style&gt;
-div{
-   width:100px;
-   height:75px;
-   background-color:yellow;
-   border:1px solid black; 
-}
-div#div2{
-    transform:translate(50px,100px);把元素从左侧移动50像素，从顶部移动100像素
-}
-&lt;/style&gt;
-</code></pre><h5 id="高度和宽度变换"><a href="#高度和宽度变换" class="headerlink" title="高度和宽度变换"></a>高度和宽度变换</h5><pre><code>主要函数为skew();
-&lt;style&gt;
-div{
-     width:100px;
-   height:75px;
-   background-color:yellow;
-   border:1px solid black; 
-}
-div#div2{
-    transform:skew(30deg,20deg);围绕X轴把元素翻转30度，围绕Y轴翻转20度
-}
-&lt;/style&gt;
-</code></pre><h5 id="旋转30度"><a href="#旋转30度" class="headerlink" title="旋转30度"></a>旋转30度</h5><pre><code>主要函数为matrix();
-&lt;style&gt;
-div{
-     width:100px;
-   height:75px;
-   background-color:yellow;
-   border:1px solid black; 
-}
-div#div2{
-    transform:matrix(0.866,0.5,-0.5,0.866,0,0);将div元素旋转30度
-}
-&lt;/style&gt;
-</code></pre><h4 id="css-3D转换"><a href="#css-3D转换" class="headerlink" title="css 3D转换"></a>css 3D转换</h4><pre><code>主要函数为rotateX()、rotateY();
-
-&lt;style&gt;
-div{
-     width:100px;
-   height:75px;
-   background-color:yellow;
-   border:1px solid black; 
-}
-div#div2{
-    transform:rotateX(180deg);绕X轴旋转180度
-}
-&lt;/style&gt;
-
-&lt;style&gt;
-div{
-     width:100px;
-   height:75px;
-   background-color:yellow;
-   border:1px solid black; 
-}
-div#div2{
-    transform:rotateY(180deg);绕Y轴旋转180度
-}
-&lt;/style&gt;
-</code></pre><h4 id="css过渡"><a href="#css过渡" class="headerlink" title="css过渡"></a>css过渡</h4><pre><code>主要内容为：transition：width Xs X表示过渡时间
-&lt;style&gt;
-div{
-    width:100px;
-    height:100px;
-    background-color:yellow;
-    transition:width 3s;
-}
-div:hover{
-    width:300px;
-}
-&lt;/style&gt;
-</code></pre><h4 id="css动画"><a href="#css动画" class="headerlink" title="css动画"></a>css动画</h4><h5 id="背景色的改变"><a href="#背景色的改变" class="headerlink" title="背景色的改变"></a>背景色的改变</h5><pre><code>两种颜色的改变：
-&lt;style&gt;
-div{
-    width:100px;
-    height:100px;
-    background-color:yellow;
-    animation:myfirst 5s;
-}
-@keyframes myfirst{
-    from {background-color:yellow;}
-    to {background-color:bule;}
-}
-&lt;/style&gt;
-
-多种颜色的改变：
-&lt;style&gt;
-div{
-width:100px;
-height:100px;
-animation:myfirst 5s;
-background-color:pink;
-}
-@keyframes myfirst{
-    0% {background:pink;}
-    50% {background:yelow;}
-    100%{background:red;}
-}
-&lt;/style&gt;
-</code></pre><h5 id="位置的改变"><a href="#位置的改变" class="headerlink" title="位置的改变"></a>位置的改变</h5><pre><code>&lt;style&gt;
-div{
-    width:100px;
-    height:100px;
-    background-color:red;
-    animation:myfirst 5s;
-    position:relative;
-}
-@keyframes myfirst{
-    0% {background-color:red;left:0px;top:0px;}
-    25% {background-color:pink;left 200px;top:0px;}
-    50%{background-color:green; left:200px;top:200px;}
-    75% {background-color:gray;left:0px;top:200px;}
-    100% {background-color:blue;left:0px;top:0px;}
-}
-&lt;/style&gt;
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/07/小白历险记之css/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1462,7 +1293,7 @@ div{
 
       
         
-          <h4 id="html中的样式"><a href="#html中的样式" class="headerlink" title="html中的样式"></a>html中的样式</h4><pre><code>&lt;html&gt;
+          <h2 id="html中的样式"><a href="#html中的样式" class="headerlink" title="html中的样式"></a>html中的样式</h2><pre><code>&lt;html&gt;
     &lt;head&gt;
     &lt;style type=&quot;test/css&quot;&gt;
     h1 {color: red}
