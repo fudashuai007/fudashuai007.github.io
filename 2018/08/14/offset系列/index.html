@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="####第五周学习内容html《三》 html表格&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;     &amp;lt;table border=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;tr&amp;gt;     &amp;lt;td&amp;gt;a&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;b&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;c&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;">
+<meta name="description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
 <meta property="og:type" content="article">
 <meta property="og:title" content="This is for U">
-<meta property="og:url" content="http://yoursite.com/2018/04/06/小白奇遇记之html《三》/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/offset系列/index.html">
 <meta property="og:site_name" content="This is for U">
-<meta property="og:description" content="####第五周学习内容html《三》 html表格&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;     &amp;lt;table border=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;tr&amp;gt;     &amp;lt;td&amp;gt;a&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;b&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;c&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;">
+<meta property="og:description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-06T09:19:23.264Z">
+<meta property="og:updated_time" content="2018-08-14T08:39:32.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="This is for U">
-<meta name="twitter:description" content="####第五周学习内容html《三》 html表格&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;     &amp;lt;table border=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;tr&amp;gt;     &amp;lt;td&amp;gt;a&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;b&amp;lt;/td&amp;gt;     &amp;lt;td&amp;gt;c&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;">
+<meta name="twitter:description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/06/小白奇遇记之html《三》/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/14/offset系列/"/>
 
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/小白奇遇记之html《三》/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/offset系列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="符">
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T17:19:23+08:00">
-                2018-04-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
               </time>
             
 
@@ -371,37 +371,35 @@
       
 
       
-        <p>####第五周学习内容html《三》</p>
-<h2 id="html表格"><a href="#html表格" class="headerlink" title="html表格"></a>html表格</h2><pre><code>&lt;html&gt;&lt;body&gt;
-    &lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-    &lt;td&gt;a&lt;/td&gt;
-    &lt;td&gt;b&lt;/td&gt;
-    &lt;td&gt;c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;a&lt;/td&gt;
-&lt;td&gt;b&lt;/td&gt;
-&lt;td&gt;c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/body&gt;&lt;/html&gt;
-</code></pre><h3 id="表格边框"><a href="#表格边框" class="headerlink" title="表格边框"></a>表格边框</h3><pre><code>&lt;table border=&quot;1&quot;&gt;//普通边框
-&lt;table border=&quot;8&quot;&gt;//粗边框
-</code></pre><h3 id="表格表头"><a href="#表格表头" class="headerlink" title="表格表头"></a>表格表头</h3><pre><code>&lt;th&gt;head&lt;/th&gt;
-</code></pre><h3 id="单元格边距和间距"><a href="#单元格边距和间距" class="headerlink" title="单元格边距和间距"></a>单元格边距和间距</h3><pre><code>&lt;table cellpadding=&quot;10&quot;&gt;//边距
+        <h4 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h4><h5 id="未脱离文档流"><a href="#未脱离文档流" class="headerlink" title="未脱离文档流"></a>未脱离文档流</h5><p>offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关</p>
+<pre><code>#dv1 {
+    width:200px;
+    height:200px;
+    backgroundcolor:#ccc;
+}
 
-&lt;table cellspacing=&quot;10&quot;&gt;//间距
-</code></pre><h2 id="html列表"><a href="#html列表" class="headerlink" title="html列表"></a>html列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><pre><code>&lt;ul type=&quot;disc || circle || square&quot;&gt;//实心圆点||空心圆点||实心方点
-&lt;li&gt;a&lt;/li&gt;
-&lt;li&gt;b&lt;/li&gt;
-&lt;li&gt;c&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><pre><code>&lt;ol start=&quot;数字|| A || I || i&quot;&gt;//从哪位数字开始
-&lt;li&gt;a&lt;/li&gt;
-&lt;li&gt;b&lt;/li&gt;
-&lt;li&gt;c&lt;/li&gt;
-&lt;/li&gt;
-</code></pre>
+#dv2 {
+    width:100px;
+    height:100px;
+    backgroundcolor:#ddd;
+}
+&lt;div id=&quot;dv1&quot;&gt;
+    &lt;div id=&quot;dv2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+dv2=document.getElementbyId(&quot;dv2&quot;);
+</code></pre><ol>
+<li>当输出cosole.log(dv2.offsetLeft);<br> 输出结果应当为0</li>
+<li>当给dv1一个”margin-left:100px;”,此时cosole.log(dv2.offsetLeft)<br> 输出结果为100,值得注意的是offset输出的结果是数值类型的，其后并没有任何单位</li>
+<li>当给dv1一个”padding-left:100px;”,cosole.log(dv2.offsetLeft);<br>输出的结果为200&nbsp;父级元素(margin-left+padding-left)</li>
+<li>当给dv1一个”border:20px solid red;”cosole.log(dv2.offsetLeft)<br>输出的结果为220&nbsp;父级元素(margin-left+padding-left+border)</li>
+<li>当给dv2一个”margin-left: 30px;”cosole.log(dv2.offsetLeft)<br>输出的结果为250&nbsp;父级元素(margin-left+padding-left+border)+子级元素(margin-left)</li>
+<li>当给dv2padding或者border任意的值时，最后得到的结果任然是250，子级元素的padding和border不影响offset的值<h5 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h5></li>
+</ol>
+<ul>
+<li>子级元素脱离文档流主要是自己的margin和left的值</li>
+</ul>
+
       
     </div>
     
@@ -433,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/04/小白历险记之html《二》/" rel="next" title="小白历险记之html《二》">
-                <i class="fa fa-chevron-left"></i> 小白历险记之html《二》
+              <a href="/2018/08/14/h5小知识/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -443,8 +441,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/07/小白历险记之css/" rel="prev" title="小白历险记之css">
-                小白历险记之css <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/14/盒子模型/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html表格"><span class="nav-number">1.</span> <span class="nav-text">html表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表格边框"><span class="nav-number">1.1.</span> <span class="nav-text">表格边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格表头"><span class="nav-number">1.2.</span> <span class="nav-text">表格表头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元格边距和间距"><span class="nav-number">1.3.</span> <span class="nav-text">单元格边距和间距</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html列表"><span class="nav-number">2.</span> <span class="nav-text">html列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无序列表"><span class="nav-number">2.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序列表"><span class="nav-number">2.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#offset系列"><span class="nav-number">1.</span> <span class="nav-text">offset系列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#未脱离文档流"><span class="nav-number">1.1.</span> <span class="nav-text">未脱离文档流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脱离文档流"><span class="nav-number">1.2.</span> <span class="nav-text">脱离文档流</span></a></li></ol></li></ol></div>
             
 
           </div>

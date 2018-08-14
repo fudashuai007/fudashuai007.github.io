@@ -304,6 +304,1123 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/设置凹凸文字/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/设置凹凸文字/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/清除浮动的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/清除浮动的方法/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一共有四种方法清除浮动</p>
+<ul>
+<li><p>额外标签法</p>
+<p>在浮动元素的下面添加一个空盒子，如&lt;div style=”clear: both”&gt;</p>
+
+<pre><code>&lt;style&gt;
+.father {
+    width: 600px;
+    background-color: pink;
+}
+.son1 {
+    height: 200px;
+    width: 200px;
+    background-color: hotpink;
+    float: left;
+}
+.son2 {
+    height: 200px;
+    width: 400px;
+    background-color: blue;
+    float: left;
+}
+.uncle {
+    width: 600px;
+    background-color: purple;
+    height: 400px;
+}
+.clear {
+    clear: both;
+}
+</code></pre><p>  </p>
+<pre><code>&lt;div class=&quot;father&quot;&gt;
+    &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;son2&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;uncle&quot;&gt;&lt;/div&gt;
+</code></pre></li>
+<li><p>给父元素添加overflow方法</p>
+<pre><code>&lt;style&gt;
+.father {
+    width: 600px;
+    background-color: pink;
+    overflow: hidden;
+}
+.son1 {
+    height: 200px;
+    width: 200px;
+    background-color: hotpink;
+    float: left;
+}
+.son2 {
+    height: 200px;
+    width: 400px;
+    background-color: blue;
+    float: left;
+}
+.uncle {
+    width: 600px;
+    background-color: purple;
+    height: 400px;
+}
+&lt;/style&gt;
+</code></pre></li>
+<li><p>使用after伪元素清除浮动</p>
+<pre><code> .clearfix:after {
+    content: &quot;.&quot;; /*内容随便，尽量不要为空*/
+    display: block;/*转化为块级元素*/
+    height: 0;      /*不影响布局*/
+    visibility: hidden;  /*内容隐藏*/
+    clear: both;  /*清除浮动*/
+}
+</code></pre></li>
+<li><p>使用双伪元素清除浮动</p>
+<pre><code>.clearfix:before, .clearfix:after {
+    content: &quot;&quot;;
+    display: table; /*防止外边距合并*/
+}
+.clearfix:after {
+    clear: both;
+}
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/盒子模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/盒子模型/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>盒子模型包括三个部分</p>
+<ol>
+<li>border</li>
+</ol>
+<ul>
+<li><p>border-width</p>
+<pre><code>&lt;style&gt;
+    div {
+        border-width: 1px;
+    }
+&lt;/style&gt;
+</code></pre></li>
+<li><p>border-style</p>
+</li>
+</ul>
+<ol>
+<li>none 无</li>
+<li>solid 实线</li>
+<li>dashed 虚线</li>
+<li>dotted 点线</li>
+<li><p>double 双实线</p>
+<pre><code>&lt;style&gt;
+    border-style: solid;
+    border-style: dashed;
+    border-style: dotted;
+    border-style: double;
+&lt;/style&gt;
+</code></pre></li>
+</ol>
+<ul>
+<li><p>border-color</p>
+<pre><code>&lt;style&gt;
+    div {
+        border-color: red;
+    }
+&lt;/style&gt;
+</code></pre></li>
+</ul>
+<ol>
+<li>padding</li>
+</ol>
+<ol>
+<li>margin</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/offset系列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/offset系列/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h4><h5 id="未脱离文档流"><a href="#未脱离文档流" class="headerlink" title="未脱离文档流"></a>未脱离文档流</h5><p>offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关</p>
+<pre><code>#dv1 {
+    width:200px;
+    height:200px;
+    backgroundcolor:#ccc;
+}
+
+#dv2 {
+    width:100px;
+    height:100px;
+    backgroundcolor:#ddd;
+}
+&lt;div id=&quot;dv1&quot;&gt;
+    &lt;div id=&quot;dv2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+dv2=document.getElementbyId(&quot;dv2&quot;);
+</code></pre><ol>
+<li>当输出cosole.log(dv2.offsetLeft);<br> 输出结果应当为0</li>
+<li>当给dv1一个”margin-left:100px;”,此时cosole.log(dv2.offsetLeft)<br> 输出结果为100,值得注意的是offset输出的结果是数值类型的，其后并没有任何单位</li>
+<li>当给dv1一个”padding-left:100px;”,cosole.log(dv2.offsetLeft);<br>输出的结果为200&nbsp;父级元素(margin-left+padding-left)</li>
+<li>当给dv1一个”border:20px solid red;”cosole.log(dv2.offsetLeft)<br>输出的结果为220&nbsp;父级元素(margin-left+padding-left+border)</li>
+<li>当给dv2一个”margin-left: 30px;”cosole.log(dv2.offsetLeft)<br>输出的结果为250&nbsp;父级元素(margin-left+padding-left+border)+子级元素(margin-left)</li>
+<li>当给dv2padding或者border任意的值时，最后得到的结果任然是250，子级元素的padding和border不影响offset的值<h5 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h5></li>
+</ol>
+<ul>
+<li>子级元素脱离文档流主要是自己的margin和left的值</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/h5小知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/h5小知识/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>datalist 用于简单的联想搜索<br><br>用例：</p>
+<pre><code>搜索&lt;input type=&quot;text&quot; value=&quot;明星&quot; list=&quot;star&quot; /&gt;&lt;br /&gt;
+&lt;datalist id=&quot;star&quot;&gt;
+&lt;option&gt;刘德华&lt;/option&gt;
+&lt;option&gt;刘若英&lt;/option&gt;
+&lt;option&gt;郭富城&lt;/option&gt;
+&lt;option&gt;张学友&lt;/option&gt;
+&lt;option&gt;大保健&lt;/option&gt;
+&lt;/datalist&gt;
+</code></pre><p><img src="https://ws1.sinaimg.cn/large/006AherEgy1ft3fycs9nzj307p0340sk.jpg" alt=""></p>
+</li>
+<li><p>fieldset 将表单内的相关元素分组打包，与legend配合使用<br><br>用例：</p>
+<pre><code>&lt;fieldset&gt;
+&lt;legend&gt;用户登陆&lt;/legend&gt;
+用户名：&lt;input type=&quot;text&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+密  码：&lt;input type=&quot;password&quot; /&gt;
+&lt;/fieldset&gt;
+</code></pre><p><img src="https://ws1.sinaimg.cn/large/006AherEgy1ft3g0ay83mj30bx049745.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="input特殊属性"><a href="#input特殊属性" class="headerlink" title="input特殊属性"></a>input特殊属性</h3><ul>
+<li><p>placeholder 占位符 当用户输入的时候里面的文字消失，当删除的时候内容恢复</p>
+<pre><code>&lt;input type=&quot;text&quot; placeholder=&quot;商品信息&quot; /&gt;
+</code></pre><p><img src="https://ws1.sinaimg.cn/large/006AherEgy1ft3fw6j53hj309501i742.jpg" alt=""></p>
+</li>
+<li><p>autofocus 自动获得焦点<br><br>用例：</p>
+<pre><code>&lt;input type=&quot;text&quot; autofocus&gt;
+</code></pre></li>
+<li><p>multiple 多文件上传</p>
+<pre><code>&lt;input type=&quot;file&quot; multiple&gt;
+</code></pre></li>
+<li><p>autocomplete 自动补全已经提交的内容  需要跟表单一起使用而且需要有name属性<br><br>用例：</p>
+<pre><code>&lt;form action=&quot;&quot;&gt;
+姓名&lt;input type=&quot;text&quot; autocomplete=&quot;on&quot; name=&quot;username&quot;/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><p><img src="https://ws1.sinaimg.cn/large/006AherEgy1ft3gfxxn55j3096027a9x.jpg" alt=""></p>
+</li>
+<li><p>required 必须填，不能为空<br><br>用例：</p>
+<pre><code>&lt;input type=&quot;text&quot; required&gt;
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/css知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/css知识/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T16:40:30+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>关于伪类的说明：<br></p>
+<ul>
+<li>link 为访问的链接</li>
+<li>visited 已访问的链接</li>
+<li>hover  当鼠标移到连接上时</li>
+<li>active 鼠标点击不松开时</li>
+</ul>
+<p>用例：<br></p>
+<pre><code>&lt;style&gt;
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: pink;
+}
+
+a:active {
+    color: green;
+}
+&lt;/style&gt;
+
+&lt;a href=&quot;#&quot;&gt;链接&lt;/a&gt;
+</code></pre><p>结构伪类选择器：<br></p>
+<ul>
+<li>first-child  第一个孩子</li>
+<li>last-child   最后一个孩子</li>
+<li>nth-child(n) 第n个孩子</li>
+<li>nth-child(odd)    奇数的孩子节点</li>
+<li><p>nth-child(even)   偶数的孩子节点</p>
+<pre><code>&lt;style&gt;
+li:first-child {  /*第一个孩子节点*/
+    color: red;
+}
+li:last-child {  /*最后一个孩子节点*/
+    color: blue;
+}
+li:nth-child(2) { /*第二个孩子节点*/
+    color: green;
+}
+li:nth-child(n) { /*所有的孩子节点*/
+    color: pink;
+}
+li:nth-child(odd)  {      /*奇数个孩子节点*/
+    color: gray;
+}
+li:nth-child(even) {     /*偶数个孩子节点*/
+    color: yellow;
+}
+&lt;/style&gt;
+</code></pre></li>
+<li><p>text-indent 首行缩进</p>
+</li>
+<li><p>1em 是一个字的宽度<br><br></p>
+<pre><code>&lt;style&gt;
+    text-indent: 2em;
+&lt;/style&gt;
+</code></pre></li>
+</ul>
+<ul>
+<li>复用选择器</li>
+</ul>
+<ol>
+<li><p>交集选择器 用<mark>.</mark>来确定<br><br>用例：</p>
+<pre><code>&lt;style&gt;
+p.one {
+color: red;
+}
+&lt;/style&gt;
+&lt;p class=&quot;one&quot;&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;
+</code></pre></li>
+<li><p>并集选择器 用<mark>,</mark>来确定<br><br>用例：</p>
+<pre><code>&lt;style&gt;
+    div,p,span {
+        color: red;
+    }
+&lt;/style&gt;
+
+&lt;div&gt;1&lt;/div&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;span&gt;3&lt;/span&gt;
+</code></pre></li>
+<li><p>后代选择器 用空格来确定，可以选择子孙后代的节点<br><br>用例：</p>
+<pre><code>&lt;style&gt;
+    div p {
+        color: red;
+    }
+&lt;/style&gt;
+
+&lt;div&gt;
+    &lt;p&gt;11&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>子元素选择器 用<mark>&gt;</mark>来决定，只选择儿子节点<br><br>用例：</p>
+<pre><code>&lt;style&gt;
+    ul&gt;li {
+        color: red;
+    }
+&lt;/style&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;a&lt;/li&gt;
+    &lt;li&gt;a&lt;/li&gt;
+    &lt;li&gt;a&lt;/li&gt;            
+&lt;/ul&gt;
+</code></pre></li>
+</ol>
+<ul>
+<li>伪元素选择器 用<mark>::</mark>表示</li>
+</ul>
+<ol>
+<li>first-letter 首字母</li>
+<li>first-line   首行</li>
+<li><p>selection    选中</p>
+<pre><code>&lt;style&gt;
+    p::first-letter {
+        color: red;
+    }
+    p::first-line {
+        color: blue;
+    }
+    p::selection {
+        color: pink;
+    }
+
+&lt;/style&gt;
+
+&lt;p&gt;见证奇迹&lt;/p&gt;
+</code></pre></li>
+</ol>
+<ul>
+<li><p>css的属性<br>1.css层叠性  如果一个属性通过两个相同选择器设置到同一个元素上，那么这个属性就会选择距离结构更近的选择器</p>
+<pre><code>&lt;style&gt;
+    div {
+        color: red;
+    }
+    div {
+        color: blue;
+    }
+&lt;/style&gt;
+</code></pre><p>这时div的颜色会选择距离结构更近的蓝色，而不是红色。</p>
+</li>
+</ul>
+<ol>
+<li><p>css继承性 子标签会继承父标签的某些样式。<mark>text-</mark>、<mark>font-</mark>、<mark>line-</mark>以及颜色可以继承。</p>
+</li>
+<li><p>css优先级 行内样式&gt;id选择器&gt;类选择器=伪类选择器&gt;标签选择器</p>
+</li>
+</ol>
+<ul>
+<li>文字阴影和盒子阴影的一些参数</li>
+</ul>
+<ul>
+<li>文字阴影&lt;text-shadow&gt;<pre>
+text-shadow: 水平距离 垂直距离 模糊距离 颜色
+</pre>
+
+</li>
+</ul>
+<pre>
+text-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5)//设置半透明
+</pre>
+
+<ul>
+<li>盒子阴影&lt;box-shadow&gt;<br><pre><br>box-shadow 水平距离 垂直距离 模糊距离 模糊尺寸 颜色 内/外阴影<br></pre><br><b><h6>其中：</h6></b></li>
+</ul>
+<ol>
+<li>水平距离和垂直距离是必须要填的；</li>
+<li>内/外阴影默认是外阴影，内阴影为inset<pre>
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0,4) 3px;
+</pre>
+</li>
+</ol>
+<ul>
+<li>position的属性值</li>
+</ul>
+<ol>
+<li>static       自动定位<ul>
+<li>静态定位是网页中所有元素的默认定位方式，就是普通标准流的特性</li>
+</ul>
+</li>
+<li>relative     相对定位。相对于原文档流的位置进行定位<ol>
+<li>相对定位是以自己的左上角为基点来移动(相对于自己的位置),也就是说相对定位的盒子任然在标准流中，它后面的盒子也还是以标准流的方式对待它。</li>
+<li>相对定位可以通过边偏移来移动位置，但是其原来占有的位置继续占有</li>
+</ol>
+</li>
+<li>absolute     绝对定位。相对于其上一个已经定位的父元素进行定位<ol>
+<li>若所有父元素都没有定位，以浏览器当前屏幕为准对齐。</li>
+<li>如果父元素有定位，那么子元素根据最近的有定位的祖先元素进行定位</li>
+<li>绝对定位可以通过边偏移移动位置，但是脱离原来位置，并且不再占有</li>
+<li>让绝对定位的盒子水平居中的方法<pre>position: absolute;
+  left: 50%;
+  margin-left: -盒子宽度的一半px;
+</pre></li>
+</ol>
+</li>
+<li>fixed        固定定位。相对于浏览器窗口进行定位</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/小白历险记之javascript(四)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -803,810 +1920,6 @@ clearinterval();
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/小白历险记之javascript(一)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/06/小白历险记之javascript(一)/" itemprop="url">小白历险记之javascript《一》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T23:30:03+08:00">
-                2018-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&nbsp;&nbsp;</p><h3>近在学习了一段时间的bootstrap之后发现，JavaScript这个对我还是非常的陌生，感觉自己有点学不下去了，所以我还是决定把JavaScript仔细的研究一下然后再去研究其他的框架和结构。<br>&nbsp;&nbsp;然后我本来想去研读《你不知道的JavaScript》这本书的，但是看了开头发现并不适合初学者去学习，所以我的学习方式还是以<mark>慕课+实践</mark>这两部分来完成。</h3><p></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/06/小白历险记之javascript(一)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/小白历险记之css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/07/小白历险记之css/" itemprop="url">小白历险记之css</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T14:41:27+08:00">
-                2018-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="小白历险记之css"><a href="#小白历险记之css" class="headerlink" title="小白历险记之css"></a>小白历险记之css</h4><h3 id="css边框"><a href="#css边框" class="headerlink" title="css边框"></a>css边框</h3><h4 id="css圆角边框"><a href="#css圆角边框" class="headerlink" title="css圆角边框"></a>css圆角边框</h4><h4 id="主要语法为：border-radius"><a href="#主要语法为：border-radius" class="headerlink" title="主要语法为：border-radius"></a>主要语法为：border-radius</h4><pre><code>&lt;style&gt;
-div{
-    text-aligin:center;
-    border:2px solid #a1a1a1;
-    padding 10px 40px;
-    background:#dddddd;
-    width:350px;
-    border-radius:25px;
-}
-&lt;/style&gt;
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/07/小白历险记之css/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/小白奇遇记之html《三》/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/06/小白奇遇记之html《三》/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T17:19:23+08:00">
-                2018-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####第五周学习内容html《三》</p>
-<h2 id="html表格"><a href="#html表格" class="headerlink" title="html表格"></a>html表格</h2><pre><code>&lt;html&gt;&lt;body&gt;
-    &lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-    &lt;td&gt;a&lt;/td&gt;
-    &lt;td&gt;b&lt;/td&gt;
-    &lt;td&gt;c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;a&lt;/td&gt;
-&lt;td&gt;b&lt;/td&gt;
-&lt;td&gt;c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/body&gt;&lt;/html&gt;
-</code></pre><h3 id="表格边框"><a href="#表格边框" class="headerlink" title="表格边框"></a>表格边框</h3><pre><code>&lt;table border=&quot;1&quot;&gt;//普通边框
-&lt;table border=&quot;8&quot;&gt;//粗边框
-</code></pre><h3 id="表格表头"><a href="#表格表头" class="headerlink" title="表格表头"></a>表格表头</h3><pre><code>&lt;th&gt;head&lt;/th&gt;
-</code></pre><h3 id="单元格边距和间距"><a href="#单元格边距和间距" class="headerlink" title="单元格边距和间距"></a>单元格边距和间距</h3><pre><code>&lt;table cellpadding=&quot;10&quot;&gt;//边距
-
-&lt;table cellspacing=&quot;10&quot;&gt;//间距
-</code></pre><h2 id="html列表"><a href="#html列表" class="headerlink" title="html列表"></a>html列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><pre><code>&lt;ul type=&quot;disc || circle || square&quot;&gt;//实心圆点||空心圆点||实心方点
-&lt;li&gt;a&lt;/li&gt;
-&lt;li&gt;b&lt;/li&gt;
-&lt;li&gt;c&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><pre><code>&lt;ol start=&quot;数字|| A || I || i&quot;&gt;//从哪位数字开始
-&lt;li&gt;a&lt;/li&gt;
-&lt;li&gt;b&lt;/li&gt;
-&lt;li&gt;c&lt;/li&gt;
-&lt;/li&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/小白历险记之html《二》/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/04/小白历险记之html《二》/" itemprop="url">小白历险记之html《二》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T14:22:16+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="html中的样式"><a href="#html中的样式" class="headerlink" title="html中的样式"></a>html中的样式</h2><pre><code>&lt;html&gt;
-    &lt;head&gt;
-    &lt;style type=&quot;test/css&quot;&gt;
-    h1 {color: red}
-    p {color: bule}
-    &lt;/style&gt;
-    &lt;/head&gt;
-
-    &lt;body&gt;
-    &lt;h1&gt;header 1&lt;/h1&gt;
-    &lt;p&gt;a paragraph.&lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/04/小白历险记之html《二》/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/小白历险记之html《一》/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/04/小白历险记之html《一》/" itemprop="url">小白历险记之html《一》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:45:22+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="html标签"><a href="#html标签" class="headerlink" title="html标签"></a>html标签</h2><ul>
-<li><h3 id="html标题"><a href="#html标题" class="headerlink" title="html标题"></a>html标题</h3><pre><code>&lt;h1&gt;-&lt;h6&gt;
-&lt;h1&gt;这是标题&lt;/h1&gt;
-&lt;h2&gt;这是标题&lt;/h2&gt;
-&lt;h3&gt;这是标题&lt;/h3&gt;
-&lt;h4&gt;这是标题&lt;/h4&gt;
-&lt;h5&gt;这是标题&lt;/h5&gt;
-&lt;h6&gt;这是标题&lt;/h6&gt;
-</code></pre><h4 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h4><p></p><h1>这是标题</h1><br><h2>这是标题</h2><br><h3>这是标题</h3><br><h4>这是标题</h4><br><h5>这是标题</h5><p></p>
-<h6>这是标题</h6>
-</li>
-<li><h3 id="html段落"><a href="#html段落" class="headerlink" title="html段落"></a>html段落</h3><pre><code>&lt;p&gt;这是段落&lt;/p&gt;
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/04/小白历险记之html《一》/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/小白历险记之Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/小白历险记之Ubuntu/" itemprop="url">小白历险记之Ubuntu</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T22:27:10+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="小白历险记之Ubuntu"><a href="#小白历险记之Ubuntu" class="headerlink" title="小白历险记之Ubuntu"></a>小白历险记之Ubuntu</h3><h4 id="刚开始上操作系统的时候，我就开始自己去装linux，后来百度教程之后发现小白最适合用的是Ubuntu-于是开始了默默的装Ubuntu-个人属于笨拙型的，前后一共花了两个晚上的时间才把系统和内核都弄好，然后希望自己以后要是再需要这种类似的操作，可以少走一些弯路吧！"><a href="#刚开始上操作系统的时候，我就开始自己去装linux，后来百度教程之后发现小白最适合用的是Ubuntu-于是开始了默默的装Ubuntu-个人属于笨拙型的，前后一共花了两个晚上的时间才把系统和内核都弄好，然后希望自己以后要是再需要这种类似的操作，可以少走一些弯路吧！" class="headerlink" title="刚开始上操作系统的时候，我就开始自己去装linux，后来百度教程之后发现小白最适合用的是Ubuntu,于是开始了默默的装Ubuntu.个人属于笨拙型的，前后一共花了两个晚上的时间才把系统和内核都弄好，然后希望自己以后要是再需要这种类似的操作，可以少走一些弯路吧！"></a>刚开始上操作系统的时候，我就开始自己去装linux，后来百度教程之后发现小白最适合用的是Ubuntu,于是开始了默默的装Ubuntu.个人属于笨拙型的，前后一共花了两个晚上的时间才把系统和内核都弄好，然后希望自己以后要是再需要这种类似的操作，可以少走一些弯路吧！</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/27/小白历险记之Ubuntu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1661,7 +1974,7 @@ div{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
