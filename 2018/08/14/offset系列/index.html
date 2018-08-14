@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
+<meta name="description" content="未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     height:100">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="This is for U">
+<meta property="og:title" content="offset系列">
 <meta property="og:url" content="http://yoursite.com/2018/08/14/offset系列/index.html">
 <meta property="og:site_name" content="This is for U">
-<meta property="og:description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
+<meta property="og:description" content="未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     height:100">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T08:39:32.151Z">
+<meta property="og:updated_time" content="2018-08-14T08:50:35.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is for U">
-<meta name="twitter:description" content="offset系列未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     he">
+<meta name="twitter:title" content="offset系列">
+<meta name="twitter:description" content="未脱离文档流offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关 #dv1 {     width:200px;     height:200px;     backgroundcolor:#ccc; }  #dv2 {     width:100px;     height:100">
 
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | This is for U</title>
+  <title>offset系列 | This is for U</title>
   
 
 
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">offset系列</h1>
         
 
         <div class="post-meta">
@@ -371,7 +372,7 @@
       
 
       
-        <h4 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h4><h5 id="未脱离文档流"><a href="#未脱离文档流" class="headerlink" title="未脱离文档流"></a>未脱离文档流</h5><p>offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关</p>
+        <h5 id="未脱离文档流"><a href="#未脱离文档流" class="headerlink" title="未脱离文档流"></a>未脱离文档流</h5><p>offsetLeft:与父级元素的margin+父亲元素的padding+父亲元素的border+自己的margin有关，与自身的padding以及border宽度无关</p>
 <pre><code>#dv1 {
     width:200px;
     height:200px;
@@ -388,7 +389,8 @@
 &lt;/div&gt;
 
 dv2=document.getElementbyId(&quot;dv2&quot;);
-</code></pre><ol>
+</code></pre><a id="more"></a> 
+<ol>
 <li>当输出cosole.log(dv2.offsetLeft);<br> 输出结果应当为0</li>
 <li>当给dv1一个”margin-left:100px;”,此时cosole.log(dv2.offsetLeft)<br> 输出结果为100,值得注意的是offset输出的结果是数值类型的，其后并没有任何单位</li>
 <li>当给dv1一个”padding-left:100px;”,cosole.log(dv2.offsetLeft);<br>输出的结果为200&nbsp;父级元素(margin-left+padding-left)</li>
@@ -422,6 +424,12 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
 
       
       
@@ -431,8 +439,8 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/14/h5小知识/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/08/14/h5小知识/" rel="next" title="h5新增属性">
+                <i class="fa fa-chevron-left"></i> h5新增属性
               </a>
             
           </div>
@@ -441,8 +449,8 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/14/盒子模型/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/14/盒子模型/" rel="prev" title="盒子模型">
+                盒子模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -524,7 +532,7 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +554,7 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -586,7 +594,7 @@ dv2=document.getElementbyId(&quot;dv2&quot;);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#offset系列"><span class="nav-number">1.</span> <span class="nav-text">offset系列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#未脱离文档流"><span class="nav-number">1.1.</span> <span class="nav-text">未脱离文档流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脱离文档流"><span class="nav-number">1.2.</span> <span class="nav-text">脱离文档流</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#未脱离文档流"><span class="nav-number">1.</span> <span class="nav-text">未脱离文档流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脱离文档流"><span class="nav-number">2.</span> <span class="nav-text">脱离文档流</span></a></li></ol></div>
             
 
           </div>
