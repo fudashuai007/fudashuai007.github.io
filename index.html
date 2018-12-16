@@ -646,26 +646,32 @@
 
 <h4 id="全局安装和局部安装"><a href="#全局安装和局部安装" class="headerlink" title="全局安装和局部安装"></a>全局安装和局部安装</h4><ul>
 <li>全局安装是指把 npm 包下载到 node_modules 的文件夹中，采用的命令是<pre>npm i 模块名 -g</pre>，安装之后可以在命令行直接使用；</li>
-<li>局部安装的命令是<pre>npm i 模块名</pre>或者<pre>npm i 模块名 –save-dev</pre><br>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</li>
+<li><p>局部安装的命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 模块名</span><br><span class="line">或者&lt;pre&gt;npm i 模块名 --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</p>
+</li>
 </ul>
-<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<pre>npm i cnpm -g</pre>然后就能采用 cnpm 的方式进行包下载</p>
+<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i cnpm -g</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>然后就能采用 cnpm 的方式进行包下载</p>
 <h4 id="开始使用-webpack"><a href="#开始使用-webpack" class="headerlink" title="开始使用 webpack"></a>开始使用 webpack</h4><ul>
 <li>首先新建一个文件夹，然后使用 npm 初始化配置<blockquote>
 <p>npm init<br>然后一路回车即可</p>
 </blockquote>
 </li>
-<li>选择在本地局部安装 webpack<blockquote>
-<p>cnpm i webpack –save-dev<br>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
+<li><p>选择在本地局部安装 webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack --save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
 </blockquote>
 </li>
 <li>安装完 webpack 之后，安装 webpack-dev-server,这个包能够在开发环境中提供启动服务器、热更新、借口代理等，十分方便<blockquote>
 <p>cnpm i webpack-dev-server –save-dev</p>
 </blockquote>
 </li>
-<li><p>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</p>
-<blockquote>
-<p>cnpm i webpack-cli –save-dev</p>
-</blockquote>
+<li>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/04/被webpack支配的快感/#more" rel="contents">
