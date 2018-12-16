@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="This is for U">
 <meta property="og:description" content="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。为什么使用 webpack首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-16T07:41:52.893Z">
+<meta property="og:updated_time" content="2018-12-16T08:34:19.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="磨人的webpack4.x">
 <meta name="twitter:description" content="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。为什么使用 webpack首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面">
@@ -448,14 +448,85 @@
 <blockquote>
 <p>cnpm i css-loader –save-dev <br><br>cnpm i style-loader –save-dev</p>
 </blockquote>
-<ul>
-<li>安装完成之后在 webpack.config.js 中添加配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">          rules: [&#123;</span><br><span class="line">                  test: /\.css$/,</span><br><span class="line">                  use: [</span><br><span class="line">                      &apos;css-loader&apos;,</span><br><span class="line">                      &apos;style-loader&apos;</span><br><span class="line">                  ]</span><br><span class="line">                  &#125;]</span><br><span class="line">              &#125;</span><br><span class="line">``` </span><br><span class="line">  需要注意的是在 module 对象的 rules 属性中可以指定一系列的 loaders ，每一个 loader 都必须包含 test 和 use 两个选项。</span><br><span class="line">- 接下来就可以新建一个 css 文件，样式任意给定，然后在 index.js 中引入这个文件</span><br><span class="line">  &gt; import &apos;./index.js&apos;</span><br><span class="line">- 重新执行 npm run start，然后就能看到你在 css 中采用的样式了</span><br><span class="line"></span><br><span class="line">- webpack 的插件功能很强大而且可以定制。这里我们使用一个 extract-text-webpack-plugin 的插件来把散落在各地的 css 提取出来，并生成一个 main.css 的文件，最终在 index.html 里通过＜link&gt;的形式加载它。</span><br><span class="line"></span><br><span class="line">- 同样的，如果你的 webpack 版本如果是 3.x 或者更低的版本，则可以直接采用:</span><br><span class="line">  &gt; cnpm i extract-text-webpack-plugin --save-dev&lt;br /&gt;</span><br><span class="line">  &gt; 如果是 4.x 的版本则采用</span><br><span class="line">  &gt; cnpm i extract-text-webpack-plugin@next --save-dev</span><br><span class="line">- 然后在配置文件中导入插件，并改写 loader 的配置.</span><br></pre></td></tr></table></figure>
+<p>安装完成之后在 webpack.config.js 中添加配置：</p>
+<pre>
+module: {
+          rules: [{
+                  test: /\.css$/,
+                  use: [
+                      'css-loader',
+                      'style-loader'
+                  ]
+                  }]
+              }
+</pre>
+
+<h4 id="需要注意的是在-module-对象的-rules-属性中可以指定一系列的-loaders-，每一个-loader-都必须包含-test-和-use-两个选项。"><a href="#需要注意的是在-module-对象的-rules-属性中可以指定一系列的-loaders-，每一个-loader-都必须包含-test-和-use-两个选项。" class="headerlink" title="需要注意的是在 module 对象的 rules 属性中可以指定一系列的 loaders ，每一个 loader 都必须包含 test 和 use 两个选项。"></a>需要注意的是在 module 对象的 rules 属性中可以指定一系列的 loaders ，每一个 loader 都必须包含 test 和 use 两个选项。</h4><ul>
+<li>接下来就可以新建一个 css 文件，样式任意给定，然后在 index.js 中引入这个文件<blockquote>
+<p>import ‘./index.js’</p>
+</blockquote>
 </li>
+<li><p>重新执行 npm run start，然后就能看到你在 css 中采用的样式了</p>
+</li>
+<li><p>webpack 的插件功能很强大而且可以定制。这里我们使用一个 extract-text-webpack-plugin 的插件来把散落在各地的 css 提取出来，并生成一个 main.css 的文件，最终在 index.html 里通过＜link&gt;的形式加载它。</p>
+</li>
+<li><p>同样的，如果你的 webpack 版本如果是 3.x 或者更低的版本，则可以直接采用:</p>
+<blockquote>
+<p>cnpm i extract-text-webpack-plugin –save-dev<br><br>如果是 4.x 的版本则采用 cnpm i extract-text-webpack-plugin@next –save-dev</p>
+</blockquote>
+</li>
+<li>然后在配置文件中导入插件，并改写 loader 的配置.</li>
 </ul>
-<p>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’);<br>module: {<br>rules: [{<br>test: /.css\$/,<br>use: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘style-loader’<br>})<br>},<br>{<br>test: /.vue\$/,<br>loader: ‘vue-loader’,<br>options: {<br>loaders: {<br>css: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘vue-style-loader’<br>})<br>}<br>}<br>},<br>{<br>test: /.js\$/,<br>loader: ‘babel-loader’,<br>exclude: /node_modules/<br>}<br>]<br>},<br>plugins: [<br>new ExtractTextPlugin(‘index.css’)<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这样我们的webpack基本上就安装完毕了，接下来是单文件组件和vue-loader的使用</span><br><span class="line"></span><br><span class="line">#### 单文件组件和 vue-loader</span><br><span class="line"></span><br><span class="line">- 使用.vue 文件需要先安装 vue-loader、vue-style-loader 等加载器并做配置。因为要使用 ES6 语法，还需要安装 babel 和 babel-loader 等加载器。使用 npm 逐个安装以下依赖：</span><br><span class="line"></span><br><span class="line">&gt; npm install --save vue &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev@14.2.2 vue-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-style-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-template-compiler &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-hot-reload-api &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-core &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-plugin-transform-runtime &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-preset-es2015 &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-runtime</span><br><span class="line"></span><br><span class="line">- 这里最需要注意的是如果你的 vue-loader 使用的是 15.x.x,那么需要在 webpack.config.js 配置</span><br></pre></td></tr></table></figure></p>
-<p>  const { VueLoaderPlugin } = require(‘vue-loader’)<br>  module.exports = {<br>    plugins: [<br>      new VueLoaderPlugin()<br>    ]<br>  }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 安装完成后，修改配置文件 webpack.config.js 来支持对.vue 文件及 ES6 的解析：</span><br></pre></td></tr></table></figure></p>
-<p>var path = require(‘path’)<br>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’)<br>var config = {<br>entry: {<br>main: ‘./index’<br>},<br>output: {<br>path: path.join(__dirname, ‘./dist’),<br>publicPath: ‘/dist’,<br>filename: ‘index.js’<br>},<br>module: {<br>rules: [{<br>test: /.css\$/,<br>use: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘style-loader’<br>})<br>},<br>{<br>test: /.vue\$/,<br>loader: ‘vue-loader’,<br>options: {<br>loaders: {<br>css: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘vue-style-loader’<br>})<br>}<br>}<br>},<br>{<br>test: /.js\$/,<br>loader: ‘babel-loader’,<br>exclude: /node_modules/<br>}<br>]<br>},<br>plugins: [<br>new ExtractTextPlugin(‘index.css’)<br>]<br>};<br>module.exports = config;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 新建 `.babelrc`文件,配置内容为:</span><br></pre></td></tr></table></figure></p>
-<p>  {<br>      “presets”: [“es2015”],<br>      “plugins”: [“transform-runtime”],<br>      “comments”: false<br>  }<br><code>`</code></p>
+<pre>
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+module: {
+rules: [{
+test: /\.css\$/,
+use: ExtractTextPlugin.extract({
+use: 'css-loader',
+fallback: 'style-loader'
+})
+},
+{
+test: /\.vue\$/,
+loader: 'vue-loader',
+options: {
+loaders: {
+css: ExtractTextPlugin.extract({
+use: 'css-loader',
+fallback: 'vue-style-loader'
+})
+}
+}
+},
+{
+test: /\.js\$/,
+loader: 'babel-loader',
+exclude: /node_modules/
+}
+]
+},
+plugins: [
+new ExtractTextPlugin('index.css')
+]
+</pre>
+
+<p>这样我们的webpack基本上就安装完毕了，接下来是单文件组件和vue-loader的使用</p>
+<h4 id="单文件组件和-vue-loader"><a href="#单文件组件和-vue-loader" class="headerlink" title="单文件组件和 vue-loader"></a>单文件组件和 vue-loader</h4><ul>
+<li>使用.vue 文件需要先安装 vue-loader、vue-style-loader 等加载器并做配置。因为要使用 ES6 语法，还需要安装 babel 和 babel-loader 等加载器。使用 npm 逐个安装以下依赖：</li>
+</ul>
+<blockquote>
+<p>npm install –save vue <br><br>npm install <a href="mailto:--save-dev@14.2.2" target="_blank" rel="noopener">--save-dev@14.2.2</a> vue-loader <br><br>npm install –save-dev vue-style-loader <br><br>npm install –save-dev vue-template-compiler <br><br>npm install –save-dev vue-hot-reload-api <br><br>npm install –save-dev babel <br><br>npm install –save-dev babel-loader <br><br>npm install –save-dev babel-core <br><br>npm install –save-dev babel-plugin-transform-runtime <br><br>npm install –save-dev babel-preset-es2015 <br><br>npm install –save-dev babel-runtime</p>
+</blockquote>
+<ul>
+<li>这里最需要注意的是如果你的 vue-loader 使用的是 15.x.x,那么需要在 webpack.config.js 配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const &#123; VueLoaderPlugin &#125; = require(&apos;vue-loader&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成后，修改配置文件 webpack.config.js 来支持对.vue 文件及 ES6 的解析：</li>
+</ul>
+<p><pre><br>var path = require(‘path’)<br>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’)<br>var config = {<br>entry: {<br>main: ‘./index’<br>},<br>output: {<br>path: path.join(__dirname, ‘./dist’),<br>publicPath: ‘/dist’,<br>filename: ‘index.js’<br>},<br>module: {<br>rules: [{<br>test: /.css\$/,<br>use: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘style-loader’<br>})<br>},<br>{<br>test: /.vue\$/,<br>loader: ‘vue-loader’,<br>options: {<br>loaders: {<br>css: ExtractTextPlugin.extract({<br>use: ‘css-loader’,<br>fallback: ‘vue-style-loader’<br>})<br>}<br>}<br>},<br>{<br>test: /.js\$/,<br>loader: ‘babel-loader’,<br>exclude: /node_modules/<br>}<br>]<br>},<br>plugins: [<br>new ExtractTextPlugin(‘index.css’)<br>]<br>};<br>module.exports = config;<br></pre><br>新建 <code>.babelrc</code>文件,配置内容为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;es2015&quot;],</span><br><span class="line">    &quot;plugins&quot;: [&quot;transform-runtime&quot;],</span><br><span class="line">    &quot;comments&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>到这里基本上就大功告成了，你可以快乐的使用自定义的.vue 组件，使用 webpack 给你带来的快感了</p>
 
       
@@ -505,8 +576,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/04/vue学习/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/04/vue学习/" rel="prev" title="框架学习--vue">
+                框架学习--vue <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +681,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -650,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><span class="nav-number">1.</span> <span class="nav-text">从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用-webpack"><span class="nav-number">2.</span> <span class="nav-text">为什么使用 webpack</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局安装和局部安装"><span class="nav-number"></span> <span class="nav-text">全局安装和局部安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-和-cnpm"><span class="nav-number"></span> <span class="nav-text">npm 和 cnpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始使用-webpack"><span class="nav-number"></span> <span class="nav-text">开始使用 webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-config-js"><span class="nav-number"></span> <span class="nav-text">webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善配置文件"><span class="nav-number"></span> <span class="nav-text">完善配置文件</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><span class="nav-number">1.</span> <span class="nav-text">从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用-webpack"><span class="nav-number">2.</span> <span class="nav-text">为什么使用 webpack</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局安装和局部安装"><span class="nav-number"></span> <span class="nav-text">全局安装和局部安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-和-cnpm"><span class="nav-number"></span> <span class="nav-text">npm 和 cnpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始使用-webpack"><span class="nav-number"></span> <span class="nav-text">开始使用 webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-config-js"><span class="nav-number"></span> <span class="nav-text">webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善配置文件"><span class="nav-number"></span> <span class="nav-text">完善配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#需要注意的是在-module-对象的-rules-属性中可以指定一系列的-loaders-，每一个-loader-都必须包含-test-和-use-两个选项。"><span class="nav-number"></span> <span class="nav-text">需要注意的是在 module 对象的 rules 属性中可以指定一系列的 loaders ，每一个 loader 都必须包含 test 和 use 两个选项。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单文件组件和-vue-loader"><span class="nav-number"></span> <span class="nav-text">单文件组件和 vue-loader</span></a></div>
             
 
           </div>
