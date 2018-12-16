@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="打包工具," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This is for U" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。为什么使用 webpack首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面">
+<meta name="keywords" content="打包工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="磨人的webpack4.x">
+<meta property="og:url" content="http://yoursite.com/2018/11/04/被webpack支配的快感/index.html">
+<meta property="og:site_name" content="This is for U">
+<meta property="og:description" content="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。为什么使用 webpack首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-16T07:15:52.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="磨人的webpack4.x">
+<meta name="twitter:description" content="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。为什么使用 webpack首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Hanson'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/04/被webpack支配的快感/"/>
+
+
+
+
+
+  <title>磨人的webpack4.x | This is for U</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      <a href="https://github.com/fudashuai007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">This is for U</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            me
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/被webpack支配的快感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">磨人的webpack4.x</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><a href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。" class="headerlink" title="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"></a>从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</h5><h5 id="为什么使用-webpack"><a href="#为什么使用-webpack" class="headerlink" title="为什么使用 webpack"></a>为什么使用 webpack</h5><p>首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面许多的插件和npm包的感觉有点跟不上webpack的节奏。我在尝试webpack 的时候本着追求时代潮流的做法，安装了最新的webpack版本，结果自己配置起来直接崩溃，各种小问题一直不断的暴露出来，到最后我得出的结论是：思想上可以跟住最新的技术，实际上还是先使用稳定版的比较好吧</p>
+
+<h4 id="全局安装和局部安装"><a href="#全局安装和局部安装" class="headerlink" title="全局安装和局部安装"></a>全局安装和局部安装</h4><ul>
+<li>全局安装是指把 npm 包下载到 node_modules 的文件夹中，采用的命令是<pre>npm i 模块名 -g</pre>，安装之后可以在命令行直接使用；</li>
+<li>局部安装的命令是<pre>npm i 模块名</pre>或者<pre>npm i 模块名 –save-dev</pre><br>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</li>
+</ul>
+<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<pre>npm i cnpm -g</pre>然后就能采用 cnpm 的方式进行包下载</p>
+<h4 id="开始使用-webpack"><a href="#开始使用-webpack" class="headerlink" title="开始使用 webpack"></a>开始使用 webpack</h4><ul>
+<li>首先新建一个文件夹，然后使用 npm 初始化配置<blockquote>
+<p>npm init<br>然后一路回车即可</p>
+</blockquote>
+</li>
+<li>选择在本地局部安装 webpack<blockquote>
+<p>cnpm i webpack –save-dev<br>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
+</blockquote>
+</li>
+<li>安装完 webpack 之后，安装 webpack-dev-server,这个包能够在开发环境中提供启动服务器、热更新、借口代理等，十分方便<blockquote>
+<p>cnpm i webpack-dev-server –save-dev</p>
+</blockquote>
+</li>
+<li><p>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</p>
+<blockquote>
+<p>cnpm i webpack-cli –save-dev</p>
+</blockquote>
+  <a id="more"></a></li>
+<li>安装完成之后最终的 package.json 文件内容为：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot;: &quot;final&quot;,</span><br><span class="line">&quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">&quot;description&quot;: &quot;&quot;,</span><br><span class="line">&quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;&#125;</span><br><span class="line">    &quot;author&quot;: &quot;&quot;,</span><br><span class="line">&quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">&quot;webpack&quot;: &quot;^4.24.0&quot;,</span><br><span class="line">&quot;webpack-cli&quot;: &quot;^3.1.2&quot;,</span><br><span class="line">&quot;webpack-dev-server&quot;: &quot;^3.1.10&quot;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果 devDependencies 中包含 webpack、webpack-cli、webpack-dev-server 说明安装成功，可以启动 webpack 工程了</li>
+</ul>
+<h4 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h4><ul>
+<li>这是 webpack 的一个 js 配置文件，你的架构好或者差就基本体现在这个配置中</li>
+</ul>
+<ul>
+<li>首先在目录中创建 webpack.config.js，初始化它的内容：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">&#125;;</span><br><span class="line">module.exports=config;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后在 package.json 中添加快速启动 webpack-dev-server 的脚本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack --mode development&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;webpack --mode production&quot;,</span><br><span class="line">    &quot;start&quot;: &quot;webpack-dev-server --host 127.0.0.1 --port 8080 --open --config webpack.config.js&quot;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在 webpack 4.x 的版本中引入了模式，具体一些事项可以参考<a href="https://www.jianshu.com/p/a55fb5bf75e1" target="_blank" rel="noopener">这个链接</a></p>
+<ul>
+<li><p>当运行 npm run start 命令时，就会执行 webpack-dev-server –open –config webpack.config.js 命令。其中：</p>
+<blockquote>
+<p>–config 是指向 webpack-dev-server 读取的配置文件路径，这里直接读取我们在上一步创建的 webpack.config.js 文件<br><br>–open 会在执行命令时自动在浏览器打开页面，默认地址是 127.0.0.1 :8080</p>
+</blockquote>
+</li>
+<li><p>webpack 配置中最重要也是必选的两项是入口（Entry）和出口（Output）。入口的作用是告诉 webpack 从哪里开始寻找依赖，并且编译，出口则用来配置编译后的文件存储位置和文件名。</p>
+</li>
+<li><p>在文件夹目录里新建一个 Index.js 作为入口文件，然后在 webpack.config.js 里进行入口和出口的配置</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">  var config = &#123;</span><br><span class="line">      entry: &#123;</span><br><span class="line">          main: &apos;./index&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      output: &#123;</span><br><span class="line">          path: path.join(__dirname, &apos;./dist&apos;),</span><br><span class="line">          publicPath: &apos;/dist&apos;,</span><br><span class="line">          filename: &apos;index.js&apos;</span><br><span class="line">      &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>entry 中的 index 就是我们配置的单入口，webpack 会从 index.js 文件开始工作。output 中 path 选项用来存放打包后文件的输出目录，是必填项。publicPath 指定资源文件引用的目录。filename 用于指定输出文件的名称。因此，这里配置的 output 为打包后的文件会存储为/dist/index.js 文件，只要在 html 中引入它就可以了。</p>
+</blockquote>
+<ul>
+<li>在目录中创建一个 index.html 文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/dist/index.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        hello world!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;/dist/index.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>然后在终端输入</p>
+<blockquote>
+<p>npm run start</p>
+</blockquote>
+<ul>
+<li><p>然后就可以看到 hello world 显示在你面前了。可能会想这和一般的页面没什么区别，其实区别还是挺大的。</p>
+</li>
+<li><p>当你在 index.js 中输入</p>
+<blockquote>
+<p>document.getElementById(‘app’).innerHTML = ‘webpack’</p>
+</blockquote>
+</li>
+<li>然后 Ctrl+s 之后你会发现你的页面在没有刷新的情况下自动变成了 webpack,这就是 webpack-dev-server 的热更新功能。<br>其实打开 network 查看 index.js 也能发现区别。编译出的代码量有 9000 多行……</li>
+</ul>
+<h4 id="完善配置文件"><a href="#完善配置文件" class="headerlink" title="完善配置文件"></a>完善配置文件</h4><p>在 webpack 里，每个文件都是一个模块，比如 css、.js、.html、.jpg、.less 等。对于不同的模块，需要用不同的加载器（Loaders ）来处理，而加载器就是 webpack 最重要的功能。通过安装不同的加载器可以对各种后缀名的文件进行处理，比如现在要写一些 css 样式，就要用到 style-loader 和 css-loader</p>
+<blockquote>
+<p>cnpm i css-loader –save-dev <br><br>cnpm i style-loader –save-dev</p>
+</blockquote>
+<ul>
+<li>安装完成之后在 webpack.config.js 中添加配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">          rules: [&#123;</span><br><span class="line">                  test: /\.css$/,</span><br><span class="line">                  use: [</span><br><span class="line">                      &apos;css-loader&apos;,</span><br><span class="line">                      &apos;style-loader&apos;</span><br><span class="line">                  ]</span><br><span class="line">                  &#125;]</span><br><span class="line">              &#125;</span><br><span class="line">``` </span><br><span class="line">  需要注意的是在 module 对象的 rules 属性中可以指定一系列的 loaders ，每一个 loader 都必须包含 test 和 use 两个选项。</span><br><span class="line">- 接下来就可以新建一个 css 文件，样式任意给定，然后在 index.js 中引入这个文件</span><br><span class="line">  &gt; import &apos;./index.js&apos;</span><br><span class="line">- 重新执行 npm run start，然后就能看到你在 css 中采用的样式了</span><br><span class="line"></span><br><span class="line">- webpack 的插件功能很强大而且可以定制。这里我们使用一个 extract-text-webpack-plugin 的插件来把散落在各地的 css 提取出来，并生成一个 main.css 的文件，最终在 index.html 里通过＜link&gt;的形式加载它。</span><br><span class="line"></span><br><span class="line">- 同样的，如果你的 webpack 版本如果是 3.x 或者更低的版本，则可以直接采用:</span><br><span class="line">  &gt; cnpm i extract-text-webpack-plugin --save-dev&lt;br /&gt;</span><br><span class="line">  &gt; 如果是 4.x 的版本则采用</span><br><span class="line">  &gt; cnpm i extract-text-webpack-plugin@next --save-dev</span><br><span class="line">- 然后在配置文件中导入插件，并改写 loader 的配置.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’);</p>
+<p>module: {<br>rules: [{</p>
+<p>test: /.css\$/,</p>
+<p>use: ExtractTextPlugin.extract({</p>
+<p>use: ‘css-loader’,</p>
+<p>fallback: ‘style-loader’</p>
+<p>})</p>
+<p>},</p>
+<p>{</p>
+<p>test: /.vue\$/,</p>
+<p>loader: ‘vue-loader’,</p>
+<p>options: {</p>
+<p>loaders: {</p>
+<p>css: ExtractTextPlugin.extract({</p>
+<p>use: ‘css-loader’,</p>
+<p>fallback: ‘vue-style-loader’</p>
+<p>})</p>
+<p>}</p>
+<p>}</p>
+<p>},</p>
+<p>{</p>
+<p>test: /.js\$/,</p>
+<p>loader: ‘babel-loader’,</p>
+<p>exclude: /node_modules/</p>
+<p>}</p>
+<p>]<br>},<br>plugins: [</p>
+<p>new ExtractTextPlugin(‘index.css’)</p>
+<p>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">这样我们的webpack基本上就安装完毕了，接下来是单文件组件和vue-loader的使用</span><br><span class="line"></span><br><span class="line">#### 单文件组件和 vue-loader</span><br><span class="line"></span><br><span class="line">- 使用.vue 文件需要先安装 vue-loader、vue-style-loader 等加载器并做配置。因为要使用 ES6 语法，还需要安装 babel 和 babel-loader 等加载器。使用 npm 逐个安装以下依赖：</span><br><span class="line"></span><br><span class="line">&gt; npm install --save vue &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev@14.2.2 vue-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-style-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-template-compiler &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev vue-hot-reload-api &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-loader &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-core &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-plugin-transform-runtime &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-preset-es2015 &lt;br&gt;</span><br><span class="line">&gt; npm install --save-dev babel-runtime</span><br><span class="line"></span><br><span class="line">- 这里最需要注意的是如果你的 vue-loader 使用的是 15.x.x,那么需要在 webpack.config.js 配置</span><br></pre></td></tr></table></figure></p>
+<p>  const { VueLoaderPlugin } = require(‘vue-loader’)<br>  module.exports = {<br>    plugins: [<br>      new VueLoaderPlugin()<br>    ]<br>  }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 安装完成后，修改配置文件 webpack.config.js 来支持对.vue 文件及 ES6 的解析：</span><br></pre></td></tr></table></figure></p>
+<p>var path = require(‘path’)<br>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’)<br>var config = {<br>entry: {<br>main: ‘./index’<br>},<br>output: {<br>path: path.join(__dirname, ‘./dist’),<br>publicPath: ‘/dist’,<br>filename: ‘index.js’<br>},<br>module: {<br>rules: [{</p>
+<p>test: /.css\$/,</p>
+<p>use: ExtractTextPlugin.extract({</p>
+<p>use: ‘css-loader’,</p>
+<p>fallback: ‘style-loader’</p>
+<p>})</p>
+<p>},</p>
+<p>{</p>
+<p>test: /.vue\$/,</p>
+<p>loader: ‘vue-loader’,</p>
+<p>options: {</p>
+<p>loaders: {</p>
+<p>css: ExtractTextPlugin.extract({</p>
+<p>use: ‘css-loader’,</p>
+<p>fallback: ‘vue-style-loader’</p>
+<p>})</p>
+<p>}</p>
+<p>}</p>
+<p>},</p>
+<p>{</p>
+<p>test: /.js\$/,</p>
+<p>loader: ‘babel-loader’,</p>
+<p>exclude: /node_modules/</p>
+<p>}</p>
+<p>]<br>},<br>plugins: [</p>
+<p>new ExtractTextPlugin(‘index.css’)</p>
+<p>]<br>};</p>
+<p>module.exports = config;</p>
+<p></p>
+<ul>
+<li>新建 <code>.babelrc</code>文件,配置内容为:<br><pre><br>{<pre><code>&quot;presets&quot;: [&quot;es2015&quot;],
+&quot;plugins&quot;: [&quot;transform-runtime&quot;],
+&quot;comments&quot;: false
+</code></pre>}<br><code>`</code></pre></li>
+</ul>
+<p>到这里基本上就大功告成了，你可以快乐的使用自定义的.vue 组件，使用 webpack 给你带来的快感了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="符 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>杜绝狗粮！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/打包工具/" rel="tag"># 打包工具</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/14/清除浮动的方法/" rel="next" title="四种方法清除浮动">
+                <i class="fa fa-chevron-left"></i> 四种方法清除浮动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/vue学习/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="符" />
+            
+              <p class="site-author-name" itemprop="name">符</p>
+              <p class="site-description motion-element" itemprop="description">HEY, U!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><span class="nav-number">1.</span> <span class="nav-text">从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用-webpack"><span class="nav-number">2.</span> <span class="nav-text">为什么使用 webpack</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局安装和局部安装"><span class="nav-number"></span> <span class="nav-text">全局安装和局部安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-和-cnpm"><span class="nav-number"></span> <span class="nav-text">npm 和 cnpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始使用-webpack"><span class="nav-number"></span> <span class="nav-text">开始使用 webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-config-js"><span class="nav-number"></span> <span class="nav-text">webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善配置文件"><span class="nav-number"></span> <span class="nav-text">完善配置文件</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">符</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
