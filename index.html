@@ -304,6 +304,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/小程序学习-框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/17/小程序学习-框架/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="响应显示区域变化"><a href="#响应显示区域变化" class="headerlink" title="响应显示区域变化"></a>响应显示区域变化</h3><ul>
+<li><p>显示区域尺寸</p>
+<p>显示区域指的是小程序界面中可以自由布局展示的区域。在默认情况下小程序显示区域的尺寸自页面初始化就不会发生变化，但是如果是ipad支持屏幕旋转的情况下可以在<mark>app.json</mark>中添加以下代码<pre>{<br>“resizable”:true<br>}</pre>如果小程序中添加的上述说明，那么屏幕在旋转的时候小程序也会随之旋转，显示区域的尺寸也会随着屏幕旋转而变化</p>
+</li>
+<li><p>Media Query</p>
+<p>对于不同尺寸的显示区域，页面的布局会有所差异，可以使用media query来解决<pre><br>    .my-class{<br>        width:40px;<br>        }<br>  @media(min-width:480px){<br>      .my-class {<br>          width:200px;<br>      }<br>  }</pre></p>
+</li>
+<li><p>屏幕旋转事件</p>
+<p>media query无法控制一些精细的布局变化，可以采用js作为辅助。在js中读取页面的显示区域尺寸，可以使用<mark>selectorQuery.selectViewport</mark>页面尺寸发生变化的事件，可以使用wx.onWindowResize来监听，回调函数中将返回显示区域的尺寸信息<pre><br>wx.onWindowResize(function(res){<br>    res.size.windowWidth<br>    res.size.windowHeight<br>    //触发当前页面的resize方法<br>    var currentPages=getCurrentPages()<br>    var currentPage=currentPages[currentPages.length-1]<br>    if(currentPage!=null &amp;&amp; typeof currentPage.resized===’function’){<br>        currentPage.resized(res.size)<br>    }<br>})</pre></p>
+
+</li>
+</ul>
+<h3 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h3><ul>
+<li>创建自定义组件<p>要创建一个自定义组件首先需要在<mark>json</mark>文件中进行自定义组件的声明<pre><br>{<br>    “component”:true<br>}<br></pre>同时在<mark>wxml</mark>中编写组件模板,在<mark>wxss</mark>编写样式</p></li>
+<li>使用自定义组件<p>在使用自定义组件的时候需要在页面的<mark>json</mark>文件中进行引用<pre><br>{<br>    “useingComponents”: {<br>        “组件名”: “路径”<br>    }<br>}<br></pre></p></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/js正则表达式的相关知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1571,130 +1695,6 @@ a:active {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/利用javascript实现图片的缓慢伸缩/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/利用javascript实现图片的缓慢伸缩/" itemprop="url">利用javascript实现图片的缓慢伸缩</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <pre><code>主要函数为:
-setinterval(function,time);
-clearinterval();
-</code></pre><p><b>新建一个html文件，添加一张图片，以及放大和缩小按钮</b></p>
-<pre><code>&lt;body&gt;
-&lt;div style=&quot;width:400px; margin:0 auto&quot;&gt;
-&lt;img src=&quot;/vs code/my/img/goods5.jpg&quot; id=&quot;myimge&quot;&gt;&lt;br/&gt;
-&lt;input type=&quot;button&quot; id=&quot;max&quot; value=&quot;放大&quot;&gt;
-&lt;input type=&quot;button&quot; id=&quot;min&quot; value=&quot;缩小&quot;&gt; 
-&lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/利用javascript实现图片的缓慢伸缩/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1749,7 +1749,7 @@ clearinterval();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
