@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -82,15 +82,16 @@
 
 
 <meta name="description" content="写在前面因为最近在做的的一个作业需要用到正则表达式的一些知识，而我在学习js的时候恰好对这一块有一些忽视，导致现在过来补，有一点点头大，不过在用过之后发现，正则表达式真香，比我一个个的去做长度判断、内容判断方便的不知道多少倍。JS牛逼！  什么是正则表达式个人理解: 正则表达式就是用来做验证用的，简洁、高效官方定义: 正则表达式是用于匹配字符串中字符组合的模式  相关内容正则表达式的模式简单的模式">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="This is for U">
+<meta property="og:title" content="正则表达式">
 <meta property="og:url" content="http://yoursite.com/2018/12/17/js正则表达式的相关知识/index.html">
 <meta property="og:site_name" content="This is for U">
 <meta property="og:description" content="写在前面因为最近在做的的一个作业需要用到正则表达式的一些知识，而我在学习js的时候恰好对这一块有一些忽视，导致现在过来补，有一点点头大，不过在用过之后发现，正则表达式真香，比我一个个的去做长度判断、内容判断方便的不知道多少倍。JS牛逼！  什么是正则表达式个人理解: 正则表达式就是用来做验证用的，简洁、高效官方定义: 正则表达式是用于匹配字符串中字符组合的模式  相关内容正则表达式的模式简单的模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-17T13:16:52.304Z">
+<meta property="og:updated_time" content="2018-12-17T13:21:05.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is for U">
+<meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="写在前面因为最近在做的的一个作业需要用到正则表达式的一些知识，而我在学习js的时候恰好对这一块有一些忽视，导致现在过来补，有一点点头大，不过在用过之后发现，正则表达式真香，比我一个个的去做长度判断、内容判断方便的不知道多少倍。JS牛逼！  什么是正则表达式个人理解: 正则表达式就是用来做验证用的，简洁、高效官方定义: 正则表达式是用于匹配字符串中字符组合的模式  相关内容正则表达式的模式简单的模式">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | This is for U</title>
+  <title>正则表达式 | This is for U</title>
   
 
 
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
         
 
         <div class="post-meta">
@@ -370,6 +371,7 @@
 <h4 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h4><ul>
 <li>当需要搜索一个比直接匹配更多的匹配的时候，例如多个字符、空格、一个字符多次出现等，就需要用到一些特殊的字符了</li>
 </ul>
+<a id="more"></a>
 <p>#####具体的特殊字符<br>+. <code>\</code></p>
 <p><code>\</code>有两个作用。<br>第一个作用是用在非特殊字符之前，表示下一个字符是特殊的.例如<code>\b</code>,如果没有\，那么匹配到的就只是一个简单的’b’,但是有了这个\，就意味着匹配到一个字符边界。字符边界的意思的一个词后面没有其他字符，那么这个词就是边界<br><br>另外一个作用就是用在特殊字符前。将特殊字符转化为非特殊字符。例如：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var re=/a\*/</span><br></pre></td></tr></table></figure><br><br>就会匹配到 a*这个字符。关于特殊字符有哪些后面继续介绍<br><br></p><br>+. <code>^</code><br><p>匹配输入的开始。如果存在换行符(例如br等),还是会匹配到换行符之后紧跟着的位置，例如：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var re=/^A/</span><br></pre></td></tr></table></figure><br><br>意味着匹配到所有以 A 开始的行<br><br></p>
 
@@ -491,6 +493,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
 
       
       
@@ -509,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/17/小程序学习-框架/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -593,7 +597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
