@@ -304,6 +304,124 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/20/route/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/20/route/" itemprop="url">vue插件学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>vue确实是一个挺好用的框架，基本上入手非常简单，三大框架里也挺适合小白上手，但是再好用的框架也离不开其他的一些好用的组件，我把目前主流的三个组件在本篇博客里详细记录一下内容</p>
+
+<h3 id="目前主流的三个插件"><a href="#目前主流的三个插件" class="headerlink" title="目前主流的三个插件"></a>目前主流的三个插件</h3><h4 id="vue-router-路由配置"><a href="#vue-router-路由配置" class="headerlink" title="vue-router:路由配置"></a>vue-router:路由配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$router.push()</span><br><span class="line">$router.replace()</span><br><span class="line">&lt;router-link&gt; //链接</span><br><span class="line">&lt;router-view&gt;  //链接后需要跟一个，把表示路由匹配的组件渲染到这里</span><br></pre></td></tr></table></figure>
+<h4 id="vue-resource-HTTP服务"><a href="#vue-resource-HTTP服务" class="headerlink" title="vue-resource:HTTP服务"></a>vue-resource:HTTP服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">主要有:</span><br><span class="line">http.get(url,[options]).then(successCallback,errorCallback)</span><br><span class="line">http.post(url,[options]).then(successCallback,errorCallback)</span><br><span class="line"></span><br><span class="line">此外还有:</span><br><span class="line">head(url, [config])</span><br><span class="line">delete(url, [config])</span><br><span class="line">jsonp(url, [config]) //跨域请求可用，还没尝试过</span><br><span class="line">put(url, [body], [config])</span><br><span class="line">patch(url, [body], [config])</span><br></pre></td></tr></table></figure>
+<p>全局的使用方法为:<code>Vue.http.get(url,[options]).then(successCallback,errorCallback)</code><br>vue实例中使用方法为: <code>this.$http.get(url,[options]).then(successCallback,errorCallback)</code></p>
+<h4 id="Vuex-状态管理和数据共享"><a href="#Vuex-状态管理和数据共享" class="headerlink" title="Vuex 状态管理和数据共享"></a>Vuex 状态管理和数据共享</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">主要内容为:</span><br><span class="line">store:可以理解为新建的一个仓库，用来存储各项数据、方法、动作等</span><br><span class="line">state:用于存储应用传递的数据</span><br><span class="line">view: 以声明的方式把state中的数据映射到视图中</span><br><span class="line">action: 相应在view上的用户输入数据的变化</span><br><span class="line">mutation:如果需要更改store的状态就必须提交mutation</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/20/route/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/vue学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1477,126 +1595,11 @@ clearinterval();
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/小白历险记之javascript(二)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/小白历险记之javascript(二)/" itemprop="url">小白历险记之javascript《二》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&nbsp;&nbsp;</p><h2>在学习完javascript的一些基本的入门知识之后，感觉对javascript还是挺陌生的，特别是自己在看相关的代码的时候觉得自己离入门还早的很，所以这次还是想更深层次的学习一下javascript,希望能对加强自己能力有一定的帮助</h2><p></p>
-<p></p><h3><center>事件</center></h3><p></p>
-<p>JavaScript 创建动态页面。事件是可以被 JavaScript 侦测到的行为。 网页中的每个元素都可以产生某些可以触发 JavaScript 函数或程序的事件。</p><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/小白历险记之javascript(二)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1646,7 +1649,7 @@ clearinterval();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
