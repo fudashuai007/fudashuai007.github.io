@@ -304,6 +304,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/vue学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/vue学习/" itemprop="url">框架学习--vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在短暂的接触到小程序之后，这学期的主要学习目标还是选择放在vue上面。不能说小程序不好，我只是觉得vue学习完之后，好像学小程序会更方便，希望学完之后能有一些提升</p>
+
+<h4 id="Vue指令之v-text和v-html"><a href="#Vue指令之v-text和v-html" class="headerlink" title="Vue指令之v-text和v-html"></a>Vue指令之<code>v-text</code>和<code>v-html</code></h4><h4 id="Vue指令之v-bind的用法"><a href="#Vue指令之v-bind的用法" class="headerlink" title="Vue指令之v-bind的用法"></a>Vue指令之<code>v-bind</code>的用法</h4><ol>
+<li>直接使用指令<code>v-bind</code></li>
+<li>使用简化指令<code>:</code><h5 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h5></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;info&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;开启&quot; v-on:click=&quot;go&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;停止&quot; v-on:click=&quot;stop&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">        info: &apos;hello~！&apos;,</span><br><span class="line">        intervalId: null</span><br><span class="line">      &#125;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        go() &#123;</span><br><span class="line">          // 如果当前有定时器在运行，则直接return</span><br><span class="line">          if (this.intervalId != null) &#123;</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line">          // 开始定时器</span><br><span class="line">          this.intervalId = setInterval(() =&gt; &#123;</span><br><span class="line">            this.info = this.info.substring(1) + this.info.substring(0, 1);</span><br><span class="line">          &#125;, 500);</span><br><span class="line">        &#125;,</span><br><span class="line">        stop() &#123;</span><br><span class="line">          clearInterval(this.intervalId);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Vue指令之v-on的缩写和事件修饰符"><a href="#Vue指令之v-on的缩写和事件修饰符" class="headerlink" title="Vue指令之v-on的缩写和事件修饰符"></a>Vue指令之<code>v-on的缩写</code>和<code>事件修饰符</code></h4><h5 id="事件修饰符："><a href="#事件修饰符：" class="headerlink" title="事件修饰符："></a>事件修饰符：</h5><ul>
+<li>.stop       阻止冒泡</li>
+<li>.prevent    阻止默认事件(a链接、button提交)</li>
+<li>.capture    添加事件侦听器时使用事件捕获模式</li>
+<li>.self       只当事件在该元素本身（比如不是子元素）触发时触发回调</li>
+<li>.once       事件只触发一次
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/vue学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/被webpack支配的快感/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1188,15 +1313,13 @@ a:active {
 
       
         
-          <p></p><h4>在学习完内置对象之后，继续开始对浏览器对象的学习</h4><p></p>
-<li><h5>window对象</h5></li><br>window对象时BOM的核心，window对象指的是当前的浏览器窗口<br><span>常用的window对象方法:<br><br><center><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr46ek9nboj30ij0fnabu.jpg" alt=""></center><br><li><b><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/小白历险记之javascript(四)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>在学习完内置对象之后，继续开始对浏览器对象的学习</p>
+<li>window对象</li><br>window对象时BOM的核心，window对象指的是当前的浏览器窗口<br><span>常用的window对象方法:<br><br><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr46ek9nboj30ij0fnabu.jpg" alt=""><br><li><b><br>javascript计时器</b><br><p>在JavaScript中，我们可以在设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。<br>计时器类型：<br><em> 一次性计时器：仅在指定的延迟时间之后触发一次。
+</em> 间隔性触发计时器：每隔一定的时间间隔就触发一次。</p><br><span>计时器方法</span><br><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr46pozlrwj30bd03zt9v.jpg" alt=""><br><ol><br>计时器setInterval()<br></ol><br><p>在执行时,从载入页面后每隔指定的时间执行代码。</p><br><br>    setInterval(代码,交互时间);<br><mark>说明</mark><br>1. 代码：要调用的函数或要执行的代码串。<br><br><br>2. 交互时间：周期性执行或调用表达式之间的时间间隔，以毫秒为单位<br><br>调用格式:<br><br>    setInterval(“clock()”,1000)<br>结果：<br>每隔1s执行一次clock()函数<br><ol><br>取消计时器clearInterval()<br></ol><br><p>取消有setInterval()设置的交互时间</p><br>语法：<br><br>    clearInterval(id_of_setInterval)<br><mark>说明</mark><br><em> id_of_setInterval:由setInterval()返回的id值<br><ol><br>取消计时器clearTimeout()</ol><br>语法：<br><br>    clearTimeout(id_of_setTimeout)
+</em> id_of_setTimeout：由 setTimeout() 返回的 ID 值。该值标识要取消的延迟执行代码块。<br></li><br><li>history对象</li><br><p>history对象记录了用户曾经浏览过的页面(URL)，并可以实现浏览器前进与后退相似导航的功能。</p><br><red>注意</red>:从窗口被打开的那一刻开始记录，每个浏览器窗口、每个标签页乃至每个框架，都有自己的history对象与特定的window对象关联。<br>history对象属性：length<br>history对象方法：<li>back()加载history列表的前一个</li><br><li>forward()加载history列表的下一个</li><br><li>go()加载history列表的某一个具体的页面</li>
+</span>
+          
         
       
     </div>
@@ -1469,121 +1592,6 @@ clearinterval();
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/小白历险记之javascript（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/小白历险记之javascript（三）/" itemprop="url">小白历险记之javascript《三》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p></p><h3>关于javascript内置对象的理解还不是很透彻，所以专门拿出时间来学习一下有关的知识。</h3><p></p>
-<p></p><h4>javascript内置对象</h4><p></p>
-<li>Date日期对象</li><br><p>日期对象可以储存任意一个日期，并且可以精确到毫秒数</p><br>访问方法语法: “&lt;日期对象&gt;.&lt;方法&gt;”<br>常用方法：<br><center><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr3ysapdk7j30bm089jri.jpg" alt=""></center><br><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/19/小白历险记之javascript（三）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1638,7 +1646,7 @@ clearinterval();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
