@@ -304,6 +304,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/被webpack支配的快感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/被webpack支配的快感/" itemprop="url">磨人的webpack4.x</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><a href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。" class="headerlink" title="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"></a>从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</h5><h5 id="为什么使用-webpack"><a href="#为什么使用-webpack" class="headerlink" title="为什么使用 webpack"></a>为什么使用 webpack</h5><p>首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面许多的插件和npm包的感觉有点跟不上webpack的节奏。我在尝试webpack 的时候本着追求时代潮流的做法，安装了最新的webpack版本，结果自己配置起来直接崩溃，各种小问题一直不断的暴露出来，到最后我得出的结论是：思想上可以跟住最新的技术，实际上还是先使用稳定版的比较好吧</p>
+
+<h4 id="全局安装和局部安装"><a href="#全局安装和局部安装" class="headerlink" title="全局安装和局部安装"></a>全局安装和局部安装</h4><ul>
+<li>全局安装是指把 npm 包下载到 node_modules 的文件夹中，采用的命令是<pre>npm i 模块名 -g</pre>，安装之后可以在命令行直接使用；</li>
+<li><p>局部安装的命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 模块名</span><br><span class="line">或者&lt;pre&gt;npm i 模块名 --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</p>
+</li>
+</ul>
+<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i cnpm -g</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>然后就能采用 cnpm 的方式进行包下载</p>
+<h4 id="开始使用-webpack"><a href="#开始使用-webpack" class="headerlink" title="开始使用 webpack"></a>开始使用 webpack</h4><ul>
+<li>首先新建一个文件夹，然后使用 npm 初始化配置<blockquote>
+<p>npm init<br>然后一路回车即可</p>
+</blockquote>
+</li>
+<li><p>选择在本地局部安装 webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack --save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
+</blockquote>
+</li>
+<li>安装完 webpack 之后，安装 webpack-dev-server,这个包能够在开发环境中提供启动服务器、热更新、借口代理等，十分方便<blockquote>
+<p>cnpm i webpack-dev-server –save-dev</p>
+</blockquote>
+</li>
+<li>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/被webpack支配的快感/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/css-清除浮动的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1440,119 +1582,6 @@ clearinterval();
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/小白历险记之javascript(一)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/06/小白历险记之javascript(一)/" itemprop="url">小白历险记之javascript《一》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&nbsp;&nbsp;</p><h3>近在学习了一段时间的bootstrap之后发现，JavaScript这个对我还是非常的陌生，感觉自己有点学不下去了，所以我还是决定把JavaScript仔细的研究一下然后再去研究其他的框架和结构。<br>&nbsp;&nbsp;然后我本来想去研读《你不知道的JavaScript》这本书的，但是看了开头发现并不适合初学者去学习，所以我的学习方式还是以<mark>慕课+实践</mark>这两部分来完成。</h3><p></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/06/小白历险记之javascript(一)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1607,7 +1636,7 @@ clearinterval();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1629,7 +1658,7 @@ clearinterval();
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

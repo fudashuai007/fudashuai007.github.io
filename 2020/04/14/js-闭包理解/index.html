@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JS 闭包," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="JS–闭包理解什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo1234567function outSide()&amp;#123;	var str = &apos;abc&apos;	var inner = function()&amp;#123;		return this.str	&amp;#125;	return inner&amp;#125; 闭包会引起的问">
+<meta name="description" content="什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo 1234567function outSide() &amp;#123;  var str = &quot;abc&quot;;  var inner = function() &amp;#123;    return this.str;  &amp;#125;;  return inner;&amp;#125; 闭">
+<meta name="keywords" content="JS 闭包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="This is for U">
+<meta property="og:title" content="JS 闭包理解">
 <meta property="og:url" content="http://yoursite.com/2020/04/14/js-闭包理解/index.html">
 <meta property="og:site_name" content="This is for U">
-<meta property="og:description" content="JS–闭包理解什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo1234567function outSide()&amp;#123;	var str = &apos;abc&apos;	var inner = function()&amp;#123;		return this.str	&amp;#125;	return inner&amp;#125; 闭包会引起的问">
+<meta property="og:description" content="什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo 1234567function outSide() &amp;#123;  var str = &quot;abc&quot;;  var inner = function() &amp;#123;    return this.str;  &amp;#125;;  return inner;&amp;#125; 闭">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-14T06:51:36.093Z">
+<meta property="og:updated_time" content="2020-04-14T07:03:16.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is for U">
-<meta name="twitter:description" content="JS–闭包理解什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo1234567function outSide()&amp;#123;	var str = &apos;abc&apos;	var inner = function()&amp;#123;		return this.str	&amp;#125;	return inner&amp;#125; 闭包会引起的问">
+<meta name="twitter:title" content="JS 闭包理解">
+<meta name="twitter:description" content="什么是闭包闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。   demo 1234567function outSide() &amp;#123;  var str = &quot;abc&quot;;  var inner = function() &amp;#123;    return this.str;  &amp;#125;;  return inner;&amp;#125; 闭">
 
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | This is for U</title>
+  <title>JS 闭包理解 | This is for U</title>
   
 
 
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">JS 闭包理解</h1>
         
 
         <div class="post-meta">
@@ -360,30 +361,28 @@
       
 
       
-        <h3 id="JS–闭包理解"><a href="#JS–闭包理解" class="headerlink" title="JS–闭包理解"></a>JS–闭包理解</h3><h4 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h4><p></p><p><br>闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。</p>
+        <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p></p><p><br>闭包是指能访问另一个函数作用域变量的函数，严谨说法是闭包是一个函数，这个函数能够访问其他函数作用域中的变量。</p>
 <p>
 
-</p><p>demo<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outSide</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">'abc'</span></span><br><span class="line">	<span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.str</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> inner</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="闭包会引起的问题"><a href="#闭包会引起的问题" class="headerlink" title="闭包会引起的问题"></a>闭包会引起的问题</h4><ol>
-<li>引用变量发生变化<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> res = []</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">			res[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(i);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> s = outer()</span><br><span class="line">	<span class="keyword">var</span> s1 = s[<span class="number">0</span>]</span><br><span class="line">	<span class="keyword">var</span> s2 = s[<span class="number">1</span>]</span><br><span class="line">	<span class="keyword">var</span> s3 = s[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">	s1()  <span class="comment">//10</span></span><br><span class="line">	s2()	<span class="comment">//10</span></span><br><span class="line">	s3()	<span class="comment">//10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">因为每次引用i时，函数并不是立即执行，等到循环结束后再引用i，因此导致最后引用的i=<span class="number">10</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+</p><p>demo</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outSide</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">"abc"</span>;</span><br><span class="line">  <span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.str;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="闭包会引起的问题"><a href="#闭包会引起的问题" class="headerlink" title="闭包会引起的问题"></a>闭包会引起的问题</h3><h4 id="引用变量发生变化"><a href="#引用变量发生变化" class="headerlink" title="引用变量发生变化"></a>引用变量发生变化</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> res = []</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		res[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = outer()</span><br><span class="line"><span class="keyword">var</span> s1 = s[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> s2 = s[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">var</span> s3 = s[<span class="number">2</span>]</span><br><span class="line">s1()  <span class="comment">//10</span></span><br><span class="line">s2()	<span class="comment">//10</span></span><br><span class="line">s3()	<span class="comment">//10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">因为每次引用i时，函数并不是立即执行，等到循环结束后再引用i，因此导致最后引用的i=<span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>解决方案：</p>
 <ol>
-<li><p>可以采用一个立即执行的匿名函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> res = []</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">10</span> ;i++)&#123;</span><br><span class="line">		res[i] = (<span class="function"><span class="keyword">function</span> (<span class="params">num</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(num);</span><br><span class="line">			</span><br><span class="line">		&#125;)(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">outer()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>采用<code>es6 let</code>定义i</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outSide</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result =[]</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(i);</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = outSide()</span><br><span class="line"><span class="keyword">var</span> s0 = s[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> s1 = s[<span class="number">1</span>]</span><br><span class="line">s0() <span class="comment">//0</span></span><br><span class="line">s1() <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">因为<span class="keyword">let</span>有自己的块级作用域，因此不会发生这种情况</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>产生内存泄露问题</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">showId</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>)</span><br><span class="line">    el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(el.id)   <span class="comment">// 这样会导致闭包引用外层的el，当执行完showId后，el无法释放</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成下面</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">showId</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>)</span><br><span class="line">    <span class="keyword">var</span> id  = el.id</span><br><span class="line">    el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(id)   <span class="comment">// 这样会导致闭包引用外层的el，当执行完showId后，el无法释放</span></span><br><span class="line">    &#125;</span><br><span class="line">    el = <span class="literal">null</span>    <span class="comment">// 主动释放el</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>this指向问题<br>闭包内的<code>this</code>是指向window全局作用域</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  name = <span class="string">'alan'</span>;</span><br><span class="line"><span class="keyword">var</span>  obj =&#123;</span><br><span class="line">	name:<span class="string">'nancy'</span>,</span><br><span class="line">	getName()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a =obj.getName()</span><br><span class="line">a() <span class="comment">//alan</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>可以采用一个立即执行的匿名函数</li>
 </ol>
-<h4 id="小声bb"><a href="#小声bb" class="headerlink" title="小声bb"></a>小声bb</h4><p>匿名函数的this是指向window的,而且匿名函数前要加<code>分号</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'alan'</span></span><br><span class="line"><span class="keyword">let</span>  obj =&#123;</span><br><span class="line">	name:<span class="string">'nancy'</span>,</span><br><span class="line">	getName2:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">		(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">			<span class="built_in">console</span>.log(self.name)</span><br><span class="line">		&#125;())</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getName2() <span class="comment">//alan nancy</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> res = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    res[i] = (<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(num);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">outer();</span><br></pre></td></tr></table></figure>
+<ol>
+<li>采用<code>es6 let</code>定义 i</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outSide</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> result =[]</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = outSide()</span><br><span class="line"><span class="keyword">var</span> s0 = s[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> s1 = s[<span class="number">1</span>]</span><br><span class="line">s0() <span class="comment">//0</span></span><br><span class="line">s1() <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">因为<span class="keyword">let</span>有自己的块级作用域，因此不会发生这种情况</span><br></pre></td></tr></table></figure>
+<h4 id="产生内存泄露问题"><a href="#产生内存泄露问题" class="headerlink" title="产生内存泄露问题"></a>产生内存泄露问题</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showId</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>);</span><br><span class="line">  el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(el.id); <span class="comment">// 这样会导致闭包引用外层的el，当执行完showId后，el无法释放</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成下面</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showId</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>);</span><br><span class="line">  <span class="keyword">var</span> id = el.id;</span><br><span class="line">  el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(id); <span class="comment">// 这样会导致闭包引用外层的el，当执行完showId后，el无法释放</span></span><br><span class="line">  &#125;;</span><br><span class="line">  el = <span class="literal">null</span>; <span class="comment">// 主动释放el</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>this 指向问题<br>闭包内的<code>this</code>是指向 window 全局作用域</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"alan"</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">"nancy"</span>,</span><br><span class="line">  getName() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a = obj.getName();</span><br><span class="line">a(); <span class="comment">//alan</span></span><br></pre></td></tr></table></figure>
+<h4 id="小声-bb"><a href="#小声-bb" class="headerlink" title="小声 bb"></a>小声 bb</h4><p>匿名函数的 this 是指向 window 的,而且匿名函数前要加<code>分号</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"alan"</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  name: <span class="string">"nancy"</span>,</span><br><span class="line">  getName2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">      <span class="built_in">console</span>.log(self.name);</span><br><span class="line">    &#125;)();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getName2(); <span class="comment">//alan nancy</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -407,6 +406,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JS-闭包/" rel="tag"># JS 闭包</a>
+          
+        </div>
+      
 
       
       
@@ -416,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/14/js-原型与原型链关系图/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2020/04/14/js-原型与原型链关系图/" rel="next" title="JS 原型与原型链关系图">
+                <i class="fa fa-chevron-left"></i> JS 原型与原型链关系图
               </a>
             
           </div>
@@ -425,6 +430,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/14/UI-element-ui重写样式/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -505,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS–闭包理解"><span class="nav-number">1.</span> <span class="nav-text">JS–闭包理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包会引起的问题"><span class="nav-number">1.2.</span> <span class="nav-text">闭包会引起的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小声bb"><span class="nav-number">1.3.</span> <span class="nav-text">小声bb</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包会引起的问题"><span class="nav-number">2.</span> <span class="nav-text">闭包会引起的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用变量发生变化"><span class="nav-number">2.1.</span> <span class="nav-text">引用变量发生变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#产生内存泄露问题"><span class="nav-number">2.2.</span> <span class="nav-text">产生内存泄露问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小声-bb"><span class="nav-number">2.3.</span> <span class="nav-text">小声 bb</span></a></li></ol></li></ol></div>
             
 
           </div>
