@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/小白历险记之gitbook/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/小程序开发周报(二)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="符">
@@ -323,7 +323,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/17/小白历险记之gitbook/" itemprop="url">小白历险记之gitbook</a></h1>
+                <a class="post-title-link" href="/2019/03/25/小程序开发周报(二)/" itemprop="url">小程序开发周报(3.11-3.17)</a></h1>
         
 
         <div class="post-meta">
@@ -363,10 +363,1089 @@
 
       
         
-          <h3 id="最近除开上课和吃饭睡觉，最叫我难以入眠的东西，自然就是gitbook上的博客要怎么搭建，因为自己的课程任务也挺繁忙，每次都只是忙里偷闲的去做一些攻略，然后觉得这样实在没有进步的空间，于是我决定还是专门拿出一个时间来解决一下这个东西。"><a href="#最近除开上课和吃饭睡觉，最叫我难以入眠的东西，自然就是gitbook上的博客要怎么搭建，因为自己的课程任务也挺繁忙，每次都只是忙里偷闲的去做一些攻略，然后觉得这样实在没有进步的空间，于是我决定还是专门拿出一个时间来解决一下这个东西。" class="headerlink" title="最近除开上课和吃饭睡觉，最叫我难以入眠的东西，自然就是gitbook上的博客要怎么搭建，因为自己的课程任务也挺繁忙，每次都只是忙里偷闲的去做一些攻略，然后觉得这样实在没有进步的空间，于是我决定还是专门拿出一个时间来解决一下这个东西。"></a>最近除开上课和吃饭睡觉，最叫我难以入眠的东西，自然就是gitbook上的博客要怎么搭建，因为自己的课程任务也挺繁忙，每次都只是忙里偷闲的去做一些攻略，然后觉得这样实在没有进步的空间，于是我决定还是专门拿出一个时间来解决一下这个东西。</h3>
+          <h3 id="上周完成的功能"><a href="#上周完成的功能" class="headerlink" title="上周完成的功能"></a>上周完成的功能</h3><ul>
+<li>重新调整了小程序的页面逻辑,新增欢迎页面</li>
+<li>点击开始背单词会先检查用户是否有登录</li>
+<li>点击开始背单词会扣除用户相应的积分</li>
+<li>点击登录授权之后会赠送用户 40 积分</li>
+<li>点击登录之后登录按钮变成个人中心</li>
+<li>点击签到之后更新用户积分,并更细用户签到天数</li>
+<li>新增单词音标显示栏</li>
+</ul>
+<h3 id="新-get-到的知识"><a href="#新-get-到的知识" class="headerlink" title="新 get 到的知识"></a>新 get 到的知识</h3><h4 id="nbsp-1-根据用户是否登录来确定功能是否可用-nbsp-nbsp-具体我采用的方法为首先判断用户是否点击了登录按钮-点击了之后是否点击了确认登录-如果没有则相应的某些功能仍然是不可用-如果点击了登录之后首先把用户的信息存入本地缓存中-然后同时更新显示内容-包括用户头像-昵称等-然后当需要用到某些登录之后才能用到的功能时-先去判断本地缓存中是否存在数据-如果有则继续使用-没有则需重新点击登录才能完成-实现代码如下-先判断是否有登陆"><a href="#nbsp-1-根据用户是否登录来确定功能是否可用-nbsp-nbsp-具体我采用的方法为首先判断用户是否点击了登录按钮-点击了之后是否点击了确认登录-如果没有则相应的某些功能仍然是不可用-如果点击了登录之后首先把用户的信息存入本地缓存中-然后同时更新显示内容-包括用户头像-昵称等-然后当需要用到某些登录之后才能用到的功能时-先去判断本地缓存中是否存在数据-如果有则继续使用-没有则需重新点击登录才能完成-实现代码如下-先判断是否有登陆" class="headerlink" title="&nbsp; 1.根据用户是否登录来确定功能是否可用&nbsp;&nbsp;具体我采用的方法为首先判断用户是否点击了登录按钮,点击了之后是否点击了确认登录,如果没有则相应的某些功能仍然是不可用,如果点击了登录之后首先把用户的信息存入本地缓存中,然后同时更新显示内容:包括用户头像,昵称等,然后当需要用到某些登录之后才能用到的功能时,先去判断本地缓存中是否存在数据,如果有则继续使用,没有则需重新点击登录才能完成.实现代码如下:先判断是否有登陆"></a>&nbsp; 1.根据用户是否登录来确定功能是否可用<br>&nbsp;&nbsp;具体我采用的方法为首先判断用户是否点击了登录按钮,点击了之后是否点击了确认登录,如果没有则相应的某些功能仍然是不可用,如果点击了登录之后首先把用户的信息存入本地缓存中,然后同时更新显示内容:包括用户头像,昵称等,然后当需要用到某些登录之后才能用到的功能时,先去判断本地缓存中是否存在数据,如果有则继续使用,没有则需重新点击登录才能完成.实现代码如下:<br>先判断是否有登陆</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/17/小白历险记之gitbook/#more" rel="contents">
+            <a class="btn" href="/2019/03/25/小程序开发周报(二)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/小程序开发周报(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/17/小程序开发周报(一)/" itemprop="url">小程序开发周报(3.04-3.10)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="新-get-到的知识"><a href="#新-get-到的知识" class="headerlink" title="新 get 到的知识"></a>新 get 到的知识</h3><h4 id="nbsp-1-wx-switchTab-是只能跳转到-tabBar-页面-对于其他的非-tabBar-页面跳转是无效的-如果要跳转到非-tarBar-页面可以使用-wx-redirectTo-所以如果你的小程序最开始不想直接给用户展示你的界面-可以先设置一个欢迎页面-然后通过点击事件用-wx-switchTab-调转到-tabBar-界面中"><a href="#nbsp-1-wx-switchTab-是只能跳转到-tabBar-页面-对于其他的非-tabBar-页面跳转是无效的-如果要跳转到非-tarBar-页面可以使用-wx-redirectTo-所以如果你的小程序最开始不想直接给用户展示你的界面-可以先设置一个欢迎页面-然后通过点击事件用-wx-switchTab-调转到-tabBar-界面中" class="headerlink" title="&nbsp; 1.wx.switchTab 是只能跳转到 tabBar 页面,对于其他的非 tabBar 页面跳转是无效的,如果要跳转到非 tarBar 页面可以使用 wx.redirectTo.所以如果你的小程序最开始不想直接给用户展示你的界面,可以先设置一个欢迎页面,然后通过点击事件用 wx.switchTab 调转到 tabBar 界面中."></a>&nbsp; 1.wx.switchTab 是只能跳转到 tabBar 页面,对于其他的非 tabBar 页面跳转是无效的,如果要跳转到非 tarBar 页面可以使用 wx.redirectTo.<br>所以如果你的小程序最开始不想直接给用户展示你的界面,可以先设置一个欢迎页面,然后通过点击事件用 wx.switchTab 调转到 tabBar 界面中.</h4><h4 id="nbsp-2-对于-app-json-中的-tabBar-不显示的问题。"><a href="#nbsp-2-对于-app-json-中的-tabBar-不显示的问题。" class="headerlink" title="&nbsp; 2.对于 app.json 中的 tabBar 不显示的问题。"></a>&nbsp; 2.对于 app.json 中的 tabBar 不显示的问题。</h4><ol>
+<li>代码写错了,检查一下有没有标红；</li>
+<li>tabBar 中 list 的顺序要和 pages 中顺序一直,如果不一致也是会导致下方的 tarBar不显示.<br></li>
+</ol>
+<h4 id="nbsp-3-对于页面之间的传值，例如有-A-B-两个页面-如果要从-A-页面跳转到-B-页面并且附带参数-可以在-A-页面的-url-地址中传入你的参数-在-B-页面通过-onLoad-中的-options-进行调用，具体如下："><a href="#nbsp-3-对于页面之间的传值，例如有-A-B-两个页面-如果要从-A-页面跳转到-B-页面并且附带参数-可以在-A-页面的-url-地址中传入你的参数-在-B-页面通过-onLoad-中的-options-进行调用，具体如下：" class="headerlink" title="&nbsp; 3.对于页面之间的传值，例如有 A,B 两个页面,如果要从 A 页面跳转到 B 页面并且附带参数,可以在 A 页面的 url 地址中传入你的参数,在 B 页面通过 onLoad()中的 options 进行调用，具体如下："></a>&nbsp; 3.对于页面之间的传值，例如有 A,B 两个页面,如果要从 A 页面跳转到 B 页面并且附带参数,可以在 A 页面的 url 地址中传入你的参数,在 B 页面通过 onLoad()中的 options 进行调用，具体如下：</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/17/小程序开发周报(一)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/小程序立项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/02/小程序立项/" itemprop="url">小程序立项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="小程序学习计划"><a href="#小程序学习计划" class="headerlink" title="小程序学习计划"></a>小程序学习计划</h3><h4 id="主要采用mpvue的开发语言来进行开发。因为本人对服务端的代码并没有掌握好，所以预计前8周的时间用于服务端语言的学习掌握以及用mpvue进行小程序开发的一些基本知识，并且尝试对小程序的服务端进行初步的架构与设计。主要的内容包括："><a href="#主要采用mpvue的开发语言来进行开发。因为本人对服务端的代码并没有掌握好，所以预计前8周的时间用于服务端语言的学习掌握以及用mpvue进行小程序开发的一些基本知识，并且尝试对小程序的服务端进行初步的架构与设计。主要的内容包括：" class="headerlink" title="主要采用mpvue的开发语言来进行开发。因为本人对服务端的代码并没有掌握好，所以预计前8周的时间用于服务端语言的学习掌握以及用mpvue进行小程序开发的一些基本知识，并且尝试对小程序的服务端进行初步的架构与设计。主要的内容包括："></a>主要采用mpvue的开发语言来进行开发。因为本人对服务端的代码并没有掌握好，所以预计前8周的时间用于服务端语言的学习掌握以及用mpvue进行小程序开发的一些基本知识，并且尝试对小程序的服务端进行初步的架构与设计。主要的内容包括：</h4><ul>
+<li>nodejs的学习</li>
+<li>mpvue的学习</li>
+<li>小程序原生语言的学习</li>
+<li>开发插件的一些了解与学习(vuex\echart)</li>
+</ul>
+<h4 id="从第9周到第12周基本完成服务端代码的编写，然后开始小程序端的相关开发"><a href="#从第9周到第12周基本完成服务端代码的编写，然后开始小程序端的相关开发" class="headerlink" title="从第9周到第12周基本完成服务端代码的编写，然后开始小程序端的相关开发"></a>从第9周到第12周基本完成服务端代码的编写，然后开始小程序端的相关开发</h4><h3 id="开发计划"><a href="#开发计划" class="headerlink" title="开发计划"></a>开发计划</h3><h4 id="英语单词学习小程序"><a href="#英语单词学习小程序" class="headerlink" title="英语单词学习小程序"></a>英语单词学习小程序</h4><h4 id="拥有的功能有背词、学词、复习词-背单词的方式和传统的方式一样。主要点在学习单词。比如说一天学习40个单词，你需要支付1块钱，如果当天学完了，这一块钱就会返还到账户，如果当天没有学习完，这一块钱将分发给监督你学习的人。这些人可以是陌生人，也可以是通过二维码或者链接你邀请过来监督你学习单词的人；-另外一个想到的亮点功能是通过echarts来对你学习的过程进行可视化"><a href="#拥有的功能有背词、学词、复习词-背单词的方式和传统的方式一样。主要点在学习单词。比如说一天学习40个单词，你需要支付1块钱，如果当天学完了，这一块钱就会返还到账户，如果当天没有学习完，这一块钱将分发给监督你学习的人。这些人可以是陌生人，也可以是通过二维码或者链接你邀请过来监督你学习单词的人；-另外一个想到的亮点功能是通过echarts来对你学习的过程进行可视化" class="headerlink" title="拥有的功能有背词、学词、复习词  背单词的方式和传统的方式一样。主要点在学习单词。比如说一天学习40个单词，你需要支付1块钱，如果当天学完了，这一块钱就会返还到账户，如果当天没有学习完，这一块钱将分发给监督你学习的人。这些人可以是陌生人，也可以是通过二维码或者链接你邀请过来监督你学习单词的人； 另外一个想到的亮点功能是通过echarts来对你学习的过程进行可视化"></a>拥有的功能有背词、学词、复习词 <br> 背单词的方式和传统的方式一样。主要点在学习单词。比如说一天学习40个单词，你需要支付1块钱，如果当天学完了，这一块钱就会返还到账户，如果当天没有学习完，这一块钱将分发给监督你学习的人。这些人可以是陌生人，也可以是通过二维码或者链接你邀请过来监督你学习单词的人；<br> 另外一个想到的亮点功能是通过echarts来对你学习的过程进行可视化</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/在mpvue中使用小程序原生的swiper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/26/在mpvue中使用小程序原生的swiper/" itemprop="url">框架学习--vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="在mpvue中使用原生的swiper"><a href="#在mpvue中使用原生的swiper" class="headerlink" title="在mpvue中使用原生的swiper"></a>在mpvue中使用原生的swiper</h2><h4 id="本来让我头大怎么在小程序中使用轮播图，想着原生的小程序轮播图也挺好用，挺方便的，怎么能够用上这个，后来在网上找了一下，发现居然真的可以用，赶紧记录一下。"><a href="#本来让我头大怎么在小程序中使用轮播图，想着原生的小程序轮播图也挺好用，挺方便的，怎么能够用上这个，后来在网上找了一下，发现居然真的可以用，赶紧记录一下。" class="headerlink" title="本来让我头大怎么在小程序中使用轮播图，想着原生的小程序轮播图也挺好用，挺方便的，怎么能够用上这个，后来在网上找了一下，发现居然真的可以用，赶紧记录一下。"></a>本来让我头大怎么在小程序中使用轮播图，想着原生的小程序轮播图也挺好用，挺方便的，怎么能够用上这个，后来在网上找了一下，发现居然真的可以用，赶紧记录一下。</h4><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="使用过程其实也简单，把这个轮播图当成一个组件来使用即可。"><a href="#使用过程其实也简单，把这个轮播图当成一个组件来使用即可。" class="headerlink" title="使用过程其实也简单，把这个轮播图当成一个组件来使用即可。"></a>使用过程其实也简单，把这个轮播图当成一个组件来使用即可。</h4><h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/26/在mpvue中使用小程序原生的swiper/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/echarts--南丁格尔图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/21/echarts--南丁格尔图/" itemprop="url">利用echart进行数据可视化--南丁格尔图</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="在对-echarts-有了一个初步的学习之后，越发发现-echarts-有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录"><a href="#在对-echarts-有了一个初步的学习之后，越发发现-echarts-有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录" class="headerlink" title="在对 echarts 有了一个初步的学习之后，越发发现 echarts 有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录"></a>在对 echarts 有了一个初步的学习之后，越发发现 echarts 有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录</h3><h4 id="前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。"><a href="#前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。" class="headerlink" title="前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。"></a>前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。</h4><h4 id="因为饼状图并不需要-x-坐标或者-y-坐标来对对图形进行可视化，所以并不需要-xAxis-和-yAxis。这里需要做的就是首先改变type-改成-type-39-pie-39-具体如下"><a href="#因为饼状图并不需要-x-坐标或者-y-坐标来对对图形进行可视化，所以并不需要-xAxis-和-yAxis。这里需要做的就是首先改变type-改成-type-39-pie-39-具体如下" class="headerlink" title="因为饼状图并不需要 x 坐标或者 y 坐标来对对图形进行可视化，所以并不需要 xAxis 和 yAxis。这里需要做的就是首先改变type,改成 type:&#39;pie&#39; . 具体如下:"></a>因为饼状图并不需要 x 坐标或者 y 坐标来对对图形进行可视化，所以并不需要 xAxis 和 yAxis。这里需要做的就是首先改变<code>type</code>,改成 <code>type:&#39;pie&#39;</code> . 具体如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let option = &#123;</span><br><span class="line">        series: [</span><br><span class="line">          &#123;</span><br><span class="line">            name: &quot;访问来源&quot;,</span><br><span class="line">            type: &quot;pie&quot;,</span><br><span class="line">            radius: &quot;50%&quot;,  //饼图大小</span><br><span class="line">            data: [</span><br><span class="line">              &#123; value: 235, name: &quot;视频广告&quot; &#125;, //value表示区域的大小</span><br><span class="line">              &#123; value: 274, name: &quot;联盟广告&quot; &#125;,</span><br><span class="line">              &#123; value: 310, name: &quot;邮件营销&quot; &#125;,</span><br><span class="line">              &#123; value: 335, name: &quot;直接访问&quot; &#125;,</span><br><span class="line">              &#123; value: 400, name: &quot;搜索引擎&quot; &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;;</span><br><span class="line">myChart.setOption(option)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/21/echarts--南丁格尔图/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/vue中使用echart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/19/vue中使用echart/" itemprop="url">利用echart进行数据可视化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="因为这学期正好上了数据可视化的课程，但是主要使用的d3-js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。"><a href="#因为这学期正好上了数据可视化的课程，但是主要使用的d3-js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。" class="headerlink" title="因为这学期正好上了数据可视化的课程，但是主要使用的d3.js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。"></a>因为这学期正好上了数据可视化的课程，但是主要使用的d3.js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。</h4><h3 id="第一步-利用vue-cli快速创建手脚架"><a href="#第一步-利用vue-cli快速创建手脚架" class="headerlink" title="第一步:利用vue-cli快速创建手脚架"></a>第一步:利用vue-cli快速创建手脚架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create echart-demo</span><br></pre></td></tr></table></figure>
+<h3 id="第二步-依赖安装echart包"><a href="#第二步-依赖安装echart包" class="headerlink" title="第二步:依赖安装echart包"></a>第二步:依赖安装echart包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install echarts --save</span><br></pre></td></tr></table></figure>
+<h3 id="第三步-在main-js中引入echarts"><a href="#第三步-在main-js中引入echarts" class="headerlink" title="第三步:在main.js中引入echarts"></a>第三步:在main.js中引入echarts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import echarts from &apos;echarts&apos;</span><br><span class="line">Vue.prototype.$echarts =echarts</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/19/vue中使用echart/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/28/vuex/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#### </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/js正则表达式的相关知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/17/js正则表达式的相关知识/" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>因为最近在做的的一个作业需要用到正则表达式的一些知识，而我在学习js的时候恰好对这一块有一些忽视，导致现在过来补，有一点点头大，不过在用过之后发现，正则表达式真香，比我一个个的去做长度判断、内容判断方便的不知道多少倍。JS牛逼！</p>
+
+<h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>个人理解: 正则表达式就是用来做验证用的，简洁、高效<br><br>官方定义: 正则表达式是用于匹配字符串中字符组合的模式<br></p>
+
+<h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h3><h3 id="正则表达式的模式"><a href="#正则表达式的模式" class="headerlink" title="正则表达式的模式"></a>正则表达式的模式</h3><h4 id="简单的模式"><a href="#简单的模式" class="headerlink" title="简单的模式"></a>简单的模式</h4><ul>
+<li>所谓简单的模式就是由简单的字符构成的，例如<code>/abc/</code></li>
+</ul>
+<h4 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h4><ul>
+<li>当需要搜索一个比直接匹配更多的匹配的时候，例如多个字符、空格、一个字符多次出现等，就需要用到一些特殊的字符了</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/17/js正则表达式的相关知识/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/vue学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/vue学习/" itemprop="url">框架学习--vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在短暂的接触到小程序之后，这学期的主要学习目标还是选择放在vue上面。不能说小程序不好，我只是觉得vue学习完之后，好像学小程序会更方便，希望学完之后能有一些提升</p>
+
+<h4 id="Vue指令之v-text和v-html"><a href="#Vue指令之v-text和v-html" class="headerlink" title="Vue指令之v-text和v-html"></a>Vue指令之<code>v-text</code>和<code>v-html</code></h4><h4 id="Vue指令之v-bind的用法"><a href="#Vue指令之v-bind的用法" class="headerlink" title="Vue指令之v-bind的用法"></a>Vue指令之<code>v-bind</code>的用法</h4><ol>
+<li>直接使用指令<code>v-bind</code></li>
+<li>使用简化指令<code>:</code><h5 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h5></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;info&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;开启&quot; v-on:click=&quot;go&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;停止&quot; v-on:click=&quot;stop&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">        info: &apos;hello~！&apos;,</span><br><span class="line">        intervalId: null</span><br><span class="line">      &#125;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        go() &#123;</span><br><span class="line">          // 如果当前有定时器在运行，则直接return</span><br><span class="line">          if (this.intervalId != null) &#123;</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line">          // 开始定时器</span><br><span class="line">          this.intervalId = setInterval(() =&gt; &#123;</span><br><span class="line">            this.info = this.info.substring(1) + this.info.substring(0, 1);</span><br><span class="line">          &#125;, 500);</span><br><span class="line">        &#125;,</span><br><span class="line">        stop() &#123;</span><br><span class="line">          clearInterval(this.intervalId);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Vue指令之v-on的缩写和事件修饰符"><a href="#Vue指令之v-on的缩写和事件修饰符" class="headerlink" title="Vue指令之v-on的缩写和事件修饰符"></a>Vue指令之<code>v-on的缩写</code>和<code>事件修饰符</code></h4><h5 id="事件修饰符："><a href="#事件修饰符：" class="headerlink" title="事件修饰符："></a>事件修饰符：</h5><ul>
+<li>.stop       阻止冒泡</li>
+<li>.prevent    阻止默认事件(a链接、button提交)</li>
+<li>.capture    添加事件侦听器时使用事件捕获模式</li>
+<li>.self       只当事件在该元素本身（比如不是子元素）触发时触发回调</li>
+<li>.once       事件只触发一次
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/vue学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/被webpack支配的快感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/被webpack支配的快感/" itemprop="url">磨人的webpack4.x</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><a href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。" class="headerlink" title="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"></a>从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</h5><h5 id="为什么使用-webpack"><a href="#为什么使用-webpack" class="headerlink" title="为什么使用 webpack"></a>为什么使用 webpack</h5><p>首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面许多的插件和npm包的感觉有点跟不上webpack的节奏。我在尝试webpack 的时候本着追求时代潮流的做法，安装了最新的webpack版本，结果自己配置起来直接崩溃，各种小问题一直不断的暴露出来，到最后我得出的结论是：思想上可以跟住最新的技术，实际上还是先使用稳定版的比较好吧</p>
+
+<h4 id="全局安装和局部安装"><a href="#全局安装和局部安装" class="headerlink" title="全局安装和局部安装"></a>全局安装和局部安装</h4><ul>
+<li>全局安装是指把 npm 包下载到 node_modules 的文件夹中，采用的命令是<pre>npm i 模块名 -g</pre>，安装之后可以在命令行直接使用；</li>
+<li><p>局部安装的命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 模块名</span><br><span class="line">或者&lt;pre&gt;npm i 模块名 --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</p>
+</li>
+</ul>
+<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i cnpm -g</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>然后就能采用 cnpm 的方式进行包下载</p>
+<h4 id="开始使用-webpack"><a href="#开始使用-webpack" class="headerlink" title="开始使用 webpack"></a>开始使用 webpack</h4><ul>
+<li>首先新建一个文件夹，然后使用 npm 初始化配置<blockquote>
+<p>npm init<br>然后一路回车即可</p>
+</blockquote>
+</li>
+<li><p>选择在本地局部安装 webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack --save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
+</blockquote>
+</li>
+<li>安装完 webpack 之后，安装 webpack-dev-server,这个包能够在开发环境中提供启动服务器、热更新、借口代理等，十分方便<blockquote>
+<p>cnpm i webpack-dev-server –save-dev</p>
+</blockquote>
+</li>
+<li>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/被webpack支配的快感/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -408,7 +1487,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -458,7 +1537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -525,7 +1604,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

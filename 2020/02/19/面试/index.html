@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This is for U" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="减少页面加载时间的方式 图像格式的选择（GIF：提供的颜色较少，可以用在对颜色要求不高的地方 优化图片，减小尺寸， 优化css 压缩合并css，比如margin-top  网址后加斜杠 高度和宽度 减少http请求 合并文件、合并图片  document.ready 和 window.onload 的区别是：上面定义的document.ready方法在DOM树加载完成后就会执行，而window.o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This is for U">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/面试/index.html">
+<meta property="og:site_name" content="This is for U">
+<meta property="og:description" content="减少页面加载时间的方式 图像格式的选择（GIF：提供的颜色较少，可以用在对颜色要求不高的地方 优化图片，减小尺寸， 优化css 压缩合并css，比如margin-top  网址后加斜杠 高度和宽度 减少http请求 合并文件、合并图片  document.ready 和 window.onload 的区别是：上面定义的document.ready方法在DOM树加载完成后就会执行，而window.o">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/Hc61da03061f541379b5d38df72b3f5a2H.png">
+<meta property="og:updated_time" content="2020-04-05T14:36:26.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This is for U">
+<meta name="twitter:description" content="减少页面加载时间的方式 图像格式的选择（GIF：提供的颜色较少，可以用在对颜色要求不高的地方 优化图片，减小尺寸， 优化css 压缩合并css，比如margin-top  网址后加斜杠 高度和宽度 减少http请求 合并文件、合并图片  document.ready 和 window.onload 的区别是：上面定义的document.ready方法在DOM树加载完成后就会执行，而window.o">
+<meta name="twitter:image" content="https://ae05.alicdn.com/kf/Hc61da03061f541379b5d38df72b3f5a2H.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Hanson'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/19/面试/"/>
+
+
+
+
+
+  <title> | This is for U</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      <a href="https://github.com/fudashuai007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">This is for U</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            me
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/面试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="减少页面加载时间的方式"><a href="#减少页面加载时间的方式" class="headerlink" title="减少页面加载时间的方式"></a>减少页面加载时间的方式</h4><ul>
+<li>图像格式的选择（GIF：提供的颜色较少，可以用在对颜色要求不高的地方</li>
+<li>优化图片，减小尺寸，</li>
+<li>优化css 压缩合并css，比如margin-top </li>
+<li>网址后加斜杠</li>
+<li>高度和宽度</li>
+<li>减少http请求 合并文件、合并图片</li>
+</ul>
+<p>document.ready 和 window.onload 的区别是：上面定义的document.ready方法在DOM树加载完成后就会执行，<br>而window.onload是在页面资源（比如图片和媒体资源，它们的加载速度远慢于DOM的加载速度）加载完成之后才执行。<br>也就是说$(document).ready要比window.onload先执行。</p>
+<p>cookies 存储容量&lt;=4K ，在设置cookies过期之前数据一直存在（即使浏览器关闭也存在） 能够将cookies数据发送到服务端，服务端也可以将cookie数据发送到客户端<br>seesionstorage 存储容量5m 在浏览器关闭之后数据删除 ，不能和服务端进行数据传送<br>localstorage 存储容量5m 长期存在，除非用户主动删除   不能和服务端进行数据传送</p>
+<p>重绘和重排的区别<br>重绘不一定重排 重排一定会重绘</p>
+<p>HTML语义化的好处：<br>1).去掉或样式丢失的时候能让页面呈现清晰的结构<br>2).方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页<br>3).有利于SEO<br>4).便于团队开发和维护，遵循W3C标准，可以减少差异化</p>
+<p>GET请求和POST请求的区别：<br>1.效率<br>GET的意思是『得』，从服务器获取数据（也可以上传数据，参数就是），效率较高<br>POST的意思是『给』，但可以向服务器发送数据和下载数据，效率不如GET<br>2.缓存<br>GET 请求能够被缓存，默认的请求方式也是有缓存的<br>POST请求默认不会缓存<br>缓存是针对URL来进行缓存的，GET请求由于其参数是直接加在URL上-的，一种参数组合就有一种URL的缓存，可以根据参数来进行一一对应，重复请求是幂等的（不论请求多少次，结果都一样）;<br>而POST请求的URL没有参数,每次请求的URL都相同，数据体（HTTPBody）可能不同，无法一一对应，所以缓存没有意义<br>3.安全性<br>GET的所有参数全部包装在URL中，明文显示，且服务器的访问日志会记录，非常不安全<br>POST的URL中只有资源路径，不包含参数，参数封装在二进制的数据体中，服务器也不会记录参数，相对安全。所有涉及用户隐私的数据都要用POST传输<br>POST的安全是相对的，对于普通用户来说他们看不到明文，数据封装对他们来说就是屏障。<br>但是对于专业人士，它们会抓包会分析，没有加密的数据包对他们来说也是小case。所以POST仅仅是相对安全，唯有对数据进行加密才会更安全。当然加密也有被破解的可能性，理论上所有的加密方式都可以破解，只是时间长短的问题。而加密算法要做的就是使得破解需要的时间尽量长，越长越安全。由于我们也需要解密，加密算法太过复杂也并非好事，<br>这就要结合使用情况进行折中或者足够实际使用即可。绕的有点远，具体的话，我将在后续的文章之中介提及，并介绍一些常用的加密算法。<br>4.数据量<br>HTTP协议中均没有对GET和POST请求的数据大小进行限制，但是实际应用中它们通常受限于软硬件平台的设计和性能。</p>
+<p>GET：不同的浏览器和服务器不同，一般限制在2~8K之间，更加常见的是1k以内<br>POST方法提交的数据比较大，大小靠服务器的设定值限制，PHP默认是2M（具体的话大家以后看后端给的开发文档就行了）</p>
+<p>(2)http和https的区别？<br>http传输的数据都是未加密的，也就是明文的，网景公司设置了SSL协议来对http协议传输的数据进行加密处理，<br>简单来说https协议是由http和ssl协议构建的可进行加密传输和身份认证的网络协议，比http协议的安全性更高。<br>主要的区别如下：</p>
+<p>Https协议需要ca证书，费用较高。<br>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。<br>使用不同的链接方式，端口也不同，一般而言，http协议的端口为80，https的端口为443<br>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<p>link和@import区别<br>1.从属关系区别<br>@import是 CSS 提供的语法规则，只有导入样式表的作用；link是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。<br>2.加载顺序区别<br>加载页面时，link标签引入的 CSS 被同时加载；@import引入的 CSS 将在页面加载完毕后被加载。<br>3.兼容性区别<br>@import是 CSS2.1 才有的语法，故只可在 IE5+ 才能识别；link标签作为 HTML 元素，不存在兼容性问题。<br>4.DOM可控性区别<br>可以通过 JS 操作 DOM ，插入link标签来改变样式；由于 DOM 方法是基于文档的，无法使用@import的方式插入样式。</p>
+<p>js中两种定时器，setTimeout和setInterval的区别<br>setTimeout只在指定时间后执行一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;  </span><br><span class="line">//定时器 异步运行  </span><br><span class="line">function hello()&#123;  </span><br><span class="line">alert(&quot;hello&quot;);  </span><br><span class="line">&#125;  </span><br><span class="line">//使用方法名字执行方法  </span><br><span class="line">var t1 = window.setTimeout(hello,1000);  </span><br><span class="line">var t2 = window.setTimeout(&quot;hello()&quot;,3000);//使用字符串执行方法  </span><br><span class="line">window.clearTimeout(t1);//去掉定时器  </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>setInterval以指定时间为周期循环执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//实时刷新时间单位为毫秒  </span><br><span class="line">setInterval(&apos;refreshQuery()&apos;,8000);   </span><br><span class="line">/* 刷新查询 */  </span><br><span class="line">function refreshQuery()&#123;  </span><br><span class="line">   $(&quot;#mainTable&quot;).datagrid(&apos;reload&apos;,null);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一般情况下setTimeout用于延迟执行某方法或功能，</p>
+<p>setInterval则一般用于刷新表单，对于一些表单的假实时指定时间刷新同步</p>
+<p>原型链</p>
+<p><img src="https://ae05.alicdn.com/kf/Hc61da03061f541379b5d38df72b3f5a2H.png" alt="image.png"></p>
+<p>//逆序排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function lineupStudents(students)&#123;</span><br><span class="line">     var stu=students.split(&quot; &quot;);</span><br><span class="line">     stu.sort(function(a,b)&#123;</span><br><span class="line">         if(a.length==b.length)&#123;</span><br><span class="line">             return b.localeCompare(a);</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">             return b.length-a.length;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;)</span><br><span class="line"> console.log(stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js 防抖和节流<br>在进行窗口的resize scroll 和输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验差，此时可以采用防抖和节流的方式来减少调用频率，又不影响实际体验</p>
+<p>防抖（debounce)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn,wait)&#123;</span><br><span class="line">	var time =null</span><br><span class="line">	return function()&#123;</span><br><span class="line">		if(time)clearTimeout(time)</span><br><span class="line">		time =setTimeout(fn,wait)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Handle()&#123;</span><br><span class="line">	***</span><br><span class="line"></span><br><span class="line">	***</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.addEventListener(&apos;scroll&apos;,dubounce(handle,1000))</span><br></pre></td></tr></table></figure></p>
+<p>当持续触发scroll事件时，事件处理函数handle只在停止滚动1000毫秒之后才会调用一次，也就是说在持续触发scroll事件的过程中，事件处理函数handle一直没有执行</p>
+<p>节流 (throttle)||时间戳方式<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> function throttle(fn,delay)&#123;</span><br><span class="line">	var pre = Date.now()</span><br><span class="line">	return funtion()&#123;</span><br><span class="line">		var args=arguments</span><br><span class="line">		var now =Date.now()</span><br><span class="line">		if(now -prev&gt;=delay)&#123;</span><br><span class="line">			fn.apply(this,args)</span><br><span class="line">			prev=Date,now()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handle()&#123;</span><br><span class="line">	***</span><br><span class="line">	***</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.addEventListener(&apos;scroll&apos;,throttle(handle,1000))</span><br></pre></td></tr></table></figure></p>
+<pre><code>当高频事件触发时，第一次立刻执行，而后再怎么频繁的触发事件，也都是delay时间间隔内执行一次，而当最后一次时间触发完毕，时间也不会被在执行
+
+节流throttle||定时器方式
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn,delay)&#123;</span><br><span class="line">	var time = null</span><br><span class="line">	return function()&#123;</span><br><span class="line">		var that =this</span><br><span class="line">		var args = arguments</span><br><span class="line">		if(!time)&#123;</span><br><span class="line">			time = setTimeout(function()&#123;</span><br><span class="line">				fn.apply(that,args)</span><br><span class="line">				time = null</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p>浏览器缓存<br>缓存分为两种：强缓存和协商缓存，根据响应的header内容来决定。<br>强缓存相关字段有expires，cache-control。如果cache-control与expires同时存在的话，cache-control的优先级高于expires。<br>协商缓存相关字段有Last-Modified/If-Modified-Since，Etag/If-None-Match</p>
+<p>HTML5新增内容<br>首先html5为了更好的实践web语义化，增加了header，footer，nav,aside,section等语义化标签，在表单方面，为了增强表单，为input增加了color，emial,data ,range等类型，在存储方面，提供了sessionStorage，localStorage,和离线存储，通过这些存储方式方便数据在客户端的存储和获取，在多媒体方面规定了音频和视频元素audio和vedio，另外还有地理定位，canvas画布，拖放，多线程编程的web worker和websocket协议</p>
+<p>输入url到页面加载完成，浏览器做了哪些事情<br>输入url后，首先需要找到这个url域名的服务器ip,为了寻找这个ip，浏览器首先会寻找缓存，查看缓存中是否有记录，缓存的查找记录为：浏览器缓存-》系统缓存-》路由器缓存，缓存中没有则查找系统的hosts文件中是否有记录，如果没有则查询DNS服务器，得到服务器的ip地址后，浏览器根据这个ip以及相应的端口号，构造一个http请求，这个请求报文会包括这次请求的信息，主要是请求方法，请求说明和请求附带的数据，并将这个http请求封装在一个tcp包中，这个tcp包会依次经过传输层，网络层，数据链路层，物理层到达服务器，服务器解析这个请求来作出响应，返回相应的html给浏览器，因为html是一个树形结构，浏览器根据这个html来构建DOM树，在dom树的构建过程中如果遇到JS脚本和外部JS连接，则会停止构建DOM树来执行和下载相应的代码，这会造成阻塞，这就是为什么推荐JS代码应该放在html代码的后面，之后根据外部央视，内部央视，内联样式构建一个CSS对象模型树CSSOM树，构建完成后和DOM树合并为渲染树，这里主要做的是排除非视觉节点，比如script，meta标签和排除display为none的节点，之后进行布局，布局主要是确定各个元素的位置和尺寸，之后是渲染页面，因为html文件中会含有图片，视频，音频等资源，在解析DOM的过程中，遇到这些都会进行并行下载，浏览器对每个域的并行下载数量有一定的限制，一般是4-6个，当然在这些所有的请求中我们还需要关注的就是缓存，缓存一般通过Cache-Control、Last-Modify、Expires等首部字段控制。 Cache-Control和Expires的区别在于Cache-Control使用相对时间，Expires使用的是基于服务器 端的绝对时间，因为存在时差问题，一般采用Cache-Control，在请求这些有设置了缓存的数据时，会先 查看是否过期，如果没有过期则直接使用本地缓存，过期则请求并在服务器校验文件是否修改，如果上一次 响应设置了ETag值会在这次请求的时候作为If-None-Match的值交给服务器校验，如果一致，继续校验 Last-Modified，没有设置ETag则直接验证Last-Modified，再决定是否返回304</p>
+<p>csrf跨域请求防御策略：采用验证码、检查http头部的refer、使用token<br>xss跨站脚本攻击防御策略：cookies设置httpOnly属性、对用户的输入进行检查、进行特殊字符过滤</p>
+<p>{} valueOf 是{}  toString 是 [object object]<br>[] valueOf 是[]  toString 是 “”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="符 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>杜绝狗粮！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/11/http代理/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/28/vue/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="符" />
+            
+              <p class="site-author-name" itemprop="name">符</p>
+              <p class="site-description motion-element" itemprop="description">HEY, U!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#减少页面加载时间的方式"><span class="nav-number">1.</span> <span class="nav-text">减少页面加载时间的方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">符</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

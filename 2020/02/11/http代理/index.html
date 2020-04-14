@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This is for U" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="代理代理与网关的区别严格说，代理连接的是两个或多和使用相同协议的应用程序，而网关连接的是两个或多个使用不同协议的端点。网关扮演的是“协议转换器”的角色，即使客户端和服务器使用的是不同的协议，客户端也可以通过它完成与度武器之间的事务处理实际上，代理和网关的区别很模糊，由于浏览器和服务器实现的是不同版本的HTTP，代理也经常要做一些协议转换工作，而商业化的代理服务器也会实现网关的功能来支持SSL安全协">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This is for U">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/http代理/index.html">
+<meta property="og:site_name" content="This is for U">
+<meta property="og:description" content="代理代理与网关的区别严格说，代理连接的是两个或多和使用相同协议的应用程序，而网关连接的是两个或多个使用不同协议的端点。网关扮演的是“协议转换器”的角色，即使客户端和服务器使用的是不同的协议，客户端也可以通过它完成与度武器之间的事务处理实际上，代理和网关的区别很模糊，由于浏览器和服务器实现的是不同版本的HTTP，代理也经常要做一些协议转换工作，而商业化的代理服务器也会实现网关的功能来支持SSL安全协">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-23T03:45:20.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This is for U">
+<meta name="twitter:description" content="代理代理与网关的区别严格说，代理连接的是两个或多和使用相同协议的应用程序，而网关连接的是两个或多个使用不同协议的端点。网关扮演的是“协议转换器”的角色，即使客户端和服务器使用的是不同的协议，客户端也可以通过它完成与度武器之间的事务处理实际上，代理和网关的区别很模糊，由于浏览器和服务器实现的是不同版本的HTTP，代理也经常要做一些协议转换工作，而商业化的代理服务器也会实现网关的功能来支持SSL安全协">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Hanson'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/11/http代理/"/>
+
+
+
+
+
+  <title> | This is for U</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      <a href="https://github.com/fudashuai007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">This is for U</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            me
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/http代理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><h3 id="代理与网关的区别"><a href="#代理与网关的区别" class="headerlink" title="代理与网关的区别"></a>代理与网关的区别</h3><p>严格说，代理连接的是两个或多和使用相同协议的应用程序，而网关连接的是两个或多个使用不同协议的端点。网关扮演的是“协议转换器”的角色，即使客户端和服务器使用的是不同的协议，客户端也可以通过它完成与度武器之间的事务处理<br><br>实际上，代理和网关的区别很模糊，由于浏览器和服务器实现的是不同版本的HTTP，代理也经常要做一些协议转换工作，而商业化的代理服务器也会实现网关的功能来支持SSL安全协议，SOCKS防火墙、FTP访问，以及基于web的应用程序。</p>
+<h3 id="代理的作用"><a href="#代理的作用" class="headerlink" title="代理的作用"></a>代理的作用</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安全过滤</td>
+<td>不良内容不宜给儿童</td>
+</tr>
+<tr>
+<td>文档访问控制</td>
+<td>不同用户使用权限问题</td>
+</tr>
+<tr>
+<td>安全防火墙</td>
+<td>代理服务器会在网络中的单一单圈节点上限制哪些应用层协议的数据可以流入或者流出一个组织，还可以对流量进行详细的检查（消除病毒web和email使用的挂钩程序）</td>
+</tr>
+<tr>
+<td>web缓存</td>
+<td>代理缓存维护了常用文档的本地副本，并将它们按须提供，以减少缓慢而又昂贵的因特网通信</td>
+</tr>
+<tr>
+<td>反向代理</td>
+<td>代理可以假扮web服务器。这些被称为代替物或反向代理的代理接受发给Web服务器的真实请求，但与web服务器不同的是他们可以发起与其他服务器的通信，以方便按需定位所请求的内容。<mark>可以用这些反向代理来提高访问慢速Web服务器上公共内容时的性能。在这种配置中，通常将这些反向代理称为服务器加速器</mark></td>
+</tr>
+<tr>
+<td>内容路由器</td>
+<td>根据因特网流量状况以及内容类型将请求导向特定的web服务器。内容路由器也可以用来实现各种服务器的请求</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代理既可以处理代理请求，也可以处理服务器请求"><a href="#代理既可以处理代理请求，也可以处理服务器请求" class="headerlink" title="代理既可以处理代理请求，也可以处理服务器请求"></a>代理既可以处理代理请求，也可以处理服务器请求</h3><p>使用完整和部分url的规则如下：</p>
+<ul>
+<li>如果提供的是完整的URL，代理就应该使用这个完整的URL</li>
+<li>如果提供的是部分URL，而且有host首部，就应该用host首部来确定原始服务器的名字和端口号</li>
+<li>如果提供的是部分URL，而且没有host首部，就应该用其他方法来确定原始服务器：<ol>
+<li>如果代理是代表原始服务器的替代物，就可以用真实服务器的地址和端口号来配置代理；</li>
+<li>如果流量被拦截了，而且拦截者也可以提供原始的ip地址和端口号，代理就可以使用拦截技术提供的ip地址和端口号</li>
+<li>如果所有方法都失败了，代理没有足够的信息来确定原始服务器，就必须返回一条错误报文（通常是建议用户升级到支持host首部的浏览器）</li>
+</ol>
+</li>
+</ul>
+<h3 id="缓存的处理过程"><a href="#缓存的处理过程" class="headerlink" title="缓存的处理过程"></a>缓存的处理过程</h3><p>http get报文的基本缓存处理过程：</p>
+<ul>
+<li>接受————缓存从网络中读取抵达的请求报文</li>
+<li>解析————缓存对报文进行解析，提取出URL和各种首部</li>
+<li>查询————缓存查看是否有本地副本可用，如果没有，就获取一份副本（并保存在本地</li>
+<li>新鲜度检测————缓存查看已缓存副本是否足够新鲜，如果不是就向服务器询问是否有更新</li>
+<li>创建响应————缓存会用新的首部和已缓存的主体来构建一条响应报文</li>
+<li>发送————缓存通过网络将响应发回给客户端</li>
+<li>日志————缓存课选的创建一个日志文件条目来描述这个事务</li>
+</ul>
+<h3 id="设置缓存控制"><a href="#设置缓存控制" class="headerlink" title="设置缓存控制"></a>设置缓存控制</h3><h4 id="控制Apache的http首部"><a href="#控制Apache的http首部" class="headerlink" title="控制Apache的http首部"></a>控制Apache的http首部</h4><p>· mod_headers<br>通过mod_headers模块可以对单独的首部进行设置。装载了这个模块就可以用设置单个http首部的指令来扩充Apache的配置文件，还可以将这些设置与Apache的常用表达式以及过滤器结合起来一起使用，将这些首部与个别内容关联起来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Files *.html&gt;</span><br><span class="line">	Header set Cache-control no-cache</span><br><span class="line">&lt;/Files&gt;</span><br></pre></td></tr></table></figure></p>
+<p>· mod_expires<br>mod_expires模块提供的程序逻辑可以自动启动生成带有正确过期日期的Expires首部。通过这个模块可以将文档的过期日期设置为对其最后一次被访问之后或者其最近修改日期之后的某一时间段。通过这个模块可以为不同的文件类型设置不同的过期日期，还可以使用便捷的详尽描述信息来描述其缓存能力</p>
+<p>· mod_cern_mata<br>通过mod_cern_meta模块可以讲一个包含黄体酮首部的文件与特定的对象联系起来。启动这个模块时，就创建了一组“元文件”，每个需要控制的文档一个，而且还为每个元文件添加所期望的首部</p>
+<h4 id="通过HTTP-EQUIV控制HTML缓存"><a href="#通过HTTP-EQUIV控制HTML缓存" class="headerlink" title="通过HTTP_EQUIV控制HTML缓存"></a>通过HTTP_EQUIV控制HTML缓存</h4><p>http服务器响应首部用于回送文档的到期信息以及缓存控制信息。web服务器与配置文件进行交互，为所能提供的文档分配正确的Cache-Control首部</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="符 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>杜绝狗粮！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/07/http权威--连接管理/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/19/面试/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="符" />
+            
+              <p class="site-author-name" itemprop="name">符</p>
+              <p class="site-description motion-element" itemprop="description">HEY, U!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理"><span class="nav-number">1.</span> <span class="nav-text">代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代理与网关的区别"><span class="nav-number">1.1.</span> <span class="nav-text">代理与网关的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理的作用"><span class="nav-number">1.2.</span> <span class="nav-text">代理的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理既可以处理代理请求，也可以处理服务器请求"><span class="nav-number">1.3.</span> <span class="nav-text">代理既可以处理代理请求，也可以处理服务器请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存的处理过程"><span class="nav-number">1.4.</span> <span class="nav-text">缓存的处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置缓存控制"><span class="nav-number">1.5.</span> <span class="nav-text">设置缓存控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#控制Apache的http首部"><span class="nav-number">1.5.1.</span> <span class="nav-text">控制Apache的http首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过HTTP-EQUIV控制HTML缓存"><span class="nav-number">1.5.2.</span> <span class="nav-text">通过HTTP_EQUIV控制HTML缓存</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">符</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

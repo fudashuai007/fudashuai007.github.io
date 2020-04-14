@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This is for U" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="首部分类 通用首部既可以出现在请求报文中，也可以出现在响应报文中 请求首部提供更多有关请求的信息 响应首部提供更多有关响应的信息 实体首部描述主题的长度和内容或资源自身 拓展首部规范中没有定义的新首部  每个http首部都有一种简答的语法 名字：字段值，最后是一个CRLF(回车换行) 通用信息性首部   首部 描述     Connection 允许客户端和服务器指定与请求/响应连接有关的选项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This is for U">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/HTTP权威指南--http报文/index.html">
+<meta property="og:site_name" content="This is for U">
+<meta property="og:description" content="首部分类 通用首部既可以出现在请求报文中，也可以出现在响应报文中 请求首部提供更多有关请求的信息 响应首部提供更多有关响应的信息 实体首部描述主题的长度和内容或资源自身 拓展首部规范中没有定义的新首部  每个http首部都有一种简答的语法 名字：字段值，最后是一个CRLF(回车换行) 通用信息性首部   首部 描述     Connection 允许客户端和服务器指定与请求/响应连接有关的选项">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-07T13:04:54.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This is for U">
+<meta name="twitter:description" content="首部分类 通用首部既可以出现在请求报文中，也可以出现在响应报文中 请求首部提供更多有关请求的信息 响应首部提供更多有关响应的信息 实体首部描述主题的长度和内容或资源自身 拓展首部规范中没有定义的新首部  每个http首部都有一种简答的语法 名字：字段值，最后是一个CRLF(回车换行) 通用信息性首部   首部 描述     Connection 允许客户端和服务器指定与请求/响应连接有关的选项">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Hanson'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/07/HTTP权威指南--http报文/"/>
+
+
+
+
+
+  <title> | This is for U</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      <a href="https://github.com/fudashuai007"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">This is for U</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay hungry</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            me
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/HTTP权威指南--http报文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="首部分类"><a href="#首部分类" class="headerlink" title="首部分类"></a>首部分类</h3><ul>
+<li>通用首部<br>既可以出现在请求报文中，也可以出现在响应报文中</li>
+<li>请求首部<br>提供更多有关请求的信息</li>
+<li>响应首部<br>提供更多有关响应的信息</li>
+<li>实体首部<br>描述主题的长度和内容或资源自身</li>
+<li>拓展首部<br>规范中没有定义的新首部</li>
+</ul>
+<p>每个http首部都有一种简答的语法 <code>名字：字段值</code>，最后是一个CRLF(回车换行)</p>
+<h4 id="通用信息性首部"><a href="#通用信息性首部" class="headerlink" title="通用信息性首部"></a>通用信息性首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>允许客户端和服务器指定与请求/响应连接有关的选项</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>提供日期和时间标志，说明报文是什么时间创建的</td>
+</tr>
+<tr>
+<td>MIME-Version</td>
+<td>给出了发送端使用的MIME版本</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>给出了发送端可能想要“升级”使用的新版本或协议</td>
+</tr>
+</tbody>
+</table>
+<h4 id="通用缓存首部"><a href="#通用缓存首部" class="headerlink" title="通用缓存首部"></a>通用缓存首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache-Control</td>
+<td>用于随报文传送缓存指示</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>另一种随报文传送指示的方式，但并不专用于缓存</td>
+</tr>
+</tbody>
+</table>
+<h4 id="请求首部"><a href="#请求首部" class="headerlink" title="请求首部"></a>请求首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From</td>
+<td>提供了客户端用户的E-mail地址</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>给出了接收请求的服务器的主机名和端口号</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>将发起请求的应用程序名称告知服务器</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Accept首部"><a href="#Accept首部" class="headerlink" title="Accept首部"></a>Accept首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept</td>
+<td>告诉服务器能够发送哪些媒体类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>告诉服务器能够发送哪些字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>告诉服务器能够发送哪些编码方式</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>告诉服务器能够发送哪些语言</td>
+</tr>
+</tbody>
+</table>
+<h4 id="响应首部"><a href="#响应首部" class="headerlink" title="响应首部"></a>响应首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>服务器应用程序软件的名称和版本</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>对HTML文档来说，就是HTML文档的源端给出的标题</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>比原因短语中更详细一些的警告报文</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实体首部"><a href="#实体首部" class="headerlink" title="实体首部"></a>实体首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>告知客户端实体实际上位于何处；用于将接收端定向到资源的（可能是新的）位置（URL）上去</td>
+</tr>
+</tbody>
+</table>
+<h4 id="内容首部"><a href="#内容首部" class="headerlink" title="内容首部"></a>内容首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Length</td>
+<td>主体的长度或尺寸</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>这个主体的对象类型</td>
+</tr>
+<tr>
+<td>Content-Location</td>
+<td>资源实际所处的位置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="常见的首部实例"><a href="#常见的首部实例" class="headerlink" title="常见的首部实例"></a>常见的首部实例</h4><table>
+<thead>
+<tr>
+<th>首部实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data:Tue,30ct 1997 02:16:03 GMT</td>
+<td>服务产生响应的日期</td>
+</tr>
+<tr>
+<td>Content-length:1500</td>
+<td>实体主体部分包含的字节数据</td>
+</tr>
+<tr>
+<td>Content-type:image/gif</td>
+<td>实体的主体部分是一个GIF图片</td>
+</tr>
+<tr>
+<td>Accept:image/gif,image/jpeg, text/html</td>
+<td>客户端可接受的GIF图片和JEPG图片以及HTML</td>
+</tr>
+</tbody>
+</table>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p><b>100~199————信息性状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>100 | continue | 说明收到了请求的初始部分，请客户端继续。发送了这个状态码之后，服务器在收到请求之后必须进行响应<br>101 | switching protocols | 说明服务器正在根据客户端的指定，将协议切换成Update首部所列的协议</li>
+</ul>
+<p><b>200~299————成功状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>200 | OK |请求没问题，实体的主体部分包含了所请求的资源<br>201 | Created |用于创建服务器对象的请求（比如，PUT）<br>202 | Accepted | 请求已被接受，但服务器还未对其执行任何动作<br>203 | Non-Authoritative Information| 实体首部包含的信息不是来自于源端服务器，而是来自资源的一份副本。如果中间节点上有一份资源副本，但无法或者没有对它所发送的与资源有关的元信息（首部）进行验证，就会出现这种情况<br>204 | No Content |响应报文中包含若干首部和一个状态行，但没有实体的主体部分。主要用于在浏览器不转为显示新文档的情况下，对其进行更新<br>205 | Reset Content |另一个主要用于浏览器的代码。负责告知浏览器清除当前页面中的所有HTML 表单元素<br>206 | Partial Content |成功执行了一个部分或Range（范围）请求</li>
+</ul>
+<p><b>300~399</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>300 | Multiple Choices |客户端请求一个实际指向多个资源的URL时会返回这个状态码，比如服务器上有某个HTML文档的英语和法语版本。返回这个代码时会带有一个选项列表；这样用户就可以选择他希望使用的那一项<br>301 | Moved Permanently |在请求的URL已被移除时使用。响应的Location首部中应该包含资源现在所处的URL<br>302 |Found  |与301状态码类似；但是，客户端应该使用Location首部给出的URL来临时定位资源。将来的请求仍应使用老的URL<br>303|See Other  |告知客户端应该用另一个URL来获取资源。新的URL位于响应报文的Location首部。其主要目的是允许POST请求的响应将客户端定向到某个资源上去<br>304|Not Modified  | 客户端可以通过所包含的请求首部，使其请求变成有条件的<br>305|Use Proxy  |用来说明必须通过一个代理来访问资源；代理的位置由Location首部给出。很重要的一点是，客户端是相对某个特定资源来解析这条响应的，不能假定所有请求，甚至所有对持有所请求资源的服务器的请求都通过这个代理进行。如果客户端错误地让代理介入了某条请求，可能会引发破坏性的行为，而且会造成安全漏洞<br>306 | 未使用）|当前未使用<br>307 |Temporary Redirect  |与301状态码类似；但客户端应该使用Location首部给出的URL来临时定位资源。将来的请求应该使用老的URL</li>
+</ul>
+<p><b>400~499————客户端错误状态码</b><br> 状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>400 |Bad Request  |用于告知客户端它发送了一个错误的请求<br>403 |Forbidden  |用于说明请求被服务器拒绝了。如果服务器想说明为什么拒绝请求，可以包含实体的主体部分来对原因进行描述。但这个状态码通常是在服务器不想说明拒绝原因的时候使用的<br>404 | Not Found |用于说明服务器无法找到所请求的URL。通常会包含一个实体，以便客户端应用程序显示给用户看</li>
+</ul>
+<p><b>500~599————服务器错误状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>500 |Internal Server Error  |服务器遇到一个妨碍它为请求提供服务的错误时，使用此状态码<br>501 |Not Implemented  |客户端发起的请求超出服务器的能力范围（比如，使用了服务器不支持的请求方法）时，使用此状态码<br>502 | Bad Gateway |作为代理或网关使用的服务器从请求响应链的下一条链路上收到了一条伪响应（比如，它无法连接到其父网关）时，使用此状态码<br>503 |Service Unavailable  |用来说明服务器现在无法为请求提供服务，但将来可以。如果服务器知道什么时候资源会变为可用的，可以在响应中包含一个Retry-After首部<br>504 | Gateway Timeout |与状态码408类似，只是这里的响应来自一个网关或代理，它们在等待另一服务器对其请求进行响应时超时了<br>505 |HTTP Version Not Supported |服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="符 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>杜绝狗粮！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/17/基于nodejs的在线手账系统的设计与实现/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/07/http权威--连接管理/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="符" />
+            
+              <p class="site-author-name" itemprop="name">符</p>
+              <p class="site-description motion-element" itemprop="description">HEY, U!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首部分类"><span class="nav-number">1.</span> <span class="nav-text">首部分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用信息性首部"><span class="nav-number">1.1.</span> <span class="nav-text">通用信息性首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通用缓存首部"><span class="nav-number">1.2.</span> <span class="nav-text">通用缓存首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求首部"><span class="nav-number">1.3.</span> <span class="nav-text">请求首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accept首部"><span class="nav-number">1.4.</span> <span class="nav-text">Accept首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应首部"><span class="nav-number">1.5.</span> <span class="nav-text">响应首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体首部"><span class="nav-number">1.6.</span> <span class="nav-text">实体首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内容首部"><span class="nav-number">1.7.</span> <span class="nav-text">内容首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的首部实例"><span class="nav-number">1.8.</span> <span class="nav-text">常见的首部实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码"><span class="nav-number">2.</span> <span class="nav-text">状态码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">符</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
