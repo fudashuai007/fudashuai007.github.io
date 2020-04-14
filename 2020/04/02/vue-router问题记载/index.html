@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue vue-router," />
 
 
 
@@ -82,15 +82,16 @@
 
 
 <meta name="description" content="底部的 tabBar 多次点击会出现报错问题解决方案：在 router.js 或者 main.js 中添加如下代码： 1234const originalPush = VueRouter.prototype.pushVueRouter.prototype.push = function push(location) &amp;#123; return originalPush.call(this, loc">
+<meta name="keywords" content="vue vue-router">
 <meta property="og:type" content="article">
-<meta property="og:title" content="This is for U">
+<meta property="og:title" content="vue-router--底部的 tabBar 多次点击会出现报错问题">
 <meta property="og:url" content="http://yoursite.com/2020/04/02/vue-router问题记载/index.html">
 <meta property="og:site_name" content="This is for U">
 <meta property="og:description" content="底部的 tabBar 多次点击会出现报错问题解决方案：在 router.js 或者 main.js 中添加如下代码： 1234const originalPush = VueRouter.prototype.pushVueRouter.prototype.push = function push(location) &amp;#123; return originalPush.call(this, loc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-02T04:47:06.462Z">
+<meta property="og:updated_time" content="2020-04-14T07:53:13.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="This is for U">
+<meta name="twitter:title" content="vue-router--底部的 tabBar 多次点击会出现报错问题">
 <meta name="twitter:description" content="底部的 tabBar 多次点击会出现报错问题解决方案：在 router.js 或者 main.js 中添加如下代码： 1234const originalPush = VueRouter.prototype.pushVueRouter.prototype.push = function push(location) &amp;#123; return originalPush.call(this, loc">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | This is for U</title>
+  <title>vue-router--底部的 tabBar 多次点击会出现报错问题 | This is for U</title>
   
 
 
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">vue-router--底部的 tabBar 多次点击会出现报错问题</h1>
         
 
         <div class="post-meta">
@@ -361,7 +362,7 @@
 
       
         <h4 id="底部的-tabBar-多次点击会出现报错问题"><a href="#底部的-tabBar-多次点击会出现报错问题" class="headerlink" title="底部的 tabBar 多次点击会出现报错问题"></a>底部的 tabBar 多次点击会出现报错问题</h4><p>解决方案：在 router.js 或者 main.js 中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const originalPush = VueRouter.prototype.push</span><br><span class="line">VueRouter.prototype.push = function push(location) &#123;</span><br><span class="line"> return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originalPush = VueRouter.prototype.push</span><br><span class="line">VueRouter.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">location</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> originalPush.call(<span class="keyword">this</span>, location).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -385,6 +386,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/vue-vue-router/" rel="tag"># vue vue-router</a>
+          
+        </div>
+      
 
       
       
@@ -394,7 +401,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/15/自我介绍/" rel="next" title="">
+              <a href="/2020/02/29/vue生命周期/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -509,7 +516,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

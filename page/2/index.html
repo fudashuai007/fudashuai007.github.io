@@ -304,6 +304,117 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/js--获取图片原始大小/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/08/js--获取图片原始大小/" itemprop="url">JS 获取图片原始大小</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="方法一：采用-H5-的属性：naturalWidth-naturalHeight-可以直接获取图片的宽高，IE9-以下不支持"><a href="#方法一：采用-H5-的属性：naturalWidth-naturalHeight-可以直接获取图片的宽高，IE9-以下不支持" class="headerlink" title="方法一：采用 H5 的属性：naturalWidth/naturalHeight 可以直接获取图片的宽高，IE9 以下不支持"></a>方法一：采用 H5 的属性：naturalWidth/naturalHeight 可以直接获取图片的宽高，IE9 以下不支持</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> img = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> w = img.naturalWidth;</span><br><span class="line"><span class="keyword">let</span> h = img.naturalHeight;</span><br><span class="line"><span class="built_in">console</span>.log(img.naturalWidth);</span><br><span class="line"><span class="built_in">console</span>.log(img.naturalHeight);</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：如果不支持-H5X-新属性，用传统方法"><a href="#方法二：如果不支持-H5X-新属性，用传统方法" class="headerlink" title="方法二：如果不支持 H5X 新属性，用传统方法"></a>方法二：如果不支持 H5X 新属性，用传统方法</h4><pre><code class="js">
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/js-object.defineProperty()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -546,7 +657,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/08/html-给元素添加下滑线的方式/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2020/04/08/html-给元素添加下滑线的方式/" itemprop="url">HTML --给元素添加下滑线的两种方式</a></h1>
         
 
         <div class="post-meta">
@@ -587,9 +698,12 @@
       
         
           
-            <h3 id="HTML-–给元素添加下滑线的两种方式"><a href="#HTML-–给元素添加下滑线的两种方式" class="headerlink" title="HTML –给元素添加下滑线的两种方式"></a>HTML –给元素添加下滑线的两种方式</h3><h4 id="通过-lt-u-gt-标签"><a href="#通过-lt-u-gt-标签" class="headerlink" title="通过&lt;u&gt;标签"></a>通过<code>&lt;u&gt;</code>标签</h4><p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>   我没有下滑线   <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;<span class="name">u</span>&gt;</span>我有下滑线<span class="tag">&lt;/<span class="name">u</span>&gt;</span>	<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="通过css属性text-decoration-underline"><a href="#通过css属性text-decoration-underline" class="headerlink" title="通过css属性text-decoration:underline"></a>通过css属性<code>text-decoration:underline</code></h4><p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">'none'</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">'underline'</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">'overline'</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">'line-through'</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.none</span> &#123;</span><br><span class="line">	<span class="attribute">text-decoration</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.underline</span>&#123;</span><br><span class="line">	<span class="attribute">text-decoration</span>:underline;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="selector-class">.overline</span> &#123;</span><br><span class="line">	<span class="attribute">text-decoration</span>:overline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.line-through</span>&#123;</span><br><span class="line">	<span class="attribute">text-decoration</span>:line-through;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="HTML-–给元素添加下滑线的两种方式"><a href="#HTML-–给元素添加下滑线的两种方式" class="headerlink" title="HTML –给元素添加下滑线的两种方式"></a>HTML –给元素添加下滑线的两种方式</h3><h4 id="通过-lt-u-gt-标签"><a href="#通过-lt-u-gt-标签" class="headerlink" title="通过&lt;u&gt;标签"></a>通过<code>&lt;u&gt;</code>标签</h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>我没有下滑线<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;<span class="name">u</span>&gt;</span>我有下滑线<span class="tag">&lt;/<span class="name">u</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="通过-css-属性text-decoration-underline"><a href="#通过-css-属性text-decoration-underline" class="headerlink" title="通过 css 属性text-decoration:underline"></a>通过 css 属性<code>text-decoration:underline</code></h4><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"none"</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"underline"</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"overline"</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"line-through"</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.none</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.underline</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.overline</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: overline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.line-through</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: line-through;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -768,7 +882,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/07/html-input/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2020/04/07/html-input/" itemprop="url">CSS --input框内size和width的区别</a></h1>
         
 
         <div class="post-meta">
@@ -809,7 +923,7 @@
       
         
           
-            <h3 id="css-input框内size和width的区别"><a href="#css-input框内size和width的区别" class="headerlink" title="css input框内size和width的区别"></a>css input框内size和width的区别</h3><p>size的大小是以字节为单位;<br><br>width大小是以px为单位</p>
+            <h3 id="input框内size和width的区别"><a href="#input框内size和width的区别" class="headerlink" title="input框内size和width的区别"></a>input框内size和width的区别</h3><p>size的大小是以字节为单位;<br><br>width大小是以px为单位</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">size</span>=<span class="string">"30"</span> <span class="attr">name</span> =<span class="string">'name'</span> <span class="attr">placeholder</span>=<span class="string">"size"</span>/&gt;</span>姓名</span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">style</span>=<span class="string">"width: 30px;"</span> <span class="attr">name</span> =<span class="string">'name'</span> <span class="attr">placeholder</span>=<span class="string">"width"</span>/&gt;</span>姓名</span><br></pre></td></tr></table></figure>
 <p><img src="https://ae01.alicdn.com/kf/H4895e47a117f4cba8f9e4f4fef113f84J.png" alt="image.png"></p>
 
@@ -1367,116 +1481,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/vue-router问题记载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/02/vue-router问题记载/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="底部的-tabBar-多次点击会出现报错问题"><a href="#底部的-tabBar-多次点击会出现报错问题" class="headerlink" title="底部的 tabBar 多次点击会出现报错问题"></a>底部的 tabBar 多次点击会出现报错问题</h4><p>解决方案：在 router.js 或者 main.js 中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const originalPush = VueRouter.prototype.push</span><br><span class="line">VueRouter.prototype.push = function push(location) &#123;</span><br><span class="line"> return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1553,7 +1557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JS," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="HEY, U!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="call() 和apply()的作用和区别作用call() 和apply()都可以用来间接调用函数，都可以显示调用所需要的this，即任何函数都可以作为任何对象的方法来调用，两个方法都可以指定调用实参 区别call()和apply()的基本区别：在于将参数传递给函数call():使用其自由的实参列表作为函数的参数apply：要求以数组的形式传入参数">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS call() 和apply()的作用和区别">
+<meta property="og:url" content="http://yoursite.com/2020/04/14/js-call和apply/index.html">
 <meta property="og:site_name" content="This is for U">
-<meta property="og:description" content="HEY, U!">
+<meta property="og:description" content="call() 和apply()的作用和区别作用call() 和apply()都可以用来间接调用函数，都可以显示调用所需要的this，即任何函数都可以作为任何对象的方法来调用，两个方法都可以指定调用实参 区别call()和apply()的基本区别：在于将参数传递给函数call():使用其自由的实参列表作为函数的参数apply：要求以数组的形式传入参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-17T07:20:21.530Z">
+<meta property="og:updated_time" content="2020-04-14T07:53:00.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="HEY, U!">
+<meta name="twitter:title" content="JS call() 和apply()的作用和区别">
+<meta name="twitter:description" content="call() 和apply()的作用和区别作用call() 和apply()都可以用来间接调用函数，都可以显示调用所需要的this，即任何函数都可以作为任何对象的方法来调用，两个方法都可以指定调用实参 区别call()和apply()的基本区别：在于将参数传递给函数call():使用其自由的实参列表作为函数的参数apply：要求以数组的形式传入参数">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/14/js-call和apply/"/>
 
 
 
 
 
-  <title>tags | This is for U</title>
+  <title>JS call() 和apply()的作用和区别 | This is for U</title>
   
 
 
@@ -292,40 +293,142 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/14/js-call和apply/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 27 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/CSS/" style="font-size: 25.5px; color: #404040">CSS</a> <a href="/tags/HTML/" style="font-size: 16.5px; color: #9d9d9d">HTML</a> <a href="/tags/JS/" style="font-size: 12px; color: #ccc">JS</a> <a href="/tags/JS-HTML/" style="font-size: 12px; color: #ccc">JS HTML</a> <a href="/tags/JS-Object/" style="font-size: 12px; color: #ccc">JS Object</a> <a href="/tags/JS-原型-原型链/" style="font-size: 16.5px; color: #9d9d9d">JS 原型 原型链</a> <a href="/tags/JS-算法/" style="font-size: 12px; color: #ccc">JS 算法</a> <a href="/tags/JS-闭包/" style="font-size: 12px; color: #ccc">JS 闭包</a> <a href="/tags/UI-element-ui/" style="font-size: 12px; color: #ccc">UI element-ui</a> <a href="/tags/css/" style="font-size: 21px; color: #6f6f6f">css</a> <a href="/tags/echarts/" style="font-size: 12px; color: #ccc">echarts</a> <a href="/tags/github/" style="font-size: 12px; color: #ccc">github</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/html/" style="font-size: 12px; color: #ccc">html</a> <a href="/tags/js/" style="font-size: 16.5px; color: #9d9d9d">js</a> <a href="/tags/npm/" style="font-size: 12px; color: #ccc">npm</a> <a href="/tags/vue-vue-router/" style="font-size: 12px; color: #ccc">vue vue-router</a> <a href="/tags/vue-cli4-工具-element-ui/" style="font-size: 12px; color: #ccc">vue-cli4 工具 element-ui</a> <a href="/tags/前端框架/" style="font-size: 12px; color: #ccc">前端框架</a> <a href="/tags/南丁格尔图/" style="font-size: 12px; color: #ccc">南丁格尔图</a> <a href="/tags/周报、学期/" style="font-size: 21px; color: #6f6f6f">周报、学期</a> <a href="/tags/基础/" style="font-size: 12px; color: #ccc">基础</a> <a href="/tags/小程序/" style="font-size: 12px; color: #ccc">小程序</a> <a href="/tags/心得/" style="font-size: 30px; color: #111">心得</a> <a href="/tags/打包工具/" style="font-size: 12px; color: #ccc">打包工具</a> <a href="/tags/计划、学期/" style="font-size: 12px; color: #ccc">计划、学期</a> <a href="/tags/面试-浏览器/" style="font-size: 12px; color: #ccc">面试 浏览器</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">JS call() 和apply()的作用和区别</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="call-和apply-的作用和区别"><a href="#call-和apply-的作用和区别" class="headerlink" title="call() 和apply()的作用和区别"></a>call() 和apply()的作用和区别</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>call() 和apply()都可以用来间接调用函数，都可以显示调用所需要的this，即任何函数都可以作为任何对象的方法来调用，两个方法都可以指定调用实参</p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>call()和apply()的基本区别：在于将参数传递给函数<br>call():使用其自由的实参列表作为函数的参数<br>apply：要求以数组的形式传入参数</p>
+
       
     </div>
     
     
     
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="符 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>杜绝狗粮！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/14/UI-element-ui重写样式/" rel="next" title="UI--element-ui重写样式">
+                <i class="fa fa-chevron-left"></i> UI--element-ui重写样式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -358,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -430,6 +542,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#call-和apply-的作用和区别"><span class="nav-number">1.</span> <span class="nav-text">call() 和apply()的作用和区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别"><span class="nav-number">1.2.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

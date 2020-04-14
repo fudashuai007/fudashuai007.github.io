@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/自我介绍/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/vue-router问题记载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="符">
@@ -323,7 +323,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/15/自我介绍/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2020/04/02/vue-router问题记载/" itemprop="url">vue-router--底部的 tabBar 多次点击会出现报错问题</a></h1>
         
 
         <div class="post-meta">
@@ -364,9 +364,8 @@
       
         
           
-            <p>面试官上午好，我叫符耀林，本科就读于杭州电子科技大学，专业是软件工程。我投递的岗位是前端工程师，因为我本科阶段主要的学习内容为前端开发，熟悉HTML5 css3中新增的属性 和javascript，对es6有一定的学习，使用过vue进行项目开发，有过小程序开发的相关经验，并且我愿意接触各种的前端技术。同时本人也是一个认真负责，敢于钻研的人，在有良好的团队合作精神同时，也具有一定的独立开发能力。项目方面有开发过有开发过</p>
-<p>项目答题：<br>介绍一下你开发过的项目<br>人力资源管理系统  这是我的一个课程实践项目，主要的目的是优化和再造管理流程，使得人力资源的管理更加高效和科学。然后整个系统一共是完成了员工职业信息模块、职业规划模块和培训管理模块。我主要负责的是前端界面的开发，以及和后端的数据交互工作，采用vue和elementUI进行搭建</p>
-<p>面试中遇到哪些问题，是怎么解决的<br>先说人力资源管理系统吧 当初我是刚刚学习vue，对vue的知识不是非常了解，其中首先遇到的</p>
+            <h4 id="底部的-tabBar-多次点击会出现报错问题"><a href="#底部的-tabBar-多次点击会出现报错问题" class="headerlink" title="底部的 tabBar 多次点击会出现报错问题"></a>底部的 tabBar 多次点击会出现报错问题</h4><p>解决方案：在 router.js 或者 main.js 中添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originalPush = VueRouter.prototype.push</span><br><span class="line">VueRouter.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">location</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> originalPush.call(<span class="keyword">this</span>, location).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -475,23 +474,11 @@
       
         
           
-            <p>关于vue生命周期的理解<br>创建前后 加载前后 更新前后 销毁前后<br>创建前后<br>beforeCreated阶段,vue实例的挂载元素$el和数据对象都为undefined,还未初始化，在create阶段，vue实例的数据对象data有了，$el还没有</p>
-<p>加载前后<br>beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前的虚拟dom节点，data.message还未替换，在mounted阶段，vue实例挂载完成，data.message成功渲染</p>
-<p>更新前后<br>当data变化时，会触发beforeUpdate和updated方法</p>
-<p>销毁前后<br>在执行destroy方法后，对data的改变不会再出发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在</p>
-<p>css隐藏元素的方法<br>display: none;<br>opacity:0;<br>visibility:hidden;</p>
-<p>css清除浮动的几种方法<br>带有clear属性的空元素<br>使用overflow属性<br>使用伪元素::after</p>
-<p>数组操作pop() push() shift() unshift()<br>push() 数组尾部添加元素<br>pop() 数组尾部删除元素<br>shift() 数组头部删除元素<br>unshift() 数组头部添加元素</p>
-<p>vuex属性<br>State Getter Mutation Action Module<br>States 基本数据，数据源存放地<br>Getters 从基本数据派生出来的数据<br>Mutations 提交更改数据的方法，同步<br>Actions 装饰器，包裹mutations，使之异步<br>Modules 模块化Vuex</p>
-<p>vue的ajax请求代码<br>请求的数据是不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入vuex的state里，如果需要被其他地方复用，而且是很大几率上是需要，将请求放入action里，方便复用</p>
-<p>restful API<br>api的标准，无状态请求，请求的路由地址是固定的，如果是tp5则先路由配置中把资源路由配置好，标准有.get .post .delete .put </p>
-<p>ajax返回error的原因<br>1.dataType错误<br>后台返回的dataType类型和前台写的不一致会跳入error<br>json格式错误也会跳入error</p>
-<p>2.data不能不写<br>data为空也一定要穿”{}”,不然返回的xml格式的</p>
-<p>3.传递的参数<br> 必须是ajax支持的格式</p>
-<p>4.URL路径问题<br>路径不能有中文</p>
-<p>有哪些项目适合vue框架<br>1.数据信息量比较多<br>2.手机web和app应用多端共用一套界面的项目，因为使用vue.cli+webpack后的前端目录非常有利于跨平台部署</p>
-<p>call() 和apply()的作用和区别<br>call() 和apply()都可以用来间接调用函数，都可以显示调用所需要的this，即任何函数都可以作为任何对象的方法来调用，两个方法都可以指定调用实参</p>
-<p>区别：<br>call()和apply()的基本区别：在于将参数传递给函数<br>call():使用其自由的实参列表作为函数的参数<br>apply：要求以数组的形式传入参数</p>
+            <h3 id="关于vue生命周期的理解"><a href="#关于vue生命周期的理解" class="headerlink" title="关于vue生命周期的理解"></a>关于vue生命周期的理解</h3><p>创建前后 加载前后 更新前后 销毁前后</p>
+<h4 id="创建前后"><a href="#创建前后" class="headerlink" title="创建前后"></a>创建前后</h4><p>beforeCreated阶段,vue实例的挂载元素$el和数据对象都为undefined,还未初始化，在create阶段，vue实例的数据对象data有了，$el还没有</p>
+<h4 id="加载前后"><a href="#加载前后" class="headerlink" title="加载前后"></a>加载前后</h4><p>beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前的虚拟dom节点，data.message还未替换，在mounted阶段，vue实例挂载完成，data.message成功渲染</p>
+<h4 id="更新前后"><a href="#更新前后" class="headerlink" title="更新前后"></a>更新前后</h4><p>当data变化时，会触发beforeUpdate和updated方法</p>
+<h4 id="销毁前后"><a href="#销毁前后" class="headerlink" title="销毁前后"></a>销毁前后</h4><p>在执行destroy方法后，对data的改变不会再出发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在</p>
 
           
         
@@ -1980,7 +1967,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
