@@ -304,289 +304,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/小程序开发周报（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/31/小程序开发周报（三）/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="上周完成的功能"><a href="#上周完成的功能" class="headerlink" title="上周完成的功能"></a>上周完成的功能</h2><ul>
-<li>新增发送朋友圈消息</li>
-<li>新增发送给好友功能</li>
-<li>调用biying每日美图接口实现图片的合成</li>
-</ul>
-<h2 id="上周解决的问题"><a href="#上周解决的问题" class="headerlink" title="上周解决的问题"></a>上周解决的问题</h2><ul>
-<li>经过反复的排查，结果那个该死的bug是因为在定义变量的时候用了:<strong>infinity</strong>,这谁顶得住。。。</li>
-</ul>
-<h2 id="上周新get知识"><a href="#上周新get知识" class="headerlink" title="上周新get知识"></a>上周新get知识</h2><p><strong>如何把小程序发送给好友(群)</strong><br>其实实现的过程也还比较简单，总共分三步:</p>
-<ol>
-<li>在wxml中设置一个按钮(button)，注意：只能是button，然后修改一下open-type属性，改为:<code>open-type=share</code></li>
-<li><p>在对应的js文件中，在onLoad()或者onShow()方法中，加入以下代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.showShareMenu(&#123;</span><br><span class="line">		withShareTicket: true</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在onShareAppMessage()中写入一下代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var that = this</span><br><span class="line">		if (ops.from === &apos;button&apos;) &#123;</span><br><span class="line">			console.log(ops.target);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		return &#123;</span><br><span class="line">			title: &apos;转发给朋友&apos;,</span><br><span class="line">			path: &apos;xxx&apos;,</span><br><span class="line">			success: function (res) &#123;</span><br><span class="line">				console.log(&quot;转发成功&quot; + JSON.stringify(res));</span><br><span class="line">			&#125;,</span><br><span class="line">			fail: function (res) &#123;</span><br><span class="line">				console.log(&quot;转发失败：&quot; + JSON.stringify(res));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>其中 path为其他人点击进入小程序的页面，title为分享中的标题,值得注意的是微信官方在18年5月份就取消了分享页面之后的回调，也就是说你分享完了之后该干嘛干嘛，想操作门都没有(官方的意思是为了防止恶意引导用户操作的行为发生)</strong></p>
-<p> <strong>小程序分享到朋友圈？</strong><br>这是一个貌似可行实际上是不可行的行为.你能操作的就只是先保存一张图片到本地，然后自己发朋友圈(很难受)，但这种操作很让人哭笑不得，有办法总比没办法强，先用着吧.具体操作看代码吧，我没啥好说的(主要借鉴的别人的代码)</p>
-<pre><code>const app = getApp()
-var util=require(&apos;../../public/util.js&apos;)
-var time = util.formatTime(new Date());
-Page({
-data: {
-    index:&apos;&apos;,
-    numindex:&apos;&apos;,
-    sharebg: &apos;http://qiniu.jnwtv.com/H520181206092255188568494.png&apos;, // 分享底部背景图
-    shareTitle: &apos;快来一起监督他背单词,他没完成任务奖励就是你的啦！&apos;, // 分享标题
-    shareCoverImg: &apos;&apos;, // 分享封面图
-    shareQrImg: &apos;&apos;, // 分享小程序二维码
-    userInfo: {},
-    seeDate: &apos;&apos;, //看视频日期
-},
-onLoad: function (options) {
-    var that = this
-    const userInfo = wx.getStorageSync(&apos;userInfo&apos;)
-    console.log(userInfo);
-
-    that.setData({
-        index:options.index,
-        numindex:options.numindex,
-        userInfo: userInfo,
-        seeDate:time
-    })
-    console.log(that.data.userInfo);
-    console.log(that.data.shareQrImg);
-
-
-
-
-    wx.request({
-        url: &apos;http://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&apos;,
-        method: &apos;GET&apos;,
-        header: {
-            &apos;Content-Type&apos;: &apos;json&apos;
-        },
-        success: function (res) {
-            that.processBiYingPhoto(res.data.images[0].url);
-        },
-        fail:function(error){
-    console.log(&apos;错误信息是：&apos;+error);
-  }
-    })
-
-},
-//处理必应图片
-processBiYingPhoto: function (photoImageUrl) {
-    var that = this
-    const userInfo = wx.getStorageSync(&apos;userInfo&apos;)
-    var sharebg = &apos;http://www.bing.com&apos; + photoImageUrl;
-    console.log(sharebg);
-    this.setData({
-        shareQrImg: userInfo.avatarUrl,
-        shareCoverImg:sharebg
-    });
-},    
-    downloadImg: function () {
-    let that = this;
-    // 创建画布
-    const ctx = wx.createCanvasContext(&apos;shareCanvas&apos;)
-    // 白色背景
-    ctx.setFillStyle(&apos;#fff&apos;)
-    ctx.fillRect(0, 0, 300, 380)
-    ctx.draw()
-    // 下载底部背景图
-    wx.getImageInfo({
-        src: that.data.sharebg,
-        success: (res1) =&gt; {
-            ctx.drawImage(res1.path, 0, 250, 300, 130)
-            // 下载视频封面图
-            wx.getImageInfo({
-                src: that.data.shareCoverImg,
-                success: (res2) =&gt; {
-                    ctx.drawImage(res2.path, 0, 0, 300, 168)
-                    // 分享标题
-                    // ctx.setTextAlign(&apos;center&apos;)    // 文字居中
-                    ctx.setFillStyle(&apos;#000&apos;) // 文字颜色：黑色
-                    ctx.setFontSize(20) // 文字字号：20px
-                    if (that.data.shareTitle.length &lt;= 14) {
-                        // 不用换行
-                        ctx.fillText(that.data.shareTitle, 10, 200, 280)
-                    } else if (that.data.shareTitle.length &lt;= 28) {
-                        // 两行
-                        let firstLine = that.data.shareTitle.substring(0, 14);
-                        let secondLine = that.data.shareTitle.substring(14, 27);
-                        ctx.fillText(firstLine, 10, 200, 280)
-                        ctx.fillText(secondLine, 10, 224, 280)
-                    } else {
-                        // 超过两行
-                        let firstLine = that.data.shareTitle.substring(0, 14);
-                        let secondLine = that.data.shareTitle.substring(14, 27) + &apos;...&apos;;
-                        ctx.fillText(firstLine, 10, 200, 280)
-                        ctx.fillText(secondLine, 10, 224, 280)
-                    }
-
-                    // 下载二维码
-                    wx.getImageInfo({
-                        src: that.data.shareQrImg,
-                        success: (res3) =&gt; {
-                            let qrImgSize = 70
-                            ctx.drawImage(res3.path, 212, 256, qrImgSize, qrImgSize)
-                            ctx.stroke()
-                            ctx.draw(true)
-
-                            // 用户昵称
-                            ctx.setFillStyle(&apos;#000&apos;) // 文字颜色：黑色
-                            ctx.setFontSize(14) // 文字字号：16px
-                            ctx.fillText(that.data.userInfo.nickName, 38, 284)
-                            // 观看日期
-                            ctx.setFillStyle(&apos;#999&apos;) // 文字颜色：黑色
-                            ctx.setFontSize(10) // 文字字号：16px
-                            ctx.fillText(&apos;在&apos; + that.data.seeDate + &apos;背单词&apos;, 38, 298)
-
-                            // 下载用户头像
-                            wx.getImageInfo({
-                                src: that.data.userInfo.avatarUrl,
-                                success: (res4) =&gt; {
-                                    // 先画圆形，制作圆形头像(圆心x，圆心y，半径r)
-                                    ctx.arc(22, 284, 12, 0, Math.PI * 2, false)
-                                    ctx.clip()
-                                    // 绘制头像图片
-                                    let headImgSize = 24
-                                    ctx.drawImage(res4.path, 10, 272, headImgSize, headImgSize)
-                                    // ctx.stroke() // 圆形边框
-                                    ctx.draw(true)
-
-                                    // 保存到相册
-                                    wx.canvasToTempFilePath({
-                                        canvasId: &apos;shareCanvas&apos;,
-                                        success: function (res) {
-                                            wx.saveImageToPhotosAlbum({
-                                                filePath: res.tempFilePath,
-                                                success: function (res) {
-                                                    wx.showToast({
-                                                        title: &apos;分享图片已保存到相册&apos;
-                                                    })
-                                                    wx.navigateTo({
-                                                        url: &apos;../learning/index?index=&apos; + that.data.index + &apos;&amp;numindex=&apos; + that.data.numindex
-                                                    })
-                                                }
-                                            })
-                                        }
-                                    }, this)
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-        }
-    })
-}})
-</code></pre><p>这里我调用了必应的每日一图的接口所以显示的页面是这样的:<br><br><img src="https://s2.ax1x.com/2019/03/31/ArYz4I.png" alt="ArYz4I.png"></p>
-<p>没有二维码暂时先用着头像吧</p>
-<h2 id="上周未解决的问题"><a href="#上周未解决的问题" class="headerlink" title="上周未解决的问题"></a>上周未解决的问题</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/小程序开发周报(二)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1281,115 +998,6 @@ processBiYingPhoto: function (photoImageUrl) {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/vuex/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/28/vuex/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#### </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/js正则表达式的相关知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1624,6 +1232,297 @@ processBiYingPhoto: function (photoImageUrl) {
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/被webpack支配的快感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/被webpack支配的快感/" itemprop="url">磨人的webpack4.x</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"><a href="#从入手-webpack-以来一直被-webpack-的各种版本所困扰，不是-webpack-版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。" class="headerlink" title="从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。"></a>从入手 webpack 以来一直被 webpack 的各种版本所困扰，不是 webpack 版本太高，就是其他的一些插件版本太低，在尝试了好长一段时间之后，终于是把整个框架搭出来了，过程实属不易，简单记录一下整个过程。</h5><h5 id="为什么使用-webpack"><a href="#为什么使用-webpack" class="headerlink" title="为什么使用 webpack"></a>为什么使用 webpack</h5><p>首先webpack给我的感觉是快捷、高效，而且使用也方面，没有什么复杂的操作，只需要做一些简单的配置就能够快速上手。但是webpack目前的版本太高了，里面许多的插件和npm包的感觉有点跟不上webpack的节奏。我在尝试webpack 的时候本着追求时代潮流的做法，安装了最新的webpack版本，结果自己配置起来直接崩溃，各种小问题一直不断的暴露出来，到最后我得出的结论是：思想上可以跟住最新的技术，实际上还是先使用稳定版的比较好吧</p>
+
+<h4 id="全局安装和局部安装"><a href="#全局安装和局部安装" class="headerlink" title="全局安装和局部安装"></a>全局安装和局部安装</h4><ul>
+<li>全局安装是指把 npm 包下载到 node_modules 的文件夹中，采用的命令是<pre>npm i 模块名 -g</pre>，安装之后可以在命令行直接使用；</li>
+<li><p>局部安装的命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 模块名</span><br><span class="line">或者&lt;pre&gt;npm i 模块名 --save-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二者的区别在于是否将安装包的信息写入到 package.json 中，调用方式在文件夹相应的位置采用 require 指令获取</p>
+</li>
+</ul>
+<h4 id="npm-和-cnpm"><a href="#npm-和-cnpm" class="headerlink" title="npm 和 cnpm"></a>npm 和 cnpm</h4><p>二者都是包管理和下载工具，受制于网络的问题下载 npm 包的速度会有影响。国内采用 cnpm 的安装方式效率会更好一点.如果需要采用 cnpm 方式安装包需要全局安装一下 cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i cnpm -g</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>然后就能采用 cnpm 的方式进行包下载</p>
+<h4 id="开始使用-webpack"><a href="#开始使用-webpack" class="headerlink" title="开始使用 webpack"></a>开始使用 webpack</h4><ul>
+<li>首先新建一个文件夹，然后使用 npm 初始化配置<blockquote>
+<p>npm init<br>然后一路回车即可</p>
+</blockquote>
+</li>
+<li><p>选择在本地局部安装 webpack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack --save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>–save-dev 是把 npm 包的依赖安装到 package.json 文件中的 devDependenceies 中</p>
+</blockquote>
+</li>
+<li>安装完 webpack 之后，安装 webpack-dev-server,这个包能够在开发环境中提供启动服务器、热更新、借口代理等，十分方便<blockquote>
+<p>cnpm i webpack-dev-server –save-dev</p>
+</blockquote>
+</li>
+<li>如果你选择安装的 webpack 版本在 3.x 或者更低的版本，不需要安装 webpack-cli，如果安装版本是 4.x 的版本需要单独安装一下 webpack-cli.这是 4.x 版本之后才开始分离出来的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack-cli --save-dev</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/04/被webpack支配的快感/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/css-清除浮动的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/css-清除浮动的方法/" itemprop="url">四种方法清除浮动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li><p>额外标签法</p>
+<p>在浮动元素的下面添加一个空盒子，如&lt;div style=”clear: both”&gt;</p>
+
+<pre><code>&lt;style&gt;
+.father {
+    width: 600px;
+    background-color: pink;
+}
+.son1 {
+    height: 200px;
+    width: 200px;
+    background-color: hotpink;
+    float: left;
+}
+.son2 {
+    height: 200px;
+    width: 400px;
+    background-color: blue;
+    float: left;
+}
+.uncle {
+    width: 600px;
+    background-color: purple;
+    height: 400px;
+}
+.clear {
+    clear: both;
+}
+</code></pre><p>  </p>
+<pre><code>&lt;div class=&quot;father&quot;&gt;
+    &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;son2&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;uncle&quot;&gt;&lt;/div&gt;
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/14/css-清除浮动的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1678,7 +1577,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1700,7 +1599,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
