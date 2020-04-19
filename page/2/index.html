@@ -304,6 +304,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/13/算法4.13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/13/算法4.13/" itemprop="url">算法题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题源-牛客</p>
+<p>题目描述：</p>
+<p>统计字符串中每个字符的出现频率，返回一个 Object，key 为统计字符，value 为出现频率</p>
+<ol>
+<li>不限制 key 的顺序</li>
+<li>输入的字符串参数不会为空</li>
+<li>忽略空白字符</li>
+</ol>
+<p>示例：</p>
+<p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;hello world&apos;</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解答：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function count(str)&#123;</span><br><span class="line">	let res =&#123;&#125;</span><br><span class="line">	str.replace(/\S/g,function(s)&#123;</span><br><span class="line">		!res[s]?res[s]=1:res[s]++</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line">return res</span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p>重点在于<code>!res[s]?res[s]=1:res[s]++</code></p>
+<p>首先判断s是否在res中出现过，如果没有，设置值为1 ，如果出现过则加1</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/13/html-页面资源预加载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1292,118 +1415,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/css-属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/07/css-属性/" itemprop="url">CSS--backgroud-blend-mode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="background-blend-mode"><a href="#background-blend-mode" class="headerlink" title="background-blend-mode"></a>background-blend-mode</h3><p>看网上介绍，简单来说<code>background-blend-mode</code>是用于给图片加滤镜的</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fa"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all lighten"</span>&gt;</span>lighten<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all multiply"</span>&gt;</span>multiply<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all screen"</span>&gt;</span>screen<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all overlay"</span>&gt;</span>overlay<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all darken"</span>&gt;</span>darken<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all color-dodge"</span>&gt;</span>color-dodge<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"all "</span>&gt;</span>origin<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fa</span> &#123;</span><br><span class="line">		<span class="attribute">display</span>: flex;</span><br><span class="line">		<span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">		<span class="attribute">text-align</span>: center;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.all</span> &#123;</span><br><span class="line">		<span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">		<span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">		<span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"../public/img/ab3.jpg"</span>) pink no-repeat center;</span><br><span class="line">		<span class="attribute">background-size</span>: <span class="number">100%</span>;</span><br><span class="line">		<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.lighten</span>&#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: lighten;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.multiply</span>&#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: multiply;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.screen</span>&#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: screen;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="selector-class">.overlay</span>&#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: overlay;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="selector-class">.darken</span>&#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: darken;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.color-dodge</span> &#123;</span><br><span class="line">		<span class="attribute">background-blend-mode</span>: color-dodge;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>效果展示:<br><img src="https://ae06.alicdn.com/kf/H3187979049b246f1bdabbd2bb9118affS.png" alt="image.png"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1458,7 +1469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

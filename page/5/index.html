@@ -304,6 +304,119 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/echarts--南丁格尔图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/21/echarts--南丁格尔图/" itemprop="url">利用echart进行数据可视化--南丁格尔图</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="在对-echarts-有了一个初步的学习之后，越发发现-echarts-有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录"><a href="#在对-echarts-有了一个初步的学习之后，越发发现-echarts-有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录" class="headerlink" title="在对 echarts 有了一个初步的学习之后，越发发现 echarts 有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录"></a>在对 echarts 有了一个初步的学习之后，越发发现 echarts 有一种神秘的力量在驱使我学习，现在开始对饼图也做一下学习记录</h3><h4 id="前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。"><a href="#前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。" class="headerlink" title="前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。"></a>前四步的操作和柱状图的操作一致，不做过多的赘述，现在主要讲不同之处。</h4><h4 id="因为饼状图并不需要-x-坐标或者-y-坐标来对对图形进行可视化，所以并不需要-xAxis-和-yAxis。这里需要做的就是首先改变type-改成-type-39-pie-39-具体如下"><a href="#因为饼状图并不需要-x-坐标或者-y-坐标来对对图形进行可视化，所以并不需要-xAxis-和-yAxis。这里需要做的就是首先改变type-改成-type-39-pie-39-具体如下" class="headerlink" title="因为饼状图并不需要 x 坐标或者 y 坐标来对对图形进行可视化，所以并不需要 xAxis 和 yAxis。这里需要做的就是首先改变type,改成 type:&#39;pie&#39; . 具体如下:"></a>因为饼状图并不需要 x 坐标或者 y 坐标来对对图形进行可视化，所以并不需要 xAxis 和 yAxis。这里需要做的就是首先改变<code>type</code>,改成 <code>type:&#39;pie&#39;</code> . 具体如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let option = &#123;</span><br><span class="line">        series: [</span><br><span class="line">          &#123;</span><br><span class="line">            name: &quot;访问来源&quot;,</span><br><span class="line">            type: &quot;pie&quot;,</span><br><span class="line">            radius: &quot;50%&quot;,  //饼图大小</span><br><span class="line">            data: [</span><br><span class="line">              &#123; value: 235, name: &quot;视频广告&quot; &#125;, //value表示区域的大小</span><br><span class="line">              &#123; value: 274, name: &quot;联盟广告&quot; &#125;,</span><br><span class="line">              &#123; value: 310, name: &quot;邮件营销&quot; &#125;,</span><br><span class="line">              &#123; value: 335, name: &quot;直接访问&quot; &#125;,</span><br><span class="line">              &#123; value: 400, name: &quot;搜索引擎&quot; &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;;</span><br><span class="line">myChart.setOption(option)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/21/echarts--南丁格尔图/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/vue中使用echart/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1478,118 +1591,6 @@ a:active {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/小白历险记之javascript(四)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/19/小白历险记之javascript(四)/" itemprop="url">小白历险记之javascript《四》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在学习完内置对象之后，继续开始对浏览器对象的学习</p>
-<li>window对象</li><br>window对象时BOM的核心，window对象指的是当前的浏览器窗口<br><span>常用的window对象方法:<br><br><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr46ek9nboj30ij0fnabu.jpg" alt=""><br><li><b><br>javascript计时器</b><br><p>在JavaScript中，我们可以在设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。<br>计时器类型：<br><em> 一次性计时器：仅在指定的延迟时间之后触发一次。
-</em> 间隔性触发计时器：每隔一定的时间间隔就触发一次。</p><br><span>计时器方法</span><br><br><img src="https://ws1.sinaimg.cn/large/006AherEgy1fr46pozlrwj30bd03zt9v.jpg" alt=""><br><ol><br>计时器setInterval()<br></ol><br><p>在执行时,从载入页面后每隔指定的时间执行代码。</p><br><br>    setInterval(代码,交互时间);<br><mark>说明</mark><br>1. 代码：要调用的函数或要执行的代码串。<br><br><br>2. 交互时间：周期性执行或调用表达式之间的时间间隔，以毫秒为单位<br><br>调用格式:<br><br>    setInterval(“clock()”,1000)<br>结果：<br>每隔1s执行一次clock()函数<br><ol><br>取消计时器clearInterval()<br></ol><br><p>取消有setInterval()设置的交互时间</p><br>语法：<br><br>    clearInterval(id_of_setInterval)<br><mark>说明</mark><br><em> id_of_setInterval:由setInterval()返回的id值<br><ol><br>取消计时器clearTimeout()</ol><br>语法：<br><br>    clearTimeout(id_of_setTimeout)
-</em> id_of_setTimeout：由 setTimeout() 返回的 ID 值。该值标识要取消的延迟执行代码块。<br></li><br><li>history对象</li><br><p>history对象记录了用户曾经浏览过的页面(URL)，并可以实现浏览器前进与后退相似导航的功能。</p><br><red>注意</red>:从窗口被打开的那一刻开始记录，每个浏览器窗口、每个标签页乃至每个框架，都有自己的history对象与特定的window对象关联。<br>history对象属性：length<br>history对象方法：<li>back()加载history列表的前一个</li><br><li>forward()加载history列表的下一个</li><br><li>go()加载history列表的某一个具体的页面</li>
-</span>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1644,7 +1645,7 @@ a:active {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
