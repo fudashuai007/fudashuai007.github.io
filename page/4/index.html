@@ -304,6 +304,559 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/http权威--连接管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/07/http权威--连接管理/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h3><h4 id="TCP套接字编程"><a href="#TCP套接字编程" class="headerlink" title="TCP套接字编程"></a>TCP套接字编程</h4><p>对TCP连接进行编程所需要的常见套接字接口函数<br>套接字API调用 | 描述</p>
+<ul>
+<li>|-<br>s = socket(<code>&lt;parameter&gt;</code>)|创建一个新的、未命名、未关联的套接字<br>bind（s,<code>&lt;local IP:port&gt;</code>)|向套接字赋一个本地端口号和接口<br>connect(s,<code>&lt;remote IP:port</code>)|创建一条连接本地套接字与远程主机及端口的连接<br>listen(s,…)| 标识一个本地套接字，使其可以合法接受连接<br>s2=accept(s)|等待某人建立一条到本地端口的连接<br>n=read(s,buffer,n)|尝试从套接字向缓冲区读取n个字节<br>n=write(s,buffer,n)|尝试从缓冲区中向套接字写入n个字节<br>close(s)|完全关闭TCP连接<br>TCP API隐藏了所有底层网络协议的握手细节以及TCP数据流与IP分组之间的分段和重装细节</li>
+</ul>
+<p>套接字API实现客户端和服务器在实现HTTP事务时所需要执行的步骤<br><a href="https://imgchr.com/i/l2ulLT" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/01/08/l2ulLT.md.png" alt="l2ulLT.md.png"></a></p>
+<h4 id="HTTP事务时延"><a href="#HTTP事务时延" class="headerlink" title="HTTP事务时延"></a>HTTP事务时延</h4><p>常见的TCP时延包括：</p>
+<ul><br><li>TCP连接建立握手时延</li><br><li>TCP慢启动拥塞控制</li><br><li>数据聚集的Nagle算法</li><br><li>用于捎带确认的TCP延迟确认算法</li><br><li>TIME_WAIT时延和端口耗尽</li><br></ul>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/HTTP权威指南--http报文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/07/HTTP权威指南--http报文/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="首部分类"><a href="#首部分类" class="headerlink" title="首部分类"></a>首部分类</h3><ul>
+<li>通用首部<br>既可以出现在请求报文中，也可以出现在响应报文中</li>
+<li>请求首部<br>提供更多有关请求的信息</li>
+<li>响应首部<br>提供更多有关响应的信息</li>
+<li>实体首部<br>描述主题的长度和内容或资源自身</li>
+<li>拓展首部<br>规范中没有定义的新首部</li>
+</ul>
+<p>每个http首部都有一种简答的语法 <code>名字：字段值</code>，最后是一个CRLF(回车换行)</p>
+<h4 id="通用信息性首部"><a href="#通用信息性首部" class="headerlink" title="通用信息性首部"></a>通用信息性首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>允许客户端和服务器指定与请求/响应连接有关的选项</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>提供日期和时间标志，说明报文是什么时间创建的</td>
+</tr>
+<tr>
+<td>MIME-Version</td>
+<td>给出了发送端使用的MIME版本</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>给出了发送端可能想要“升级”使用的新版本或协议</td>
+</tr>
+</tbody>
+</table>
+<h4 id="通用缓存首部"><a href="#通用缓存首部" class="headerlink" title="通用缓存首部"></a>通用缓存首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache-Control</td>
+<td>用于随报文传送缓存指示</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>另一种随报文传送指示的方式，但并不专用于缓存</td>
+</tr>
+</tbody>
+</table>
+<h4 id="请求首部"><a href="#请求首部" class="headerlink" title="请求首部"></a>请求首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>From</td>
+<td>提供了客户端用户的E-mail地址</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>给出了接收请求的服务器的主机名和端口号</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>将发起请求的应用程序名称告知服务器</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Accept首部"><a href="#Accept首部" class="headerlink" title="Accept首部"></a>Accept首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept</td>
+<td>告诉服务器能够发送哪些媒体类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>告诉服务器能够发送哪些字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>告诉服务器能够发送哪些编码方式</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>告诉服务器能够发送哪些语言</td>
+</tr>
+</tbody>
+</table>
+<h4 id="响应首部"><a href="#响应首部" class="headerlink" title="响应首部"></a>响应首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>服务器应用程序软件的名称和版本</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>对HTML文档来说，就是HTML文档的源端给出的标题</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>比原因短语中更详细一些的警告报文</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实体首部"><a href="#实体首部" class="headerlink" title="实体首部"></a>实体首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>告知客户端实体实际上位于何处；用于将接收端定向到资源的（可能是新的）位置（URL）上去</td>
+</tr>
+</tbody>
+</table>
+<h4 id="内容首部"><a href="#内容首部" class="headerlink" title="内容首部"></a>内容首部</h4><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Length</td>
+<td>主体的长度或尺寸</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>这个主体的对象类型</td>
+</tr>
+<tr>
+<td>Content-Location</td>
+<td>资源实际所处的位置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="常见的首部实例"><a href="#常见的首部实例" class="headerlink" title="常见的首部实例"></a>常见的首部实例</h4><table>
+<thead>
+<tr>
+<th>首部实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data:Tue,30ct 1997 02:16:03 GMT</td>
+<td>服务产生响应的日期</td>
+</tr>
+<tr>
+<td>Content-length:1500</td>
+<td>实体主体部分包含的字节数据</td>
+</tr>
+<tr>
+<td>Content-type:image/gif</td>
+<td>实体的主体部分是一个GIF图片</td>
+</tr>
+<tr>
+<td>Accept:image/gif,image/jpeg, text/html</td>
+<td>客户端可接受的GIF图片和JEPG图片以及HTML</td>
+</tr>
+</tbody>
+</table>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p><b>100~199————信息性状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>100 | continue | 说明收到了请求的初始部分，请客户端继续。发送了这个状态码之后，服务器在收到请求之后必须进行响应<br>101 | switching protocols | 说明服务器正在根据客户端的指定，将协议切换成Update首部所列的协议</li>
+</ul>
+<p><b>200~299————成功状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>200 | OK |请求没问题，实体的主体部分包含了所请求的资源<br>201 | Created |用于创建服务器对象的请求（比如，PUT）<br>202 | Accepted | 请求已被接受，但服务器还未对其执行任何动作<br>203 | Non-Authoritative Information| 实体首部包含的信息不是来自于源端服务器，而是来自资源的一份副本。如果中间节点上有一份资源副本，但无法或者没有对它所发送的与资源有关的元信息（首部）进行验证，就会出现这种情况<br>204 | No Content |响应报文中包含若干首部和一个状态行，但没有实体的主体部分。主要用于在浏览器不转为显示新文档的情况下，对其进行更新<br>205 | Reset Content |另一个主要用于浏览器的代码。负责告知浏览器清除当前页面中的所有HTML 表单元素<br>206 | Partial Content |成功执行了一个部分或Range（范围）请求</li>
+</ul>
+<p><b>300~399</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>300 | Multiple Choices |客户端请求一个实际指向多个资源的URL时会返回这个状态码，比如服务器上有某个HTML文档的英语和法语版本。返回这个代码时会带有一个选项列表；这样用户就可以选择他希望使用的那一项<br>301 | Moved Permanently |在请求的URL已被移除时使用。响应的Location首部中应该包含资源现在所处的URL<br>302 |Found  |与301状态码类似；但是，客户端应该使用Location首部给出的URL来临时定位资源。将来的请求仍应使用老的URL<br>303|See Other  |告知客户端应该用另一个URL来获取资源。新的URL位于响应报文的Location首部。其主要目的是允许POST请求的响应将客户端定向到某个资源上去<br>304|Not Modified  | 客户端可以通过所包含的请求首部，使其请求变成有条件的<br>305|Use Proxy  |用来说明必须通过一个代理来访问资源；代理的位置由Location首部给出。很重要的一点是，客户端是相对某个特定资源来解析这条响应的，不能假定所有请求，甚至所有对持有所请求资源的服务器的请求都通过这个代理进行。如果客户端错误地让代理介入了某条请求，可能会引发破坏性的行为，而且会造成安全漏洞<br>306 | 未使用）|当前未使用<br>307 |Temporary Redirect  |与301状态码类似；但客户端应该使用Location首部给出的URL来临时定位资源。将来的请求应该使用老的URL</li>
+</ul>
+<p><b>400~499————客户端错误状态码</b><br> 状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>400 |Bad Request  |用于告知客户端它发送了一个错误的请求<br>403 |Forbidden  |用于说明请求被服务器拒绝了。如果服务器想说明为什么拒绝请求，可以包含实体的主体部分来对原因进行描述。但这个状态码通常是在服务器不想说明拒绝原因的时候使用的<br>404 | Not Found |用于说明服务器无法找到所请求的URL。通常会包含一个实体，以便客户端应用程序显示给用户看</li>
+</ul>
+<p><b>500~599————服务器错误状态码</b><br>状态码|原因短语|含义</p>
+<ul>
+<li>| - | -<br>500 |Internal Server Error  |服务器遇到一个妨碍它为请求提供服务的错误时，使用此状态码<br>501 |Not Implemented  |客户端发起的请求超出服务器的能力范围（比如，使用了服务器不支持的请求方法）时，使用此状态码<br>502 | Bad Gateway |作为代理或网关使用的服务器从请求响应链的下一条链路上收到了一条伪响应（比如，它无法连接到其父网关）时，使用此状态码<br>503 |Service Unavailable  |用来说明服务器现在无法为请求提供服务，但将来可以。如果服务器知道什么时候资源会变为可用的，可以在响应中包含一个Retry-After首部<br>504 | Gateway Timeout |与状态码408类似，只是这里的响应来自一个网关或代理，它们在等待另一服务器对其请求进行响应时超时了<br>505 |HTTP Version Not Supported |服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/基于nodejs的在线手账系统的设计与实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="符">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This is for U">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/17/基于nodejs的在线手账系统的设计与实现/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基于nodejs的在线手账系统的设计与实现"><a href="#基于nodejs的在线手账系统的设计与实现" class="headerlink" title="基于nodejs的在线手账系统的设计与实现"></a>基于nodejs的在线手账系统的设计与实现</h2><h3 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h3><p>随着PC时代的放缓和移动互联网时代的迅猛发展，手机、平板电脑等移动设备成为人们处理个人生活内容和工作业务的首选工具。同时随着我们自身的生活条件逐年快速、健康的发展，居民不再像从前一味的盲目花销，反而记录开销的观念逐渐增强，每个人都会想方设法将手中的先进开销记录下来，并且个人理财将会越来越成为大家生活中不可或缺的重要环节。</p>
+
+<h3 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h3><ul>
+<li>实现对个人账单的记录和管理</li>
+<li>实现多种不同的记账方式。如模板记账、快速记账、批量记账等</li>
+<li>实现对用户账单内容进行图画和报表分析</li>
+<li>实现多成员的账单共享与互查</li>
+<li>todo</li>
+</ul>
+<h3 id="项目方案"><a href="#项目方案" class="headerlink" title="项目方案"></a>项目方案</h3><ul>
+<li>nodejs   后端框架 </li>
+<li>vuejs    前端框架</li>
+<li>echarts  图形库</li>
+<li>MongoDB  数据库<h3 id="项目可行性"><a href="#项目可行性" class="headerlink" title="项目可行性"></a>项目可行性</h3><p>本系统主要针对的是个人用户或者多人的群体用户的记账需求，基本可以满足日常生活中绝大多数的记账功能，同时采用快速记账、简单记账的理念，开发成本低，开发难度较小，效率高。经过测试和完善后可以成为一款优秀好用的记账系统。</p>
+
+</li>
+</ul>
+<h3 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/小程序开发周报(四)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1269,373 +1822,11 @@ processBiYingPhoto: function (photoImageUrl) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/vue中使用echart/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/19/vue中使用echart/" itemprop="url">利用echart进行数据可视化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="因为这学期正好上了数据可视化的课程，但是主要使用的d3-js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。"><a href="#因为这学期正好上了数据可视化的课程，但是主要使用的d3-js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。" class="headerlink" title="因为这学期正好上了数据可视化的课程，但是主要使用的d3.js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。"></a>因为这学期正好上了数据可视化的课程，但是主要使用的d3.js这个库。然后一个学期下来感觉这个可视化库我不太喜欢，虽然说这个js库非常强，什么可视化操作基本上都能做，但是我感觉在具体使用上并不是很友好，后来无意中又得知居然还有echart也可以用来做可视化，而且对于新手的友好度非常好，所以赶紧学习了一下。</h4><h3 id="第一步-利用vue-cli快速创建手脚架"><a href="#第一步-利用vue-cli快速创建手脚架" class="headerlink" title="第一步:利用vue-cli快速创建手脚架"></a>第一步:利用vue-cli快速创建手脚架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create echart-demo</span><br></pre></td></tr></table></figure>
-<h3 id="第二步-依赖安装echart包"><a href="#第二步-依赖安装echart包" class="headerlink" title="第二步:依赖安装echart包"></a>第二步:依赖安装echart包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install echarts --save</span><br></pre></td></tr></table></figure>
-<h3 id="第三步-在main-js中引入echarts"><a href="#第三步-在main-js中引入echarts" class="headerlink" title="第三步:在main.js中引入echarts"></a>第三步:在main.js中引入echarts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import echarts from &apos;echarts&apos;</span><br><span class="line">Vue.prototype.$echarts =echarts</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/19/vue中使用echart/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/js正则表达式的相关知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/17/js正则表达式的相关知识/" itemprop="url">正则表达式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>因为最近在做的的一个作业需要用到正则表达式的一些知识，而我在学习js的时候恰好对这一块有一些忽视，导致现在过来补，有一点点头大，不过在用过之后发现，正则表达式真香，比我一个个的去做长度判断、内容判断方便的不知道多少倍。JS牛逼！</p>
-
-<h3 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h3><p>个人理解: 正则表达式就是用来做验证用的，简洁、高效<br><br>官方定义: 正则表达式是用于匹配字符串中字符组合的模式<br></p>
-
-<h3 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h3><h3 id="正则表达式的模式"><a href="#正则表达式的模式" class="headerlink" title="正则表达式的模式"></a>正则表达式的模式</h3><h4 id="简单的模式"><a href="#简单的模式" class="headerlink" title="简单的模式"></a>简单的模式</h4><ul>
-<li>所谓简单的模式就是由简单的字符构成的，例如<code>/abc/</code></li>
-</ul>
-<h4 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h4><ul>
-<li>当需要搜索一个比直接匹配更多的匹配的时候，例如多个字符、空格、一个字符多次出现等，就需要用到一些特殊的字符了</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/17/js正则表达式的相关知识/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/vue学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="符">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This is for U">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/vue学习/" itemprop="url">框架学习--vue</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在短暂的接触到小程序之后，这学期的主要学习目标还是选择放在vue上面。不能说小程序不好，我只是觉得vue学习完之后，好像学小程序会更方便，希望学完之后能有一些提升</p>
-
-<h4 id="Vue指令之v-text和v-html"><a href="#Vue指令之v-text和v-html" class="headerlink" title="Vue指令之v-text和v-html"></a>Vue指令之<code>v-text</code>和<code>v-html</code></h4><h4 id="Vue指令之v-bind的用法"><a href="#Vue指令之v-bind的用法" class="headerlink" title="Vue指令之v-bind的用法"></a>Vue指令之<code>v-bind</code>的用法</h4><ol>
-<li>直接使用指令<code>v-bind</code></li>
-<li>使用简化指令<code>:</code><h5 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h5></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;info&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;开启&quot; v-on:click=&quot;go&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;停止&quot; v-on:click=&quot;stop&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">        info: &apos;hello~！&apos;,</span><br><span class="line">        intervalId: null</span><br><span class="line">      &#125;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        go() &#123;</span><br><span class="line">          // 如果当前有定时器在运行，则直接return</span><br><span class="line">          if (this.intervalId != null) &#123;</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line">          // 开始定时器</span><br><span class="line">          this.intervalId = setInterval(() =&gt; &#123;</span><br><span class="line">            this.info = this.info.substring(1) + this.info.substring(0, 1);</span><br><span class="line">          &#125;, 500);</span><br><span class="line">        &#125;,</span><br><span class="line">        stop() &#123;</span><br><span class="line">          clearInterval(this.intervalId);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="Vue指令之v-on的缩写和事件修饰符"><a href="#Vue指令之v-on的缩写和事件修饰符" class="headerlink" title="Vue指令之v-on的缩写和事件修饰符"></a>Vue指令之<code>v-on的缩写</code>和<code>事件修饰符</code></h4><h5 id="事件修饰符："><a href="#事件修饰符：" class="headerlink" title="事件修饰符："></a>事件修饰符：</h5><ul>
-<li>.stop       阻止冒泡</li>
-<li>.prevent    阻止默认事件(a链接、button提交)</li>
-<li>.capture    添加事件侦听器时使用事件捕获模式</li>
-<li>.self       只当事件在该元素本身（比如不是子元素）触发时触发回调</li>
-<li>.once       事件只触发一次
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/04/vue学习/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1685,7 +1876,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1696,7 +1887,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1707,7 +1898,7 @@ processBiYingPhoto: function (photoImageUrl) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
